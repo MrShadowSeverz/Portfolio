@@ -1,927 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seyi — Developer</title>
-    <meta name="title" content="Seyi — Developer" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta
-      name="description"
-      content="Front End Developer based in Manchester, UK focused on creating interactive digital experiences on the web."
-    />
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1625786788/Portfolio/Frame_5_lchlvc.jpg"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Developer | Interactive Portfolio</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://seyi.dev" />
-    <meta property="twitter:title" content="Seyi — Developer" />
-    <meta
-      property="twitter:description"
-      content="Front End Developer based in Manchester, UK focused on creating interactive digital experiences on the web."
-    />
-    <meta
-      property="twitter:image"
-      content="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1625786788/Portfolio/Frame_5_lchlvc.jpg"
-    />
+    <style>
+        /* --- 1. CORE STYLES --- */
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #ff4d00; /* The Video's Orange */
+            --font-main: 'Helvetica Neue', 'Arial', sans-serif;
+        }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://seyi.dev" />
-    <meta property="og:title" content="Seyi — Developer" />
-    <meta
-      property="og:description"
-      content="Front End Developer based in Manchester, UK focused on creating interactive digital experiences on the web."
-    />
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1625786788/Portfolio/Frame_5_lchlvc.jpg"
-    />
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Hide default cursor */ }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
 
-    <script
-      type="text/javascript"
-      src="//w.24timezones.com/l.js"
-      async=""
-    ></script>
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="preload"
-      href="fonts/opensauce-medium.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin=""
-    />
+        /* --- 2. CUSTOM CURSOR --- */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: var(--text-main); }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        /* Hover state for cursor */
+        body.hovering .cursor-outline {
+            width: 60px; height: 60px;
+            background-color: rgba(255, 77, 0, 0.1);
+            border-color: var(--accent);
+        }
 
-    <link rel="stylesheet" href="scss/index.scss" />
-  </head>
+        /* --- 3. LAYOUT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: 8rem 0; }
 
-  <body>
-    <main class="home" data-scroll-container="">
-      <nav class="home__nav">
-        <div class="home__nav__left">
-          <div class="nav__name" nav-anim="">
-            <span>
-              Oluwadare <br />
-              Oluwaseyi</span
-            >
-          </div>
+        /* --- 4. TYPOGRAPHY & ANIMATION MASKS --- */
+        /* This masking class hides the text before it slides up */
+        .reveal-mask {
+            overflow: hidden;
+            display: block;
+            line-height: 1;
+        }
+        
+        .reveal-text {
+            display: block;
+            transform: translateY(100%); /* Start hidden below */
+        }
 
-          <div class="nav__folio hide-mobile" nav-anim="">
-            <span>
-              Frontend Developer <br />
-              Folio / 2021 — 2024
+        h1 { 
+            font-size: clamp(3.5rem, 9vw, 8rem); 
+            line-height: 0.9; 
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+        }
+        
+        h2 { 
+            font-size: clamp(2rem, 5vw, 4rem); 
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 3rem; 
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        /* --- 5. MARQUEE (SCROLLING TEXT) --- */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+            background: var(--accent);
+            color: #000;
+            margin: 4rem 0;
+            transform: rotate(-2deg) scale(1.05); /* Slight tilt for style */
+        }
+        
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            gap: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            /* Simple CSS animation for the infinite loop */
+            animation: scrollText 20s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- 6. PROJECTS --- */
+        .project-item {
+            border-top: 1px solid #222;
+            padding: 3rem 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            opacity: 0; /* Hidden initially for GSAP */
+            transform: translateY(50px);
+            transition: border-color 0.3s;
+        }
+        .project-item:hover { border-top-color: var(--accent); }
+        .project-item h3 { font-size: 2.5rem; text-transform: uppercase; transition: color 0.3s; }
+        .project-item:hover h3 { color: var(--accent); }
+        .tech-stack span { 
+            border: 1px solid #333; padding: 5px 15px; border-radius: 20px; 
+            font-size: 0.8rem; margin-right: 10px; display: inline-block;
+        }
+
+        /* --- 7. NAVIGATION --- */
+        header {
+            position: fixed; top: 0; width: 100%;
+            padding: 2rem 0; z-index: 100;
+            mix-blend-mode: difference; /* Makes text visible on light/dark backgrounds */
+        }
+        nav { display: flex; justify-content: space-between; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-transform: uppercase; }
+
+        /* --- 8. FOOTER --- */
+        footer { padding: 4rem 0; text-align: center; }
+        .big-link {
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            display: block;
+            transition: color 0.3s;
+        }
+        .big-link:hover { color: var(--accent); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            * { cursor: auto; } /* Restore cursor on touch */
+            .cursor-dot, .cursor-outline { display: none; }
+            .project-item { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dev.</div>
+                <div style="font-family: monospace;">MENU +</div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container" style="padding-top: 20vh; min-height: 90vh;">
+        <p style="color: var(--accent); font-family: monospace; margin-bottom: 20px;">// UNITY DEVELOPER</p>
+        
+        <h1>
+            <span class="reveal-mask"><span class="reveal-text">Building</span></span>
+            <span class="reveal-mask"><span class="reveal-text">Interactive</span></span>
+            <span class="reveal-mask"><span class="reveal-text" style="color: transparent; -webkit-text-stroke: 2px #fff;">Worlds.</span></span>
+        </h1>
+        
+        <p class="reveal-mask" style="margin-top: 2rem; max-width: 500px;">
+            <span class="reveal-text" style="color: #888;">
+                Specializing in C# gameplay programming, HLSL shaders, and high-performance VR experiences.
             </span>
-          </div>
-        </div>
-
-        <div class="home__nav__right">
-          <div class="nav__folio hide-desktop" nav-anim="">
-            Frontend Developer <br />
-            Folio / 2021 — 2024
-          </div>
-
-          <div class="nav__availability" nav-anim=""></div>
-
-          <button class="nav__button c-button contact-scroll" nav-anim="">
-            <span class="c-link">
-              <span class="c-link__inner">
-                <span> contact </span>
-                <span class="c-link__animated"> contact </span>
-              </span>
-            </span>
-          </button>
-        </div>
-      </nav>
-
-      <section class="home__hero">
-        <div class="hero__title">
-          <h1 class="mobile">
-            FRONT <br />
-            —— END <br />
-            DEVELOPER
-          </h1>
-          <h1 class="hero__title__top overflow desktop">
-            <div class="hero__title__top" title-overflow="">
-              <span
-                class="hero__title__left"
-                data-scroll=""
-                data-scroll-direction="horizontal"
-                data-scroll-position="top"
-                data-scroll-speed="7"
-              >
-                <span class="hero__hover">F</span>
-                <span class="hero__hover">R</span>
-                <span class="hero__hover">O</span>
-                <span class="hero__hover">N</span>
-                <span class="hero__hover">T</span>
-              </span>
-              <span class="hero__title__dash desktop">——</span>
-              <span class="hero__title__dash tablet">——</span>
-
-              <span
-                class="hero__title__right"
-                data-scroll=""
-                data-scroll-direction="horizontal"
-                data-scroll-position="top"
-                data-scroll-speed="-7"
-              >
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">N</span>
-                <span class="hero__hover">D</span>
-              </span>
-            </div>
-          </h1>
-
-          <span class="hero__title__bottom overflow">
-            <div class="hero__title__bottom">
-              <h1 class="bottom__left desktop" title-overflow="">
-                <span class="hero__hover">D</span>
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">V</span>
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">L</span>
-                <span class="hero__hover">O</span>
-                <span class="hero__hover">P</span>
-                <span class="hero__hover">E</span>
-                <span class="hero__hover">R</span>
-              </h1>
-              <div class="bottom__right">
-                <p class="hero__paragraph">
-                  <span class="first-word">About</span> &nbsp; I am a developer
-                  based in Manchester, UK focused on creating interactive
-                  digital experiences on the web, working with brands and
-                  industry leaders such as <span>Google Fonts,</span>
-                  <span>Paystack,</span> <span>Heva Health,</span>
-                  <span>Disney,</span> <span>Jelly,</span> and
-                  <span>Null</span>
-                  amongst others to achieve this.
-                </p>
-                <div class="hero__scroll">
-                  <p>Scroll down</p>
-                  <div class="c-infinite">
-                    <span class="c-link">
-                      <span class="c-link__inner">
-                        <span>
-                          <svg
-                            width="20"
-                            height="21"
-                            viewBox="0 0 20 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z"
-                              fill="#777777"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span class="c-link__animated">
-                          <svg
-                            width="20"
-                            height="21"
-                            viewBox="0 0 20 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.8333 13.9766L15.3033 9.50658L16.4816 10.6849L9.99998 17.1666L3.51831 10.6849L4.69664 9.50658L9.16664 13.9766V3.83325H10.8333V13.9766Z"
-                              fill="#777777"
-                            ></path>
-                          </svg>
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </span>
-        </div>
-      </section>
-
-      <section class="home__projects" data-projects-section-1="">
-        <span class="home__projects__line left"><span></span></span>
-        <div class="home__projects__project right">
-          <div class="home__projects__project__label">
-            <div class="label__inner label-1">
-              <p>
-                FEATURED <br />
-                PROJECTS (7)
-              </p>
-              <p>
-                Art Direction / <br />
-                Creative Development
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://www.afrotype.com/tac"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main right">
-                  <span
-                    class="slide-up"
-                    data-content="Tac — GOOGLE FONTS COMMISSIONED TYPEFACE"
-                    aria-hidden="true"
-                  ></span>
-                  Tac — GOOGLE FONTS COMMISSIONED TYPEFACE
-                </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://www.afrotype.com/tac"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-        </div>
-        <span class="home__projects__line right"><span></span></span>
-        <div class="home__projects__project left">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                Art Direction / <br />
-                E-Commerce Development
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://www.pithafrica.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="-8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main left">
-                  <span
-                    class="slide-up"
-                    data-content="PITH AFRICA — CUSTOM E-COMM EXPERIENCE"
-                    aria-hidden="true"
-                  ></span>
-                  PITH AFRICA — CUSTOM E-COMM EXPERIENCE
-                </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://www.pithafrica.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-        </div>
-        <span class="home__projects__line left"><span></span></span>
-        <div class="home__projects__project right">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                Art Direction / <br />
-                Creative Development
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://2022.madebynull.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main right">
-                  <span
-                    class="slide-up"
-                    data-content="STUDIO NULL — RADIO NULL REWIND 2022"
-                    aria-hidden="true"
-                  ></span>
-                  STUDIO NULL — RADIO NULL REWIND 2022
-                </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://2022.madebynull.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-        </div>
-        <span class="home__projects__line right"><span></span></span>
-        <div class="home__projects__project left">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                3D Exploration / <br />
-                Creative Development
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://fayemi.design/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="-8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main left">
-                  <span
-                    class="slide-up"
-                    data-content="GRP 256 — FOLIO FOR VISUAL DESIGNER"
-                    aria-hidden="true"
-                  ></span>
-                  GRP 256 — FOLIO FOR VISUAL DESIGNER
-                </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://fayemi.design/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-        </div>
-        <span class="home__projects__line left"><span></span></span>
-      </section>
-
-      <section class="home__content">
-        <h2 class="home__content__title">COMMUNITY CONTRIBUTIONS</h2>
-        <p class="home__content__desc">
-          I have worked on some resources and tools; mostly for designers and
-          developers like myself, you should check out
-          <a
-            href="https://www.figma.com/community/plugin/943569346291474506/Tints-and-Shades"
-            target="_blank"
-            rel="noopener noreferrer"
-            >TINTS AND SHADES</a
-          >
-          and
-          <a
-            href="https://www.figma.com/community/plugin/949697027067571105/Nigerian-Logos"
-            target="_blank"
-            rel="noopener noreferrer"
-            >NIGERIAN LOGOS</a
-          >
         </p>
-      </section>
+    </section>
 
-      <section class="home__projects" data-projects-section-2="">
-        <span class="home__projects__line left"><span></span></span>
-        <div class="home__projects__project right">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                GAME (WEB) / <br />
-                Creative Development
-              </p>
-            </div>
-          </div>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>UNITY 3D &nbsp;•&nbsp; C# &nbsp;•&nbsp; SHADER GRAPH &nbsp;•&nbsp; VR/AR &nbsp;•&nbsp; HLSL &nbsp;•&nbsp; UNITY 3D &nbsp;•&nbsp; C# &nbsp;•&nbsp; SHADER GRAPH &nbsp;•&nbsp; VR/AR &nbsp;•&nbsp; HLSL &nbsp;•&nbsp;</span>
+            <span>UNITY 3D &nbsp;•&nbsp; C# &nbsp;•&nbsp; SHADER GRAPH &nbsp;•&nbsp; VR/AR &nbsp;•&nbsp; HLSL &nbsp;•&nbsp; UNITY 3D &nbsp;•&nbsp; C# &nbsp;•&nbsp; SHADER GRAPH &nbsp;•&nbsp; VR/AR &nbsp;•&nbsp; HLSL &nbsp;•&nbsp;</span>
+        </div>
+    </div>
 
-          <a
-            href="https://paystack.com/terminal/dash/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main right">
-                  <span
-                    class="slide-up"
-                    data-content="TERMINAL DASH — WEB-BASED GAME"
-                    aria-hidden="true"
-                  ></span>
-                  TERMINAL DASH — WEB-BASED GAME
+    <section class="container section-padding">
+        <div class="reveal-mask"><h2 class="reveal-text">Selected Works</h2></div>
+        
+        <div class="project-list">
+            <a href="#" class="project-item hover-trigger">
+                <span style="font-family: monospace; color: var(--accent);">01 / RPG</span>
+                <div>
+                    <h3>Project Eclipse</h3>
+                    <p style="margin: 1rem 0;">A AAA-style action RPG with custom physics and lighting.</p>
+                    <div class="tech-stack">
+                        <span>Unity</span><span>C#</span><span>Cinemachine</span>
+                    </div>
                 </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://paystack.com/terminal/dash/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
             </a>
-          </div>
-        </div>
-        <span class="home__projects__line right"><span></span></span>
-        <div class="home__projects__project left">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                UI Development / <br />
-                PRODUCT ENGINEERING
-              </p>
-            </div>
-          </div>
 
-          <a
-            href="https://deploy-preview-162--paystack-terminal.netlify.app/terminal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="-8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main left">
-                  <span
-                    class="slide-up"
-                    data-content="PAYSTACK TERMINAL — MORE THAN A POS"
-                    aria-hidden="true"
-                  ></span>
-                  PAYSTACK TERMINAL — MORE THAN A POS
+            <a href="#" class="project-item hover-trigger">
+                <span style="font-family: monospace; color: var(--accent);">02 / VR</span>
+                <div>
+                    <h3>Cyber Sim VR</h3>
+                    <p style="margin: 1rem 0;">Industrial training simulation for Meta Quest 2.</p>
+                    <div class="tech-stack">
+                        <span>XR Toolkit</span><span>Oculus SDK</span><span>Blender</span>
+                    </div>
                 </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://deploy-preview-162--paystack-terminal.netlify.app/terminal/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
             </a>
-          </div>
-        </div>
-        <span class="home__projects__line left"><span></span></span>
-        <div class="home__projects__project right">
-          <div class="home__projects__project__label">
-            <div class="label__inner">
-              <p>
-                ART DIRECTION / <br />
-                Creative Development
-              </p>
-            </div>
-          </div>
 
-          <a
-            href="https://kortyeo.madebynull.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home__projects__project__link"
-          >
-            <h1
-              class="home__projects__project__title"
-              data-scroll=""
-              data-scroll-direction="horizontal"
-              data-scroll-speed="8"
-            >
-              <span class="inline-ovh">
-                <div class="title__main right">
-                  <span
-                    class="slide-up"
-                    data-content="KORTY EO — A FANSITE FOR KORTY"
-                    aria-hidden="true"
-                  ></span>
-                  KORTY EO — A FANSITE FOR KORTY
+            <a href="#" class="project-item hover-trigger">
+                <span style="font-family: monospace; color: var(--accent);">03 / VFX</span>
+                <div>
+                    <h3>Shader Lab</h3>
+                    <p style="margin: 1rem 0;">Library of custom HLSL shaders and VFX Graphs.</p>
+                    <div class="tech-stack">
+                        <span>HLSL</span><span>ShaderGraph</span><span>URP</span>
+                    </div>
                 </div>
-              </span>
-            </h1>
-          </a>
-
-          <div class="project__link">
-            <a
-              href="https://kortyeo.madebynull.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="c-button"
-            >
-              <span class="c-link">
-                <span class="c-link__inner">
-                  <span>
-                    Visit Site
-                    <span class="share-icon">
-                      <svg
-                        width="20"
-                        height="20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M13.337 7.845l-7.173 7.173-1.178-1.179 7.172-7.172H5.837V5h9.166v9.167h-1.666V7.845z"
-                          fill="#777"
-                        ></path>
-                      </svg>
-                    </span>
-                  </span>
-                </span>
-              </span>
             </a>
-          </div>
         </div>
-        <span class="home__projects__line right"><span></span></span>
-      </section>
+    </section>
 
-      <section class="home__awards">
-        <div class="home__awards__left">
-          <h2 class="awards__title">
-            <span>AWARDS X </span><br />
-            <span>RECOGNITION</span>
-          </h2>
-          <div class="home__awards__table">
-            <div class="awards__item" data-fade-in="">
-              Webby ⏤ 2024 Awards Honoree
+    <footer>
+        <div class="container">
+            <p style="color: var(--accent); margin-bottom: 1rem;">GOT A PROJECT?</p>
+            <a href="mailto:hello@example.com" class="big-link hover-trigger">Let's Talk.</a>
+            <div style="margin-top: 4rem; display: flex; justify-content: space-between; color: #555;">
+                <span>© 2024</span>
+                <span>GITHUB / LINKEDIN</span>
             </div>
-            <div class="awards__item" data-fade-in="">
-              Awwwards ⏤ Site of the Day (x3)
-            </div>
-            <div class="awards__item" data-fade-in="">
-              Awwwards ⏤ Developer Award (x3)
-            </div>
-            <div class="awards__item" data-fade-in="">
-              Awwwards ⏤ Jury Member 2023
-            </div>
-            <div class="awards__item" data-fade-in="">
-              Designnominees ⏤ Site of the Day
-            </div>
-
-            <div class="awards__item" data-fade-in="">
-              2022 Figma Community Award ⏤ Nominee
-            </div>
-            <div class="awards__item" data-fade-in="">Maxibestof</div>
-            <div class="awards__item" data-fade-in="">Thegallery.io (x2)</div>
-            <div class="awards__item" data-fade-in="">
-              Klikkentheke ⏤ No 2326
-            </div>
-            <div class="awards__item" data-fade-in="">
-              Klikkentheke ⏤ No 2492
-            </div>
-            <div class="awards__item" data-fade-in="">
-              The Ultra Index® ⏤ For storytelling experience
-            </div>
-            <div class="awards__item" data-fade-in="">MUZLI</div>
-          </div>
         </div>
+    </footer>
 
-        <div class="home__awards__right">
-          <div class="home__awards__stack" data-fade-in="">
-            <h2 class="home__content__title">Interests</h2>
-            <p class="home__content__desc">
-              Art Direction, Brand Strategy, Creative Development, E-Commerce,
-              Webflow, 3D/Augmented Reality, Web3 <br />
-              <a
-                href="https://github.com/oluwadareseyi"
-                target="_blank"
-                rel="noopener noreferrer"
-                >See my Github</a
-              >
-            </p>
-          </div>
+    <script>
+        // 1. REGISTER GSAP PLUGINS
+        gsap.registerPlugin(ScrollTrigger);
 
-          <div class="home__awards__ice" data-fade-in="">
-            <h2 class="home__content__title">ICEBREAKERS</h2>
-            <p class="home__content__desc">
-              I listen to Electronic and Alt music all the time, you can see
-              what I'm currently listening to on this
-              <a
-                href="https://music.seyi.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >MICROSITE.</a
-              >
-              I like traveling and good food (work with me so I can fund this).
-              <button class="contact-scroll">GET IN TOUCH</button> to know more
-              about me.
-            </p>
-          </div>
-        </div>
-      </section>
+        // 2. HERO REVEAL ANIMATION
+        // Selects all elements with class .reveal-text inside the Hero section
+        const heroTl = gsap.timeline();
+        
+        heroTl.to(".reveal-text", {
+            y: "0%",             // Slide up to natural position
+            duration: 1.2,       // Duration of slide
+            ease: "power4.out",  // Smooth easing
+            stagger: 0.1         // Delay between each line
+        });
 
-      <section class="home__contact">
-        <p class="home__contact__desc">
-          Got a question, proposal or project or want to work together on
-          something? Feel free to reach out.
-        </p>
-        <div class="line-wrapper">
-          <span class="home__projects__line left">
-            <span></span>
-          </span>
-        </div>
+        // 3. PROJECT LIST SCROLL ANIMATION
+        // As you scroll down, projects fade in and move up
+        gsap.utils.toArray('.project-item').forEach(item => {
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%", // Animation starts when top of item hits 85% of viewport
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
 
-        <div class="marquee">
-          <a
-            href="mailto:oluwadareseyii@gmail.com?subject=Lets%20work%20together!&amp;body=Hello%2C%20I%20think%20we%20need%20you%20to%20work%20on%2Fcollaborate%20this%20particular%20product...%20Reach%20out%20as%20soon%20as%20you%20can."
-            class="marquee__wrap"
-          >
-            <div class="marquee__inner">
-              <span aria-hidden="true" class="inner-span">
-                <span
-                  class="slide-up"
-                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?"
-                  aria-hidden="true"
-                ></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?</span
-              >
-              <span class="inner-span">
-                <span
-                  class="slide-up"
-                  data-content="LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?"
-                  aria-hidden="true"
-                ></span>
-                LET’S TALK — LET’S COLLABORATE — SAY HELLO — WANNA BE STARTING
-                SOMETHING?</span
-              >
-            </div>
-          </a>
-        </div>
+        // 4. CUSTOM CURSOR LOGIC
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
 
-        <div class="line-wrapper">
-          <span class="home__projects__line right">
-            <span></span>
-          </span>
-        </div>
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
 
-        <div class="home__contact__email">
-          <button class="email">oluwadareseyii@gmail.com</button>
-          <div class="to-copy">
-            <span>Click To Copy</span>
-          </div>
-        </div>
-      </section>
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
 
-      <footer class="home__footer" id="js-footer">
-        <div class="home__footer__center">
-          <div class="footer__links">
-            <div class="link__flex">
-              <div class="link__flex__inner">
-                <a
-                  href="https://twitter.com/seyi__xo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="c-button"
-                >
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> Twitter </span>
-                      <span class="c-link__animated"> Twitter </span>
-                    </span>
-                  </span>
-                </a>
+            // Outline follows with slight delay (smoothness)
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
 
-                <a
-                  href="https://www.instagram.com/seyi.motion/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="c-button"
-                >
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> INSTAGRAM </span>
-                      <span class="c-link__animated"> INSTAGRAM </span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
+        // Add 'hovering' class to body when hovering over links
+        document.querySelectorAll('.hover-trigger, a').forEach(link => {
+            link.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            link.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
 
-            <div class="link__flex">
-              <div class="link__flex__inner second">
-                <a
-                  href="https://github.com/oluwadareseyi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="c-button"
-                >
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> GITHUB </span>
-                      <span class="c-link__animated"> GITHUB </span>
-                    </span>
-                  </span>
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/oluwadareseyi/"
-                  class="c-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="c-link">
-                    <span class="c-link__inner">
-                      <span> LINKEDIN </span>
-                      <span class="c-link__animated"> LINKEDIN </span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="home__footer__left">
-          <p class="place">MANCHESTER, UK</p>
-          <div class="time">
-            <span data-hour=""></span>
-            <span class="flash">:</span>
-            <span data-minute=""></span>
-          </div>
-        </div>
-        <p class="home__footer__right">
-          Design by
-          <a
-            href="https://fayemi.design/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Isaac Fayemi
-          </a>
-        </p>
-      </footer>
-    </main>
-
-    <script src="js/index.js" type="module"></script>
-  </body>
+    </script>
+</body>
 </html>
