@@ -10,7 +10,7 @@
     <style>
         :root {
             --bg-dark: #02080c;
-            --bg-card: rgba(4, 18, 25, 0.75);
+            --bg-card: rgba(4, 18, 25, 0.8);
             --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #8da4ae;
@@ -31,7 +31,7 @@
         
         a { text-decoration: none; color: inherit; }
 
-        /* --- THE DYNAMIC BLURRED BACKGROUND --- */
+        /* --- BACKGROUND MANAGEMENT --- */
         #dynamic-bg-blur {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -43,7 +43,6 @@
             transition: background-image 0.5s ease;
         }
 
-        /* --- PARTICLES CANVAS LAYER --- */
         #particles-js {
             position: fixed;
             width: 100%; height: 100vh;
@@ -63,19 +62,18 @@
         .btn-go-back-nav {
             border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green);
             padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.5px; transition: all 0.3s ease;
+            transition: all 0.3s ease;
         }
         .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); }
 
         .details-container { max-width: 1400px; margin: 0 auto; padding: 20px 6%; position: relative; z-index: 5; }
         
-        /* --- MAIN SPLIT HERO GRID --- */
+        /* --- MAIN DASHBOARD HERO GRID --- */
         .hero-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; align-items: start; }
         
-        /* Brief Info Card Area Left */
-        .brief-info-box { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        .brief-info-box { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); }
         .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; display: block; border: 1px solid var(--primary-green); color: var(--primary-green); }
-        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: #ffffff; text-shadow: 0 0 15px rgba(0,255,102,0.2); margin-bottom: 15px; }
+        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; }
         
         .game-brief-section { display: flex; gap: 15px; align-items: start; margin-bottom: 20px; }
         .brief-thumb-wrapper { width: 140px; height: 90px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
@@ -90,12 +88,11 @@
         .btn-live { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 24px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; background: var(--primary-green); color: var(--bg-dark); transition: all 0.3s ease; }
         .btn-live:hover { box-shadow: 0 0 20px var(--primary-green); transform: translateY(-1px); }
 
-        /* --- RIGHT SIDE MEDIA DISPLAY VIEW --- */
+        /* --- STEAM SLIDER AREA --- */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; background: var(--bg-card); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); }
         .video-player-frame { width: 100%; height: 360px; border-radius: 6px; background: #000; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
 
-        /* Smooth Sliding Sidebar Component */
         .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 35px; }
         .steam-thumbnail-slider { display: flex; gap: 10px; overflow-x: hidden; scroll-behavior: smooth; width: 100%; }
         
@@ -109,42 +106,52 @@
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
-        /* --- LOWER DATA CONTENT ARRANGEMENT --- */
-        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; }
+        /* --- LOWER DATA CONTENT STRUCTURE --- */
+        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; align-items: start; }
+        
         .section-headline { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 18px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
         .section-headline::after { content: ''; height: 2px; background: linear-gradient(90deg, var(--primary-green), transparent); flex-grow: 1; margin-left: 10px; }
         
-        .overview-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; backdrop-filter: blur(8px); }
-        .overview-box p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+        /* --- THE FIX: COMPACT BOUNDARY ACCURATE MATCH BOX --- */
+        .overview-box { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 20px; 
+            backdrop-filter: blur(8px);
+            min-height: 86px; /* Matches the scaled row height exactly */
+        }
+        .overview-box p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
         
-        /* --- DYNAMIC ORIGINAL STYLED GAMING COIN ICONS --- */
+        /* --- THE FIX: PREMIUM SHINY 3D COIN TOKENS INSTEAD OF TRASH ICONS --- */
         .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; display: flex; align-items: center; gap: 15px; backdrop-filter: blur(8px); transition: transform 0.2s ease; }
-        .feature-card-item:hover { transform: translateY(-2px); border-color: var(--primary-green); }
+        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 15px; backdrop-filter: blur(8px); height: 86px; /* Uniform bounding scale */ }
         
-        /* Premium Golden / Gradient Icon Rings mimicking actual Game Token Asset Designs */
+        /* 3D Game Token Core Shell Structure */
         .coin-icon-shell { 
-            width: 48px; height: 42px; 
+            width: 44px; height: 44px; 
             border-radius: 50%; 
-            background: linear-gradient(135deg, #ffe600, #b38600); 
-            border: 2px solid #ffffff; 
-            box-shadow: 0 0 12px rgba(255, 230, 0, 0.4), inset 0 0 6px rgba(0,0,0,0.4); 
             display: flex; align-items: center; justify-content: center; 
             flex-shrink: 0;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
         }
-        .coin-icon-shell i { font-size: 1.1rem; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5)); }
-        
-        /* Variations of colors based on features types */
-        .card-item-2 .coin-icon-shell { background: linear-gradient(135deg, #00ffcc, #006652); box-shadow: 0 0 12px rgba(0, 255, 204, 0.4); }
-        .card-item-3 .coin-icon-shell { background: linear-gradient(135deg, #ff3366, #990022); box-shadow: 0 0 12px rgba(255, 51, 102, 0.4); }
-        .card-item-4 .coin-icon-shell { background: linear-gradient(135deg, #33ccff, #004466); box-shadow: 0 0 12px rgba(51, 204, 255, 0.4); }
-        .card-item-5 .coin-icon-shell { background: linear-gradient(135deg, #bb55ff, #440066); box-shadow: 0 0 12px rgba(187, 85, 255, 0.4); }
+        .coin-icon-shell i { font-size: 1rem; color: #ffffff; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.6)); position: relative; z-index: 5; }
 
-        .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; letter-spacing: 0.5px; }
-        .feature-card-item p { color: var(--text-muted); font-size: 0.75rem; }
+        /* Dynamic Brand Coloring Mapping loops matching image assets */
+        .card-item-1 .coin-icon-shell { background: linear-gradient(135deg, #ffcc00, #b38600); box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
+        .card-item-2 .coin-icon-shell { background: linear-gradient(135deg, #00ffbc, #00664b); box-shadow: 0 0 15px rgba(0, 255, 188, 0.5); }
+        .card-item-3 .coin-icon-shell { background: linear-gradient(135deg, #ff3366, #990022); box-shadow: 0 0 15px rgba(255, 51, 102, 0.5); }
+        .card-item-4 .coin-icon-shell { background: linear-gradient(135deg, #2196F3, #0a4b80); box-shadow: 0 0 15px rgba(33, 150, 243, 0.5); }
+        .card-item-5 .coin-icon-shell { background: linear-gradient(135deg, #bb55ff, #4e0080); box-shadow: 0 0 15px rgba(187, 85, 255, 0.5); }
+        .card-item-6 .coin-icon-shell { background: linear-gradient(135deg, #ff9900, #994c00); box-shadow: 0 0 15px rgba(255, 153, 0, 0.5); }
+
+        .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; }
+        .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
 
         /* --- FOOTER CTA --- */
-        .hire-cta-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(8px); margin-bottom: 20px; }
+        .hire-cta-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(8px); margin-bottom: 20px; margin-top: 10px; }
         .hire-left h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 4px; }
         .hire-left p { color: var(--text-muted); font-size: 0.82rem; }
         .btn-hire-me { background: var(--primary-green); color: var(--bg-dark); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700; padding: 12px 24px; border-radius: 4px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
@@ -155,6 +162,7 @@
             .slider-relative-tray { padding: 0; }
             .slider-arrow { display: none; }
             .steam-thumb { flex: 0 0 calc(33.33% - 7px); }
+            .features-sub-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -170,21 +178,20 @@
     </header>
 
     <main class="details-container" id="details-root">
-        <div style="color: var(--text-main); font-size: 0.9rem; text-align: center; padding: 120px 0; font-family: 'Orbitron', sans-serif;">Initializing graphics interface stream...</div>
+        <div style="color: var(--text-main); font-size: 0.9rem; text-align: center; padding: 120px 0; font-family: 'Orbitron', sans-serif;">Loading project layout elements...</div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Matrix neon nodes configuration mapping
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 55, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#00ff66" }, 
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.2, "sync": false } },
-                "size": { "value": 4, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false } },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.2, "sync": false } },
+                "size": { "value": 3.5, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false } },
                 "line_linked": { "enable": false }, 
-                "move": { "enable": true, "speed": 2.5, "direction": "top-right", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                "move": { "enable": true, "speed": 2.2, "direction": "top-right", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
             "retina_detect": true
@@ -194,7 +201,7 @@
         const projectId = parseInt(urlParams.get('id'));
 
         if (!projectId) {
-            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project parameters found.</div>`;
+            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project parameters located.</div>`;
         } else {
             fetch('projects.json')
                 .then(res => res.json())
@@ -202,19 +209,18 @@
                     const proj = data.find(p => p.id === projectId);
 
                     if (!proj) {
-                        document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">Project asset missing.</div>`;
+                        document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">Project layout missing inside datastore.</div>`;
                         return;
                     }
 
-                    // Dynamic background sync trigger mapping logic
                     document.getElementById('dynamic-bg-blur').style.backgroundImage = `url('${proj.image}')`;
 
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
 
-                    // Key gameplay custom coin token mapping structures
+                    // Features parsing map loop using custom 3D coin styling allocations
                     const featuresMarkup = proj.features ? proj.features.map((f, idx) => `
-                        <div class="feature-card-item card-item-${(idx % 5) + 1}">
+                        <div class="feature-card-item card-item-${(idx % 6) + 1}">
                             <div class="coin-icon-shell">
                                 <i class="${f.icon}"></i>
                             </div>
@@ -225,7 +231,6 @@
                         </div>
                     `).join('') : '';
 
-                    // Slider content array trace lists
                     let sliderThumbsMarkup = '';
                     let thumbIndex = 0;
                     
@@ -234,7 +239,7 @@
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb ${thumbIndex === 0 ? 'active' : ''}" data-index="${thumbIndex}" onclick="switchSteamMedia('video', '${v.url}', this)">
                                     <div class="steam-thumb-overlay-icon"><i class="fa-solid fa-play"></i></div>
-                                    <img src="${proj.image}" alt="Media player preview clip">
+                                    <img src="${proj.image}" alt="Video trailer link capture">
                                 </div>
                             `;
                             thumbIndex++;
@@ -245,25 +250,23 @@
                         proj.gallery.forEach(img => {
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb" data-index="${thumbIndex}" onclick="switchSteamMedia('image', '${img}', this)">
-                                    <img src="${img}" alt="Gameplay frame capture scene">
+                                    <img src="${img}" alt="Gameplay action scene shot">
                                 </div>
                             `;
                             thumbIndex++;
                         });
                     }
 
-                    // Build premium unified interface blocks
                     document.getElementById('details-root').innerHTML = `
                         
                         <div class="hero-grid">
-                            
-                            <div class="brief-info-box">
+                            <div class="left-meta-panel">
                                 <span class="proj-tag-badge ${tagClass}">${proj.tag}</span>
                                 <h1 class="proj-title">${proj.name}</h1>
                                 
                                 <div class="game-brief-section">
                                     <div class="brief-thumb-wrapper">
-                                        <img src="${proj.image}" alt="Thumbnail layout cover" onerror="this.src='https://via.placeholder.com/140x90/041219/ffffff?text=Game'">
+                                        <img src="${proj.image}" alt="Cover image wrapper" onerror="this.src='https://via.placeholder.com/140x90/041219/ffffff?text=Game'">
                                     </div>
                                     <p class="brief-text-desc">${proj.desc}</p>
                                 </div>
@@ -275,7 +278,9 @@
                                     <div class="meta-box"><span>Role</span><p>${proj.role || 'Developer'}</p></div>
                                 </div>
                                 
-                                <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-live"><i class="fa-solid fa-circle-play"></i> Play Build</a>
+                                <div class="action-buttons">
+                                    <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-live"><i class="fa-solid fa-circle-play"></i> Play Build</a>
+                                </div>
                             </div>
                             
                             <div class="steam-media-wrapper">
@@ -287,7 +292,7 @@
                                     <button class="slider-arrow arrow-left" onclick="slideSteamTray('left')"><i class="fa-solid fa-chevron-left"></i></button>
                                     
                                     <div class="steam-thumbnail-slider" id="steam-slider-track">
-                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media arrays are unallocated.</div>'}
+                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media traces are currently empty.</div>'}
                                     </div>
                                     
                                     <button class="slider-arrow arrow-right" onclick="slideSteamTray('right')"><i class="fa-solid fa-chevron-right"></i></button>
@@ -299,13 +304,13 @@
                             <div>
                                 <h3 class="section-headline">Project Overview</h3>
                                 <div class="overview-box">
-                                    <p>${proj.overview || 'Project overview log details parameter records trace summaries.'}</p>
+                                    <p>${proj.overview || 'Overview parameter summaries are unassigned.'}</p>
                                 </div>
                             </div>
                             <div>
                                 <h3 class="section-headline">Key Features</h3>
                                 <div class="features-sub-grid">
-                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No feature blocks unpinned.</div>'}
+                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No feature blocks loaded.</div>'}
                                 </div>
                             </div>
                         </div>
@@ -319,10 +324,9 @@
                         </div>
                     `;
                 })
-                .catch(err => console.error("Error building master layout console structures:", err));
+                .catch(err => console.error("Error launching dynamic system components layouts:", err));
         }
 
-        // Sideways viewport shifting mechanics router
         function switchSteamMedia(type, path, elementRef) {
             document.querySelectorAll('.steam-thumb').forEach(el => el.classList.remove('active'));
             elementRef.classList.add('active');
@@ -332,10 +336,9 @@
             if (type === 'video') {
                 viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
             } else if (type === 'image') {
-                viewport.innerHTML = `<img src="${path}" alt="Gameplay view active look preview" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
+                viewport.innerHTML = `<img src="${path}" alt="Active asset gameplay frame view window" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
             }
 
-            // AUTO-SLIDING CALCULATOR BASED ON PARAMETERS INDEX KEY SCROLLS
             const track = document.getElementById('steam-slider-track');
             const currentIndex = parseInt(elementRef.getAttribute('data-index'));
             const totalThumbs = document.querySelectorAll('.steam-thumb').length;
@@ -348,7 +351,6 @@
             }
         }
 
-        // Navigation manual slide actions tracking controller
         function slideSteamTray(direction) {
             const track = document.getElementById('steam-slider-track');
             const step = track.clientWidth / 2;
