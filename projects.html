@@ -105,7 +105,7 @@
             max-width: 700px;
         }
 
-        /* --- 8 EXTENDED FILTER BUTTONS ROW LAYOUT --- */
+        /* --- FILTER BUTTONS ROW LAYOUT --- */
         .filter-buttons-row {
             display: flex;
             flex-wrap: wrap;
@@ -376,7 +376,8 @@
         fetch('projects.json')
             .then(res => res.json())
             .then(data => {
-                masterProjectsList = data;
+                // --- THE SORTING FIX: id നമ്പറിന്റെ അടിസ്ഥാനത്തിൽ (1, 2, 3...) അസെൻഡിങ് ഓർഡറിൽ ക്രമീകരിക്കുന്നു ---
+                masterProjectsList = data.sort((a, b) => a.id - b.id);
                 renderArchiveCards(masterProjectsList);
             })
             .catch(err => console.error("Error loading JSON:", err));
@@ -388,7 +389,6 @@
                 const techList = proj.tech || ["Unity", "C#", "PC"];
                 const badgesMarkup = techList.map(t => `<span class="badge-item">${t}</span>`).join('');
 
-                // Precise visual matching icon configurations per unique categories
                 let fallbackIcon = "fa-solid fa-gamepad";
                 if(proj.category === "platformer") fallbackIcon = "fa-solid fa-tree";
                 if(proj.category === "metroidvania") fallbackIcon = "fa-solid fa-dungeon";
