@@ -173,19 +173,25 @@
             opacity: 0.85;
         }
 
+        /* --- CONTROL EACH PROJECT TAG COLOR DYNAMICALLY --- */
         .tag-badge {
             position: absolute;
             top: 15px;
             left: 15px;
             background: rgba(2, 8, 12, 0.9);
-            border: 1px solid var(--primary-green);
-            color: var(--primary-green);
             font-size: 0.65rem;
             padding: 4px 10px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
         }
+
+        /* Border Color allocations dictated by JSON keys */
+        .tag-green { border: 1px solid #00ff66; color: #00ff66; }
+        .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
+        .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
+        .tag-orange { border: 1px solid #ff9900; color: #ff9900; }
+        .tag-red { border: 1px solid #ff3344; color: #ff3344; }
 
         .info-panel {
             padding: 25px;
@@ -213,7 +219,7 @@
             font-size: 1.1rem;
         }
 
-        /* Neon Icon Colors */
+        /* Hologram Graphics Right Corner Icon Colors */
         .color-green { color: #00ff66; }
         .color-purple { color: #bb55ff; }
         .color-blue { color: #33a6ff; }
@@ -228,22 +234,22 @@
             flex-grow: 1;
         }
 
+        /* --- FIXED TECHNOLOGY BADGES ROW (EXACT MOCKUP STYLE) --- */
         .tech-badges-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 22px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding-top: 15px;
+            padding-top: 5px;
         }
 
         .badge-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            color: var(--text-muted);
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 4px 10px;
+            background: #061822;
+            border: 1px solid #142934;
+            color: #8da4ae;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 5px 12px;
             border-radius: 4px;
         }
 
@@ -256,6 +262,7 @@
             align-items: center;
             gap: 8px;
             margin-top: auto;
+            letter-spacing: 0.5px;
         }
 
         /* --- CONTACT ROW PANEL BAR --- */
@@ -351,14 +358,13 @@
     </main>
 
     <footer>
-        <div>&copy; 2024 Game Developer. All rights reserved.</div>
+        <div>&copy; 2026 Game Developer. All rights reserved.</div>
         <div>Let's Build Something Amazing Together! 🚀</div>
     </footer>
 
     <script>
         let masterProjectsList = [];
 
-        // FIXED THE RES => RES.JSON() FETCH BUG HERE
         fetch('projects.json')
             .then(res => res.json())
             .then(data => {
@@ -371,16 +377,11 @@
             const gridRoot = document.getElementById('archive-grid-root');
             
             gridRoot.innerHTML = list.map(proj => {
-                // Dynamic fallback stack setup
-                let currentTechStack = proj.tech || ["Unity", "C#", "PC"];
-                if(!proj.tech) {
-                    if (proj.id === 1 || proj.id === 10) currentTechStack = ["Unity", "C#", "2D"];
-                    if (proj.id === 3 || proj.id === 7) currentTechStack = ["Unity", "UI", "Animation"];
-                }
+                // Dynamically fetch stack from JSON arrays
+                const techList = proj.tech || ["Unity", "C#", "PC"];
+                const badgesMarkup = techList.map(t => `<span class="badge-item">${t}</span>`).join('');
 
-                const badgesMarkup = currentTechStack.map(t => `<span class="badge-item">${t}</span>`).join('');
-
-                // Custom matching mockup icon system
+                // Custom icon mapping based on game tags
                 let fallbackIcon = "fa-solid fa-gamepad";
                 let lowerTag = proj.tag.toLowerCase();
                 if(lowerTag.includes("platformer") || lowerTag.includes("2d")) fallbackIcon = "fa-solid fa-tree";
@@ -390,22 +391,21 @@
                 if(lowerTag.includes("horror") || lowerTag.includes("survival")) fallbackIcon = "fa-solid fa-ghost";
                 if(lowerTag.includes("rpg") || lowerTag.includes("adventure")) fallbackIcon = "fa-solid fa-compass";
 
-                let colorClass = "color-green";
-                if (proj.id === 2 || proj.id === 6) colorClass = "color-purple";
-                if (proj.id === 3 || proj.id === 7) colorClass = "color-blue";
-                if (proj.id === 4 || proj.id === 10) colorClass = "color-orange";
-                if (proj.id === 5 || proj.id === 9) colorClass = "color-red";
+                // Setup tag border color mapping based on dynamic JSON data string keys
+                let chosenColor = proj.tagColor || "green";
+                let tagClass = `tag-${chosenColor}`;
+                let iconColorClass = `color-${chosenColor}`;
 
                 return `
                     <div class="archive-card">
                         <div class="img-wrapper">
-                            <span class="tag-badge">${proj.tag}</span>
+                            <span class="tag-badge ${tagClass}">${proj.tag}</span>
                             <img src="${proj.image}" alt="${proj.name}" onerror="this.src='https://via.placeholder.com/350x240/041219/ffffff?text=${proj.name}'">
                         </div>
                         <div class="info-panel">
                             <div class="title-row">
                                 <h3 class="proj-name">${proj.name}</h3>
-                                <i class="${proj.icon || fallbackIcon} ${colorClass} theme-icon"></i>
+                                <i class="${fallbackIcon} ${iconColorClass} theme-icon"></i>
                             </div>
                             <p class="proj-desc">${proj.desc}</p>
                             
@@ -413,7 +413,7 @@
                                 ${badgesMarkup}
                             </div>
                             
-                            <a href="#" class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#" class="proj-link">VIEW PROJECT <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 `;
