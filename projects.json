@@ -15,7 +15,7 @@
         "role": "Game Developer",
         "liveDemo": "https://mrshadowseverz.github.io/Pixel-Forest-Adventure/",
         "videoUrl": "https://www.youtube.com/embed/EDXKdE1kVC8",
-        "overview": "Pixel Forest Adventure is a Unity-powered 2D platformer featuring collectible-based progression, score-driven challenges, interactive gameplay systems, and immersive pixel-art environments.",
+        "overview": "Pixel Forest Adventure is a Unity-powered 2D platformer featuring collectible-based progression, score-driven challenges, interactive gameplay systems, and immersive pixel-art environments. Designed and developed as a complete PC game, the project highlights practical game development skills including gameplay programming, UI/UX implementation, audio systems, scene management, and player progression mechanics. The result is a polished and engaging experience that demonstrates end-to-end game production capabilities.",
         "features": [
             {"icon": "fa-solid fa-coins", "title": "Collectibles", "desc": "Coins & Score"},
             {"icon": "fa-solid fa-up-long", "title": "Level System", "desc": "Unlock & Progression"},
