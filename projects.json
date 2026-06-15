@@ -27,7 +27,7 @@
         "overview": "Pixel Forest Adventure is a 2D pixel-art platformer featuring collectible-based progression, combat mechanics, level unlocking, and persistent player progression. Players explore handcrafted forest environments, collect coins, defeat obstacles, and unlock increasingly challenging stages while striving for high scores and perfect level completion.",
         "miniFeatures": [
             {"icon": "fa-solid fa-coins", "title": "Collectibles"},
-            {"icon": "fa-solid fa-khanda", "title": "Combat System"}
+            {"icon": "fa-solid fa-khanda", "title": "Combat System"},
             {"icon": "fa-solid fa-up-long", "title": "Level System"},
             {"icon": "fa-solid fa-volume-high", "title": "Audio Settings"},
             {"icon": "fa-solid fa-table-columns", "title": "UI System"},
