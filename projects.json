@@ -56,12 +56,12 @@
         "videoUrl": "https://www.youtube.com/embed/EDXKdE1kVC8",
         "overview": "A mobile endless runner developed in Unity, featuring fast-paced obstacle avoidance, collectible-driven progression, and real-time score tracking within a stylized retro-futuristic world. The project emphasizes performance optimization through object pooling, efficient state management, and mobile-first design principles. Additional features include persistent save systems, audio mixer integration, haptic feedback, responsive UI, and scalable game architecture, delivering a smooth and engaging player experience across a wide range of devices.",
         "features": [
-            {"icon": "fa-solid fa-cheese", "title": "Cheese Run", "desc": "Collect Cheese"},
-            {"icon": "fa-solid fa-gauge-high", "title": "Speed Runner", "desc": "High Speed Mode"},
-            {"icon": "fa-solid fa-shield", "title": "Power Ups", "desc": "Shield & Speed"},
-            {"icon": "fa-solid fa-trophy", "title": "Leaderboard", "desc": "Global Rank"},
-            {"icon": "fa-solid fa-music", "title": "Sound FX", "desc": "Original Audio"},
-            {"icon": "fa-solid fa-mobile-screen", "title": "Optimization", "desc": "Mobile Ready"}
+            {"icon": "fa-solid fa-gamepad", "title": "Responsive Controls", "desc": "Keyboard & Swipe Input"},
+            {"icon": "fa-solid fa-bolt", "title": "Dynamic Difficulty", "desc": "Progressive Challenge"},
+            {"icon": "fa-solid fa-mobile-screen-button", "title": "Haptic Feedback", "desc": "Immersive Response"},
+            {"icon": "fa-solid fa-trophy", "title": "Score Tracking", "desc": "Persistent Progression"},
+            {"icon": "fa-solid fa-music", "title": "Audio System", "desc": "Dynamic Sound Mixing"},
+            {"icon": "fa-solid fa-mobile-screen", "title": "Mobile Optimized", "desc": "Smooth Performance"}
         ],
         "videos": [
             {"title": "Gameplay Demo", "duration": "01:30", "url": "https://www.youtube.com/embed/EDXKdE1kVC8"}
