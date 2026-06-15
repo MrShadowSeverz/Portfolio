@@ -85,7 +85,7 @@
             gap: 35px;
         }
 
-        nav nav ul li a {
+        nav ul li a {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -355,7 +355,7 @@
             opacity: 1 !important;
         }
 
-        /* Dynamic Border & Text Alignment Classes for Home Layout */
+        /* Dynamic Border Tags Allocation */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
         .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
         .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
@@ -396,7 +396,7 @@
             gap: 8px;
         }
 
-        /* Right Header Theme Icon Classes */
+        /* Icon Colors Matching mockups */
         .theme-icon { font-size: 1.1rem; }
         .color-green { color: #00ff66; }
         .color-purple { color: #bb55ff; }
@@ -910,7 +910,7 @@
             <div class="hero-subtitle">HELLO, I'M</div>
             <h1 class="hero-title">ABHILASH<br>SAJI</h1>
             <p class="hero-description">
-                I build polished Unity games that transform ideas into engaging player experiences experiences from gameplay systems and UI architecture to optimization and deployment.
+                I build polished Unity games that transform ideas into engaging player experiences from gameplay systems and UI architecture to optimization and deployment.
             </p>
             
             <div class="hero-buttons">
@@ -1262,13 +1262,13 @@
             });
         });
 
-        // --- FETCH DYNAMIC HIGHLIGHTED PROJECTS FROM JSON (WITH ID SORTING & FIXED STYLING) ---
+        // --- FETCH DYNAMIC HIGHLIGHTED PROJECTS FROM JSON (SORTED BY ID) ---
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
                 const featuredTarget = document.getElementById('dynamic-featured-grid');
                 
-                // 1. Sort highlighted items dynamically based on ID number ascending (1, 2, 3...)
+                // --- THE SORTING FIX: id നമ്പറിന്റെ അടിസ്ഥാനത്തിൽ (1, 2, 3...) അസെൻഡിങ് ഓർഡറിൽ ക്രമീകരിക്കുന്നു ---
                 const highlightedProjects = data
                     .filter(proj => proj.isHighlighted === true)
                     .sort((a, b) => a.id - b.id);
@@ -1278,23 +1278,21 @@
                     return;
                 }
                 
-                // 2. Inject items with pure visibility fixes for absolute tags and mockup graphics match
+                // Inject exactly filtered items inside core grid layout with specific badge alignments
                 featuredTarget.innerHTML = highlightedProjects.map(proj => {
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
                     let iconColorClass = `color-${chosenColor}`;
 
-                    // Auto icon selector fallback
+                    // Auto matching mockup icon configurations per category fields
                     let fallbackIcon = "fa-solid fa-gamepad";
-                    let lowerTag = proj.tag.toLowerCase();
-                    if(lowerTag.includes("platformer") || lowerTag.includes("2d")) fallbackIcon = "fa-solid fa-tree";
-                    if(lowerTag.includes("metroidvania")) fallbackIcon = "fa-solid fa-dungeon";
-                    if(lowerTag.includes("isometric")) fallbackIcon = "fa-solid fa-layer-group";
-                    if(lowerTag.includes("runner")) fallbackIcon = "fa-solid fa-bolt";
-                    if(lowerTag.includes("loading")) fallbackIcon = "fa-solid fa-paw";
-                    if(lowerTag.includes("vehicle") || lowerTag.includes("car")) fallbackIcon = "fa-solid fa-car-side";
-                    if(lowerTag.includes("horror") || lowerTag.includes("survival")) fallbackIcon = "fa-solid fa-ghost";
-                    if(lowerTag.includes("rpg") || lowerTag.includes("adventure")) fallbackIcon = "fa-solid fa-compass";
+                    if(proj.category === "platformer") fallbackIcon = "fa-solid fa-tree";
+                    if(proj.category === "metroidvania") fallbackIcon = "fa-solid fa-dungeon";
+                    if(proj.category === "isometric") fallbackIcon = "fa-solid fa-layer-group";
+                    if(proj.category === "fps-tps") fallbackIcon = "fa-solid fa-crosshairs";
+                    if(proj.category === "mobile") fallbackIcon = "fa-solid fa-bolt";
+                    if(proj.category === "simulation") fallbackIcon = "fa-solid fa-car-side";
+                    if(proj.category === "ar-vr") fallbackIcon = "fa-solid fa-vr-cardboard";
 
                     return `
                         <div class="project-card">
@@ -1303,19 +1301,19 @@
                                 <img src="${proj.image}" alt="${proj.name}" onerror="this.src='https://via.placeholder.com/300x250/061822/ffffff?text=${proj.name}'">
                             </div>
                             <div class="project-info">
-                                <div class="title-row" style="margin-bottom: 12px;">
+                                <div class="title-row" style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
                                     <h3 class="project-name" style="margin-bottom:0; min-height:unset;">${proj.name}</h3>
                                     <i class="${fallbackIcon} ${iconColorClass} theme-icon"></i>
                                 </div>
                                 <p class="project-desc">${proj.desc}</p>
-                                <a href="projects.html" class="project-link">VIEW PROJECT <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="project-details.html?id=${proj.id}" class="project-link">VIEW PROJECT <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     `;
                 }).join('');
             })
             .catch(err => {
-                console.error("Local JSON fetch restricted boundary preview logger:", err);
+                console.error("Local JSON fetch limited constraints logger notice:", err);
             });
     </script>
 </body>
