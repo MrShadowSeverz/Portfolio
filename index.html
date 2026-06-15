@@ -212,7 +212,6 @@
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
         }
 
-        /* Focus Areas Dashboard Grid */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -276,7 +275,7 @@
             100% { transform: scale(1.03); opacity: 1; }
         }
 
-        /* --- SECTIONS MAIN STRUCTURE --- */
+        /* --- SECTIONS --- */
         section.content-section {
             padding: 90px 8%;
             position: relative;
@@ -812,7 +811,6 @@
         .node-whatsapp:hover { border-color: #25D366; color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
         .node-whatsapp i { color: #25D366; font-size: 1.5rem; }
 
-        /* --- SCROLL TO TOP BUTTON --- */
         #scrollToTopBtn {
             display: none; 
             position: fixed;
@@ -835,26 +833,6 @@
             box-shadow: 0 0 20px var(--glow-color);
             transform: translateY(-3px); 
         }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1200px) {
-            .skills-display-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        }
-
-        @media (max-width: 968px) {
-            .hero { flex-direction: column; text-align: center; padding: 140px 4% 40px 4%; }
-            .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
-            .hero-buttons { justify-content: center; }
-            .stats-container { margin: 0 auto; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .hero-graphic-container { position: relative; width: 100%; height: 50vh; order: -1; animation: none; }
-            .bg-main-image { object-position: center; mask-image: none; -webkit-mask-image: none; }
-            .mid-container, .contact-layout-box { grid-template-columns: 1fr; }
-            .tech-list-grid, .info-contact-meta-grid { grid-template-columns: 1fr; }
-            .skills-display-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-right-hologram { height: 350px; margin-top: 40px; }
-            header { padding: 20px 4%; }
-            footer { flex-direction: column; gap: 15px; }
-        }
     </style>
 </head>
 <body>
@@ -874,7 +852,7 @@
             </ul>
         </nav>
         <div class="header-buttons">
-            <a href="YOUR_RESUME_LINK_HERE" download class="btn-resume-nav"><i class="fa-solid fa-file-lines"></i> Resume</a>
+            <a href="Resume.pdf" download="Abhilash_Saji_Resume.pdf" class="btn-resume-nav"><i class="fa-solid fa-file-lines"></i> Resume</a>
             <a href="#contact" class="btn-work">Let's Work Together</a>
         </div>
     </header>
@@ -1106,7 +1084,6 @@
     </section>
 
     <section class="content-section" id="contact">
-        <div class="section-subtitle-tag">Let's Work Together</div>
         <div class="contact-layout-box">
             
             <div class="contact-left-fields">
@@ -1179,11 +1156,43 @@
 
     <button id="scrollToTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         let isUserClickScrolling = false;
         let scrollTimeout = null;
 
-        // --- FETCH DYNAMIC HIGHLIGHTED PROJECTS FROM JSON (SORTED BY ID) ---
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 45, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ff66" }, 
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 4, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false } },
+                "line_linked": { "enable": false }, 
+                "move": { "enable": true, "speed": 2.5, "direction": "top-right", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+            "retina_detect": true
+        });
+
+        const scrollTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+
+        scrollTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
@@ -1230,41 +1239,36 @@
                     `;
                 }).join('');
                 
-                // Active scroll spy setup initialized smoothly
                 initScrollSpyTracking();
             })
-            .catch(err => console.error("Error parsing payload tracks:", err));
+            .catch(err => console.error("Error loader:", err));
 
-        // --- THE FIXED JAVASCRIPT MECHANISM FOR AUTOMATED ACCURATE HIGHLIGHTING ---
         function initScrollSpyTracking() {
             const sections = document.querySelectorAll("section[id]");
             const navAnchors = document.querySelectorAll(".nav-anchor");
 
-            // 1. Click Event Logic: Lock tracking safely to stop jumping indicators mid-scroll
             navAnchors.forEach(anchor => {
-                anchor.addEventListener("click", function(e) {
+                anchor.addEventListener("click", function() {
                     isUserClickScrolling = true;
                     clearTimeout(scrollTimeout);
 
                     navAnchors.forEach(a => a.classList.remove("active"));
                     this.classList.add("active");
 
-                    // Unlock observer once the scroll behavior smoothly settles down
                     scrollTimeout = setTimeout(() => {
                         isUserClickScrolling = false;
                     }, 850); 
                 });
             });
 
-            // 2. Intersection Observer Core Framework Mapping
             const observerOptions = {
                 root: null,
-                rootMargin: "-30% 0px -60% 0px", // Strict accurate vertical focal checking bounds
+                rootMargin: "-30% 0px -60% 0px", 
                 threshold: 0
             };
 
             const scrollSpyObserver = new IntersectionObserver((entries) => {
-                if (isUserClickScrolling) return; // Prevent interference when a user clicks a button
+                if (isUserClickScrolling) return; 
 
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
