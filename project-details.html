@@ -18,7 +18,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 80px; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 70px; }
         a { text-decoration: none; color: inherit; }
 
         /* --- NAVIGATION HEADER --- */
@@ -35,14 +35,13 @@
             padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
 
-        /* --- MAIN HERO LAYOUT --- */
-        .details-container { max-width: 1400px; margin: 0 auto; padding: 30px 6%; }
+        /* --- MAIN HERO LAYOUT CONTAINER --- */
+        .details-container { max-width: 1400px; margin: 0 auto; padding: 20px 6%; }
         
-        .back-link { color: var(--primary-green); font-size: 0.75rem; font-family: 'Orbitron', sans-serif; display: flex; align-items: center; gap: 6px; margin-bottom: 20px; font-weight: 700; }
+        /* Fixed Grid Matching Steam Shop Layout Rules */
+        .hero-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 25px; margin-bottom: 25px; align-items: start; }
         
-        .hero-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-bottom: 30px; }
-        
-        .left-meta-panel { display: flex; flex-direction: column; justify-content: center; }
+        .left-meta-panel { display: flex; flex-direction: column; justify-content: flex-start; background: rgba(4, 18, 25, 0.4); padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); height: 100%; }
         .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 12px; }
         
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
@@ -51,45 +50,72 @@
         .tag-orange { border: 1px solid #ff9900; color: #ff9900; }
         .tag-red { border: 1px solid #ff3344; color: #ff3344; }
 
-        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
-        .proj-desc-main { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; }
+        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.4rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 12px; }
+        .proj-desc-main { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; line-height: 1.5; }
         
-        .meta-dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px; }
-        .meta-box { border: 1px solid rgba(255, 255, 255, 0.03); background: rgba(255, 255, 255, 0.01); padding: 10px; border-radius: 6px; }
-        .meta-box span { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 2px; }
+        .meta-dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        .meta-box { border: 1px solid rgba(255, 255, 255, 0.03); background: rgba(255, 255, 255, 0.01); padding: 8px; border-radius: 4px; }
+        .meta-box span { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 1px; }
         .meta-box p { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--text-main); }
         
-        .action-buttons { display: flex; gap: 15px; }
-        .btn-action { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 24px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; }
+        .action-buttons { display: flex; margin-top: auto; }
+        .btn-action { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 12px 24px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; }
         .btn-live { background: var(--primary-green); color: var(--bg-dark); }
         .btn-live:hover { box-shadow: 0 0 15px rgba(0, 255, 102, 0.3); }
 
-        /* --- STEAM STYLE MEDIA PLUG --- */
-        .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; }
-        .video-player-frame { width: 100%; height: 400px; border: 1px solid var(--border-color); border-radius: 8px; background: #000; overflow: hidden; position: relative; }
+        /* --- STEAM ACCURATE MAIN DISPLAY SYSTEM --- */
+        .steam-media-wrapper { display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+        .video-player-frame { width: 100%; height: 360px; border: 1px solid var(--border-color); border-radius: 6px; background: #000; overflow: hidden; }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
 
-        /* Steam Lower Slider Grid */
-        .steam-thumbnail-slider { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; overflow-x: auto; padding-bottom: 5px; }
-        .steam-thumb { height: 70px; border: 2px solid var(--border-color); border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; background: #000; opacity: 0.7; transition: all 0.2s ease; }
+        /* --- SLIDER BAR MECHANISM (SINGLE ROW AUTO SLIDE SLOT) --- */
+        .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; }
+        
+        .steam-thumbnail-slider { 
+            display: flex; 
+            gap: 8px; 
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
+            width: 100%;
+            padding: 2px 0;
+        }
+        
+        .steam-thumb { 
+            flex: 0 0 calc(20% - 7px); /* Shows exactly 5 images in a single row row */
+            height: 65px; 
+            border: 2px solid rgba(255,255,255,0.1); 
+            border-radius: 4px; 
+            overflow: hidden; 
+            cursor: pointer; 
+            position: relative; 
+            background: #000; 
+            opacity: 0.6; 
+            transition: all 0.2s ease; 
+        }
         .steam-thumb:hover, .steam-thumb.active { opacity: 1; border-color: var(--primary-green); }
         .steam-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1.2rem; filter: drop-shadow(0 0 4px rgba(0,0,0,0.8)); }
+        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1rem; }
 
-        /* --- LOWER SECTIONS ARCHITECTURE --- */
-        .section-headline { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; text-transform: uppercase; border-left: 3px solid var(--primary-green); padding-left: 10px; margin-bottom: 20px; letter-spacing: 0.5px; }
+        /* Slider Navigation Arrows */
+        .slider-arrow { background: rgba(2, 8, 12, 0.8); border: 1px solid var(--border-color); color: #ffffff; position: absolute; top: 0; bottom: 0; width: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 0.8rem; height: 65px; border-radius: 4px; }
+        .slider-arrow:hover { color: var(--primary-green); border-color: var(--primary-green); }
+        .arrow-left { left: -35px; }
+        .arrow-right { right: -35px; }
+
+        /* --- LOWER DATA ARCHITECTURE --- */
+        .section-headline { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; text-transform: uppercase; border-left: 3px solid var(--primary-green); padding-left: 10px; margin-bottom: 18px; letter-spacing: 0.5px; }
         
-        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 40px; margin-top: 20px; }
-        .overview-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; height: 100%; }
+        .overview-row { display: grid; grid-template-columns: 1.3fr 1.7fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; }
+        .overview-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 22px; height: 100%; }
         .overview-box p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
         
-        .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; display: flex; align-items: center; gap: 15px; }
-        .feature-card-item i { font-size: 1.2rem; color: var(--primary-green); width: 25px; text-align: center; }
-        .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; margin-bottom: 2px; }
-        .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
+        .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 12px 15px; display: flex; align-items: center; gap: 12px; }
+        .feature-card-item i { font-size: 1.1rem; color: var(--primary-green); width: 22px; text-align: center; }
+        .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.78rem; margin-bottom: 2px; }
+        .feature-card-item p { color: var(--text-muted); font-size: 0.7rem; }
 
-        /* --- HIRE ME BANNER --- */
+        /* --- HIRE ME CTA --- */
         .hire-cta-panel { background: linear-gradient(135deg, rgba(4, 18, 25, 0.9), rgba(2, 8, 12, 0.9)); border: 1px solid var(--primary-green); border-radius: 8px; padding: 25px; display: flex; justify-content: space-between; align-items: center; }
         .hire-left h3 { font-family: 'Orbitron', sans-serif; font-size: 1rem; text-transform: uppercase; margin-bottom: 4px; }
         .hire-left p { color: var(--text-muted); font-size: 0.8rem; }
@@ -97,7 +123,8 @@
 
         @media (max-width: 968px) {
             .hero-grid, .overview-row { grid-template-columns: 1fr; }
-            .video-player-frame { height: 280px; }
+            .video-player-frame { height: 260px; }
+            .slider-arrow { display: none; }
         }
     </style>
 </head>
@@ -109,7 +136,7 @@
     </header>
 
     <main class="details-container" id="details-root">
-        <div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 100px 0;">Loading project layout framework...</div>
+        <div style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 100px 0;">Loading dashboard engine parameters...</div>
     </main>
 
     <script>
@@ -117,7 +144,7 @@
         const projectId = parseInt(urlParams.get('id'));
 
         if (!projectId) {
-            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No valid project ID specified.</div>`;
+            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project parameter identified.</div>`;
         } else {
             fetch('projects.json')
                 .then(res => res.json())
@@ -125,14 +152,14 @@
                     const proj = data.find(p => p.id === projectId);
 
                     if (!proj) {
-                        document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">Project not found in storage.</div>`;
+                        document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">Project not found.</div>`;
                         return;
                     }
 
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
 
-                    // Loop through unique key gameplay features
+                    // Dynamic parsing loop for key gameplay modules
                     const featuresMarkup = proj.features ? proj.features.map(f => `
                         <div class="feature-card-item">
                             <i class="${f.icon}"></i>
@@ -143,35 +170,32 @@
                         </div>
                     `).join('') : '';
 
-                    // Steam style integrated media slideshow logic tracker arrays
+                    // Construct exact single row carousel tray nodes lists
                     let sliderThumbsMarkup = '';
                     
-                    // 1. Inject Video nodes inside media bar if present
                     if (proj.videos) {
                         proj.videos.forEach((v, idx) => {
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb ${idx === 0 ? 'active' : ''}" onclick="switchSteamMedia('video', '${v.url}', this)">
-                                    <div class="steam-thumb-overlay-icon"><i class="fa-regular fa-circle-play"></i></div>
-                                    <img src="${proj.image}" alt="Video preview clip">
+                                    <div class="steam-thumb-overlay-icon"><i class="fa-solid fa-play"></i></div>
+                                    <img src="${proj.image}" alt="Trailer clip preview">
                                 </div>
                             `;
                         });
                     }
 
-                    // 2. Inject Gameplay image screen captures inside media bar if present
                     if (proj.gallery) {
                         proj.gallery.forEach(img => {
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb" onclick="switchSteamMedia('image', '${img}', this)">
-                                    <img src="${img}" alt="Gameplay screen capture">
+                                    <img src="${img}" alt="Gameplay capture render">
                                 </div>
                             `;
                         });
                     }
 
-                    // Master payload template parsing injection loops
+                    // Direct interface nodes override injection script
                     document.getElementById('details-root').innerHTML = `
-                        <a href="projects.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> BACK TO PROJECTS</a>
                         
                         <div class="hero-grid">
                             <div class="left-meta-panel">
@@ -183,7 +207,7 @@
                                     <div class="meta-box"><span>Year</span><p>${proj.year || '2026'}</p></div>
                                     <div class="meta-box"><span>Platform</span><p>${proj.platform || 'PC'}</p></div>
                                     <div class="meta-box"><span>Engine</span><p>${proj.engine || 'Unity'}</p></div>
-                                    <div class="meta-box"><span>Role</span><p>${proj.role || 'Game Developer'}</p></div>
+                                    <div class="meta-box"><span>Role</span><p>${proj.role || 'Developer'}</p></div>
                                 </div>
                                 
                                 <div class="action-buttons">
@@ -196,8 +220,14 @@
                                     <iframe id="steam-iframe-target" src="${proj.videoUrl || ''}" allowfullscreen></iframe>
                                 </div>
                                 
-                                <div class="steam-thumbnail-slider">
-                                    ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media resources missing.</div>'}
+                                <div class="slider-relative-tray">
+                                    <button class="slider-arrow arrow-left" onclick="slideSteamTray('left')"><i class="fa-solid fa-chevron-left"></i></button>
+                                    
+                                    <div class="steam-thumbnail-slider" id="steam-slider-track">
+                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media slots are currently empty.</div>'}
+                                    </div>
+                                    
+                                    <button class="slider-arrow arrow-right" onclick="slideSteamTray('right')"><i class="fa-solid fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -206,13 +236,13 @@
                             <div>
                                 <h3 class="section-headline">Project Overview</h3>
                                 <div class="overview-box">
-                                    <p>${proj.overview || 'Project structural details tracking information log.'}</p>
+                                    <p>${proj.overview || 'Project logs details track summaries are currently unassigned.'}</p>
                                 </div>
                             </div>
                             <div>
                                 <h3 class="section-headline">Key Features</h3>
                                 <div class="features-sub-grid">
-                                    ${featuresMarkup || '<div style="color:var(--text-muted)">Features are currently empty.</div>'}
+                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No features configured.</div>'}
                                 </div>
                             </div>
                         </div>
@@ -220,18 +250,17 @@
                         <div class="hire-cta-panel">
                             <div class="hire-left">
                                 <h3>Like this project?</h3>
-                                <p>I'm available for freelance work. Let's bring your vision into reality!</p>
+                                <p>I'm available for freelance contract work. Let's build something amazing!</p>
                             </div>
                             <a href="index.html#contact" class="btn-hire-me">Hire Me <i class="fa-solid fa-paper-plane"></i></a>
                         </div>
                     `;
                 })
-                .catch(err => console.error("Error generating master steam view layout panel nodes:", err));
+                .catch(err => console.error("Error generating clean dynamic steam engine panel layout values:", err));
         }
 
-        // Realtime Steam viewport controller mapping mechanics
+        // Active media toggler handler
         function switchSteamMedia(type, path, elementRef) {
-            // Unset previous borders active classes
             document.querySelectorAll('.steam-thumb').forEach(el => el.classList.remove('active'));
             elementRef.classList.add('active');
 
@@ -240,7 +269,19 @@
             if (type === 'video') {
                 viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
             } else if (type === 'image') {
-                viewport.innerHTML = `<img src="${path}" alt="Gameplay full viewport showcase preview" onerror="this.src='https://via.placeholder.com/600x400/041219/ffffff?text=Game+Asset'">`;
+                viewport.innerHTML = `<img src="${path}" alt="Gameplay screen full preview rendering window" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
+            }
+        }
+
+        // Carousel Slider Navigation Handler
+        function slideSteamTray(direction) {
+            const track = document.getElementById('steam-slider-track');
+            const step = track.clientWidth / 2; // Slides half viewport frame chunks per interaction
+            
+            if (direction === 'left') {
+                track.scrollLeft -= step;
+            } else {
+                track.scrollLeft += step;
             }
         }
     </script>
