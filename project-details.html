@@ -128,15 +128,13 @@
         .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px 20px; display: flex; align-items: center; gap: 18px; backdrop-filter: blur(8px); height: 84px; }
         .feature-card-item:hover { border-color: var(--primary-green); }
         
-        /* Hypercasual Cute App Squircles */
         .coin-icon-shell { 
             width: 46px; height: 46px; 
-            border-radius: 12px; /* Squircle style curved shape padding */
+            border-radius: 12px; 
             display: flex; align-items: center; justify-content: center; 
             flex-shrink: 0;
             position: relative;
             background: linear-gradient(135deg, var(--casual-top), var(--casual-bottom));
-            /* Soft juicy 3D gel reflections styling */
             box-shadow: 
                 0 4px 10px var(--casual-shadow), 
                 inset 0 3px 5px rgba(255, 255, 255, 0.4),
@@ -146,13 +144,12 @@
         
         .coin-icon-shell i { font-size: 1.15rem; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); position: relative; z-index: 5; }
 
-        /* Juicy Pop Tone Color Configuration mapping per item modules */
-        .card-profile-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } /* Sun Gold */
-        .card-profile-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } /* Neon Mint */
-        .card-profile-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } /* Pop Candy Pink */
-        .card-profile-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } /* Soda Blue */
-        .card-profile-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }/* Jelly Purple */
-        .card-profile-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } /* Lime Smash */
+        .card-profile-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } 
+        .card-profile-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } 
+        .card-profile-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } 
+        .card-profile-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } 
+        .card-profile-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }
+        .card-profile-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } 
 
         .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; letter-spacing: 0.3px; }
         .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
@@ -207,6 +204,7 @@
             .steam-thumb { flex: 0 0 calc(33.33% - 7px); }
             .features-sub-grid { grid-template-columns: 1fr; }
             .overview-box { height: auto; }
+            .hire-cta-panel { flex-direction: column; text-align: center; gap: 20px; }
         }
     </style>
 </head>
@@ -241,6 +239,7 @@
             "retina_detect": true
         });
 
+        // --- CORRECT JS LOGIC FOR PROJECT-DETAILS PAGE ---
         const urlParams = new URLSearchParams(window.location.search);
         const projectId = parseInt(urlParams.get('id'));
 
