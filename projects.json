@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Pixel Forest Adventure",
         "tag": "2D Platformer",
-        "image": "Images/Pixel Forest Adventure/PixelForestThumbnail.png",
+        "image": "Images/Pixel-Forest-Adventure/PixelForestThumbnail.png",
         "desc": "A 2D platformer with collectible mechanics, level progression, score tracking and sound effects.",
         "isHighlighted": true
     },
