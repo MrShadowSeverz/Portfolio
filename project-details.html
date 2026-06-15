@@ -9,13 +9,13 @@
     
     <style>
         :root {
-            /* --- RESTORED ORIGINAL COLOR THEME --- */
+            /* Restored Black & Dark Theme */
             --bg-dark: #02080c;
-            --bg-card: rgba(4, 18, 25, 0.8); /* Original transparent black */
-            --primary-green: #00ff66; /* Original Green */
+            --bg-card: rgba(2, 8, 12, 0.85); /* Deep black transparent */
+            --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #8da4ae;
-            --border-color: rgba(0, 255, 102, 0.15); /* Original Green Border */
+            --border-color: rgba(255, 255, 255, 0.05); /* Very subtle border */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,7 +64,7 @@
             border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green);
             padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
-        .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); }
+        .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.3); }
 
         /* --- BENTO GRID LAYOUT CONTAINER --- */
         .bento-container { max-width: 1400px; margin: 0 auto; padding: 20px 6% 60px; position: relative; z-index: 5; }
@@ -73,34 +73,29 @@
             font-size: 0.8rem; color: var(--text-muted); margin-bottom: 25px;
             display: flex; align-items: center; gap: 8px;
         }
-        .breadcrumb span { color: var(--text-main); font-weight: 600; }
+        .breadcrumb span { color: var(--text-main); font-weight: 600; text-transform: uppercase; }
 
         /* HERO TOP SECTION */
         .hero-bento { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; align-items: stretch; }
         
         .hero-left-card { display: flex; flex-direction: column; justify-content: center; }
-        .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,255,102,0.05); }
+        .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,0,0,0.4); }
         .proj-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; line-height: 1.1; display: flex; align-items: center; gap: 15px; }
         .brief-text-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; max-width: 90%; }
         
         .hero-action-row { display: flex; gap: 15px; margin-bottom: 40px; }
-        
-        /* RESTORED GREEN BUTTON */
-        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; }
-        .btn-main-play:hover { box-shadow: 0 0 20px rgba(0, 255, 102, 0.4); transform: translateY(-2px); }
-        
-        .btn-outline { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--text-main); color: var(--text-main); cursor: pointer; transition: 0.3s; }
-        .btn-outline:hover { background: rgba(255,255,255,0.05); }
+        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); }
+        .btn-main-play:hover { box-shadow: 0 0 25px rgba(0, 255, 102, 0.5); transform: translateY(-2px); }
 
         /* Mini Features Row in Hero */
         .mini-features-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .mini-feature-box { background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
+        .mini-feature-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
         .mini-feature-box i { font-size: 1.2rem; color: var(--primary-green); }
         .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.2; }
 
-        /* STEAM MEDIA SLIDER (Right Side) */
+        /* STEAM MEDIA SLIDER (16:9 Ratio Applied) */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; }
-        .video-player-frame { width: 100%; height: 380px; border-radius: 12px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
+        .video-player-frame { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 12px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
         
         .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 35px; }
@@ -117,64 +112,64 @@
         /* --- BENTO CONTENT SECTIONS --- */
         .bento-main-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 25px; align-items: start; margin-bottom: 25px;}
         
-        .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(8px); }
-        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
+        .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(12px); }
+        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: var(--primary-green); margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; }
         
         .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px; }
         .bento-card p strong { color: var(--text-main); }
 
         /* Technical Highlights Grid */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
-        .highlight-item i { font-size: 1.5rem; color: #bb55ff; }
+        .highlight-item { border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.3); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
+        .highlight-item i { font-size: 1.5rem; }
         .highlight-item h5 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
-        .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; }
+        .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; color: var(--text-muted); }
 
         /* Key Features List */
         .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .feature-list-check li { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-muted); }
         .feature-list-check li i { color: #ff9900; font-size: 1.1rem; }
 
-        /* Challenges List (Static Layout for Demo) */
+        /* Challenges List */
         .challenges-list { display: flex; flex-direction: column; gap: 10px; }
-        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 102, 0.1); }
-        .challenge-row p { margin: 0; font-size: 0.8rem; }
-        .c-arrow { color: var(--text-muted); font-size: 0.8rem; }
+        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); }
+        .challenge-row p { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+        .challenge-row p strong { color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: block; margin-bottom: 3px;}
+        .c-arrow { color: var(--primary-green); font-size: 0.8rem; }
 
         /* Metrics Grid */
         .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .metric-box { text-align: center; border-right: 1px solid rgba(0, 255, 102, 0.15); }
+        .metric-box { text-align: center; border-right: 1px solid rgba(255,255,255,0.05); }
         .metric-box:last-child { border: none; }
         .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 5px; }
-        .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); }
+        .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); font-weight: 700; }
 
-        /* Development Process (Static Layout) */
+        /* Development Process */
         .dev-process-row { display: flex; justify-content: space-between; position: relative; margin-top: 15px; padding-top: 20px; }
-        .dev-process-row::before { content: ''; position: absolute; top: 38px; left: 5%; right: 5%; height: 1px; border-top: 1px dashed rgba(0, 255, 102, 0.3); z-index: 0; }
+        .dev-process-row::before { content: ''; position: absolute; top: 38px; left: 5%; right: 5%; height: 1px; border-top: 1px dashed rgba(255,255,255,0.15); z-index: 0; }
         .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 1; gap: 10px; width: 15%; }
-        .step-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-dark); border: 2px solid var(--primary-green); display: flex; align-items: center; justify-content: center; color: var(--primary-green); }
+        .step-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-card); border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
         .process-step h5 { font-size: 0.75rem; color: #fff; margin:0; }
-        .process-step p { font-size: 0.65rem; margin:0; line-height: 1.2; }
+        .process-step p { font-size: 0.65rem; margin:0; line-height: 1.2; color: var(--text-muted); }
 
-        /* Colored Icons matching the image */
+        /* Colored Icons */
         .c-blue { color: #33a6ff !important; border-color: #33a6ff !important; }
         .c-purple { color: #bb55ff !important; border-color: #bb55ff !important; }
         .c-green { color: #00ffbc !important; border-color: #00ffbc !important; }
         .c-orange { color: #ffcc00 !important; border-color: #ffcc00 !important; }
         .c-pink { color: #ff4d79 !important; border-color: #ff4d79 !important; }
-        .c-red { color: #ff3344 !important; border-color: #ff3344 !important; }
 
         /* Bottom CTA Bar */
-        .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
+        .bottom-cta-bar { background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
         .cta-quote { display: flex; gap: 15px; align-items: center; }
-        .cta-quote i { font-size: 2rem; color: var(--primary-green); }
+        .cta-quote i { font-size: 2rem; color: #bb55ff; }
         .cta-quote p { font-size: 1.1rem; color: #fff; font-style: italic; max-width: 400px; line-height: 1.4; margin:0; }
         
         .cta-links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
         .cta-links span { font-size: 0.85rem; color: var(--text-muted); }
         .link-row { display: flex; gap: 15px; }
-        .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
-        .link-row a:hover { background: rgba(0,255,102,0.1); border-color: var(--primary-green); color: var(--primary-green); }
+        .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .link-row a:hover { background: rgba(255,255,255,0.05); border-color: var(--primary-green); color: var(--primary-green); }
 
         /* Tag Colors Updated */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
@@ -251,17 +246,17 @@
                     // Map Features to Mini Row under Description
                     const miniFeaturesMarkup = proj.features ? proj.features.map(f => `
                         <div class="mini-feature-box">
-                            <i class="${f.icon}"></i>
+                            <i class="${f.icon}" style="color: var(--primary-green)"></i>
                             <span>${f.title.replace(' ', '<br>')}</span>
                         </div>
                     `).join('') : '';
 
                     // Key Features List
                     const listFeaturesMarkup = proj.features ? proj.features.map(f => `
-                        <li><i class="fa-solid fa-circle-check"></i> ${f.title} - ${f.desc}</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>${f.title}</strong> - ${f.desc}</li>
                     `).join('') : '';
 
-                    // Media Slider
+                    // Media Slider Map
                     let sliderThumbsMarkup = '';
                     let thumbIndex = 0;
                     if (proj.videos) {
@@ -286,10 +281,8 @@
                         });
                     }
 
-                    // Map Meta Info to Metrics & Tech Highlights blocks dynamically
+                    // Dynamic Metrics
                     let metaMetricsHTML = '';
-                    let techHighlightsHTML = '';
-                    
                     if(proj.metaInfo) {
                         metaMetricsHTML = proj.metaInfo.map(m => `
                             <div class="metric-box">
@@ -297,26 +290,71 @@
                                 <p>${m.label}</p>
                             </div>
                         `).join('');
-
-                        techHighlightsHTML = proj.metaInfo.map((m, i) => {
-                            const colors = ['c-purple', 'c-green', 'c-orange', 'c-blue'];
-                            const icons = ['fa-cubes', 'fa-database', 'fa-mobile-screen', 'fa-gauge-high'];
-                            return `
-                                <div class="highlight-item">
-                                    <i class="fa-solid ${icons[i%4]} ${colors[i%4]}"></i>
-                                    <div>
-                                        <h5>${m.label}</h5>
-                                        <p>${m.value}</p>
-                                    </div>
-                                </div>
-                            `;
-                        }).join('');
                     } else {
                         metaMetricsHTML = `<div class="metric-box"><h3>${proj.year}</h3><p>Year</p></div><div class="metric-box"><h3>${proj.platform}</h3><p>Platform</p></div>`;
-                        techHighlightsHTML = `<p>No technical highlights added to JSON yet.</p>`;
                     }
 
+                    // Dynamic Tech Highlights
+                    let techHighlightsHTML = '';
+                    if(proj.techHighlights) {
+                        techHighlightsHTML = proj.techHighlights.map(m => `
+                            <div class="highlight-item">
+                                <i class="fa-solid ${m.icon} ${m.color}"></i>
+                                <div>
+                                    <h5>${m.title}</h5>
+                                    <p>${m.desc}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
 
+                    // Dynamic Challenges
+                    let challengesHTML = '';
+                    if(proj.challenges) {
+                        challengesHTML = `
+                        <div class="bento-card">
+                            <h3 class="bento-card-title">Challenges & Solutions</h3>
+                            <div class="challenges-list">
+                                ${proj.challenges.map(c => `
+                                    <div class="challenge-row">
+                                        <p><strong>Challenge:</strong> ${c.challenge}</p>
+                                        <i class="fa-solid fa-chevron-right c-arrow"></i>
+                                        <p><strong>Solution:</strong> ${c.solution}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>`;
+                    }
+
+                    // Dynamic Dev Process
+                    let devProcessHTML = '';
+                    if(proj.devProcess) {
+                        devProcessHTML = `
+                        <div class="bento-card">
+                            <h3 class="bento-card-title">Development Process</h3>
+                            <div class="dev-process-row">
+                                ${proj.devProcess.map(d => `
+                                    <div class="process-step">
+                                        <div class="step-icon ${d.color}"><i class="fa-solid ${d.icon}"></i></div>
+                                        <h5>${d.title}</h5>
+                                        <p>${d.desc}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>`;
+                    }
+
+                    // Dynamic CTA Links
+                    let ctaLinksHTML = '';
+                    let ctaQuote = "Building fun, optimized and scalable games that players love.";
+                    if(proj.cta) {
+                        ctaQuote = proj.cta.quote;
+                        ctaLinksHTML = proj.cta.links.map(l => `
+                            <a href="${l.url}" target="_blank"><i class="fa-brands ${l.icon}" style="color:${l.iconColor}"></i> ${l.text}</a>
+                        `).join('');
+                    }
+
+                    // Generate Full HTML Layout
                     document.getElementById('details-root').innerHTML = `
                         
                         <div class="breadcrumb">
@@ -331,7 +369,6 @@
                                 
                                 <div class="hero-action-row">
                                     <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-main-play"><i class="fa-solid fa-gamepad"></i> Play Demo (Web)</a>
-                                    <a href="${proj.videoUrl || '#'}" target="_blank" class="btn-outline"><i class="fa-regular fa-circle-play"></i> Watch Trailer</a>
                                 </div>
 
                                 <div class="mini-features-row">
@@ -357,7 +394,7 @@
                             <div style="display:flex; flex-direction:column; gap:25px;">
                                 <div class="bento-card">
                                     <h3 class="bento-card-title">Project Overview</h3>
-                                    <p><strong>${proj.name}</strong> ${proj.overview || 'is a highly optimized game focusing on performance and core game loop mechanics.'}</p>
+                                    <p><strong>${proj.name}</strong> ${proj.overview}</p>
                                 </div>
 
                                 <div class="bento-card">
@@ -376,53 +413,28 @@
                             </div>
 
                             <div style="display:flex; flex-direction:column; gap:25px;">
+                                ${techHighlightsHTML ? `
                                 <div class="bento-card">
                                     <h3 class="bento-card-title">Technical Highlights</h3>
                                     <div class="tech-highlights-grid">
                                         ${techHighlightsHTML}
                                     </div>
-                                </div>
+                                </div>` : ''}
 
-                                <div class="bento-card">
-                                    <h3 class="bento-card-title">Challenges & Solutions</h3>
-                                    <div class="challenges-list">
-                                        <div class="challenge-row">
-                                            <p><strong>Challenge:</strong> Performance drops due to instantiating objects.</p>
-                                            <i class="fa-solid fa-chevron-right c-arrow"></i>
-                                            <p><strong>Solution:</strong> Implemented Object Pooling for smooth mechanics.</p>
-                                        </div>
-                                        <div class="challenge-row">
-                                            <p><strong>Challenge:</strong> Multiple overlapping sound issues.</p>
-                                            <i class="fa-solid fa-chevron-right c-arrow"></i>
-                                            <p><strong>Solution:</strong> Used Unity Audio Mixer groups for dynamic control.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bento-card">
-                                    <h3 class="bento-card-title">Development Process</h3>
-                                    <div class="dev-process-row">
-                                        <div class="process-step"><div class="step-icon c-blue"><i class="fa-regular fa-lightbulb"></i></div><h5>Concept</h5><p>Planning</p></div>
-                                        <div class="process-step"><div class="step-icon c-purple"><i class="fa-solid fa-gamepad"></i></div><h5>Prototype</h5><p>Mechanics</p></div>
-                                        <div class="process-step"><div class="step-icon c-green"><i class="fa-solid fa-code"></i></div><h5>Core</h5><p>Systems</p></div>
-                                        <div class="process-step"><div class="step-icon c-orange"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h5>Polish</h5><p>UI & VFX</p></div>
-                                        <div class="process-step"><div class="step-icon c-pink"><i class="fa-solid fa-rocket"></i></div><h5>Release</h5><p>Publish</p></div>
-                                    </div>
-                                </div>
+                                ${challengesHTML}
+                                ${devProcessHTML}
                             </div>
                         </div>
 
                         <div class="bottom-cta-bar">
                             <div class="cta-quote">
                                 <i class="fa-solid fa-quote-left"></i>
-                                <p>Building fun, optimized and scalable games that players love.</p>
+                                <p>${ctaQuote}</p>
                             </div>
                             <div class="cta-links">
                                 <span>Let's build something amazing together!</span>
                                 <div class="link-row">
-                                    <a href="https://wa.me/917511104768" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> WhatsApp</a>
-                                    <a href="mailto:abhilashsaji.dev@gmail.com"><i class="fa-regular fa-envelope" style="color:#fff"></i> Email</a>
-                                    <a href="https://www.linkedin.com/in/abhilashsaji" target="_blank"><i class="fa-brands fa-linkedin" style="color:#0077B5"></i> LinkedIn</a>
+                                    ${ctaLinksHTML}
                                 </div>
                             </div>
                         </div>
@@ -431,15 +443,24 @@
                 .catch(err => console.error("Error launching dynamic system layouts:", err));
         }
 
+        // Auto Scroll / Smooth Select logic integrated here
         function switchSteamMedia(type, path, elementRef) {
             document.querySelectorAll('.steam-thumb').forEach(el => el.classList.remove('active'));
             elementRef.classList.add('active');
+            
             const viewport = document.getElementById('steam-main-viewport');
             if (type === 'video') {
                 viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
             } else if (type === 'image') {
-                viewport.innerHTML = `<img src="${path}" style="border-radius:12px;" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff'">`;
+                viewport.innerHTML = `<img src="${path}" onerror="this.src='https://via.placeholder.com/1920x1080/041219/ffffff'">`;
             }
+
+            // Bring the active thumbnail to the center
+            const track = document.getElementById('steam-slider-track');
+            const currentIndex = parseInt(elementRef.getAttribute('data-index'));
+            const thumbWidth = elementRef.offsetWidth + 12; // width + gap
+            
+            track.scrollLeft = (currentIndex * thumbWidth) - (track.clientWidth / 2) + (thumbWidth / 2);
         }
 
         function slideSteamTray(direction) {
