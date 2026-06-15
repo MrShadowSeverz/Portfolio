@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Projects | Abhilash Saji</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -35,12 +34,12 @@
 
         a { text-decoration: none; color: inherit; }
 
-        /* --- CLEAN HEADER WITH ONLY GAMEPAD CONTROLLER LOGO --- */
+        /* --- NAVIGATION HEADER --- */
         header {
             display: flex;
-            justify-content: center; /* Centers the brand mark perfectly */
+            justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
+            padding: 22px 8%;
             background: rgba(2, 8, 12, 0.75);
             backdrop-filter: blur(12px);
             position: fixed;
@@ -55,16 +54,16 @@
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.2rem;
+            gap: 10px;
+            font-size: 1.15rem;
             letter-spacing: 1.5px;
         }
 
         .logo i { color: var(--primary-green); }
 
-        /* --- MAIN CONTAINER --- */
+        /* --- ARCHIVE MAIN LAYOUT --- */
         .archive-section {
-            padding: 150px 8% 40px 8%;
+            padding: 160px 8% 40px 8%;
         }
 
         .archive-flex-header {
@@ -103,7 +102,7 @@
             line-height: 1.6;
         }
 
-        /* --- FILTER BUTTONS ROW (EXACT IMAGE LOOK) --- */
+        /* --- FILTER BUTTONS ROW (EXACT THEME MATCH) --- */
         .filter-buttons-row {
             display: flex;
             gap: 12px;
@@ -136,7 +135,7 @@
         }
         .btn-filter.active i, .btn-filter:hover i { color: var(--primary-green); }
 
-        /* --- 10 CARDS GRID ARCHITECTURE --- */
+        /* --- CARDS GRID --- */
         .archive-projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -213,7 +212,7 @@
             font-size: 1.1rem;
         }
 
-        /* Card Unique Neon Graphics Colors matching mockup images */
+        /* Hologram Specific Graphics Colors mapping from mockups */
         .color-green { color: #00ff66; }
         .color-purple { color: #bb55ff; }
         .color-blue { color: #33a6ff; }
@@ -228,7 +227,7 @@
             flex-grow: 1;
         }
 
-        /* Technology Pill Labels beneath description box */
+        /* Generic static pill template to safe-guard empty data fields */
         .tech-badges-row {
             display: flex;
             flex-wrap: wrap;
@@ -246,11 +245,7 @@
             font-weight: 600;
             padding: 4px 10px;
             border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
-        .badge-item i { font-size: 0.75rem; }
 
         .proj-link {
             font-size: 0.8rem;
@@ -263,7 +258,7 @@
             margin-top: auto;
         }
 
-        /* --- CONTACT BOTTOM CTA BAR --- */
+        /* --- CONTACT ROW PANEL BAR --- */
         .contact-cta-bar {
             display: flex;
             justify-content: center;
@@ -321,7 +316,9 @@
 <body>
 
     <header>
-        <div class="logo"><i class="fa-solid fa-gamepad"></i> GAME DEVELOPER</div>
+        <div class="logo">
+            <i class="fa-solid fa-gamepad"></i> GAME DEVELOPER
+        </div>
     </header>
 
     <main class="archive-section">
@@ -361,43 +358,43 @@
     <script>
         let masterProjectsList = [];
 
-        // Correctly fetch information loops from json asset profile data
         fetch('projects.json')
             .then(res => res.json())
             .then(data => {
                 masterProjectsList = data;
                 renderArchiveCards(masterProjectsList);
             })
-            .catch(err => {
-                console.error("Local preview restriction logging:", err);
-            });
+            .catch(err => console.error("File tracking diagnostic path update log:", err));
 
         function renderArchiveCards(list) {
             const gridRoot = document.getElementById('archive-grid-root');
             
             gridRoot.innerHTML = list.map(proj => {
-                // Dynamically structure inner mini badge configurations row loops
-                const badgesMarkup = proj.tech.map(t => {
-                    let subIcon = "fa-solid fa-layer-group";
-                    if(t === "Unity") subIcon = "devicon-unity-plain";
-                    if(t === "C#") subIcon = "devicon-csharp-plain";
-                    if(t === "3D") subIcon = "fa-solid fa-cube";
-                    if(t === "2D") subIcon = "fa-solid fa-gamepad";
-                    if(t === "UI") subIcon = "fa-solid fa-window-restore";
-                    if(t === "Mobile") subIcon = "fa-solid fa-mobile-screen-button";
-                    return `<span class="badge-item"><i class="${subIcon}"></i> ${t}</span>`;
-                }).join('');
+                // Safety logic: JSON-ൽ ടാഗുകൾ ഇല്ലെങ്കിൽ പകരം ഉപയോഗിക്കാനുള്ള ഡിഫോൾട്ട് ടാഗുകൾ
+                let currentTechStack = proj.tech || ["Unity", "C#", "PC"];
+                if(!proj.tech) {
+                    if (proj.id === 1 || proj.id === 10) currentTechStack = ["Unity", "C#", "2D"];
+                    if (proj.id === 3 || proj.id === 7) currentTechStack = ["Unity", "UI", "Animation"];
+                }
 
-                // Apply unique icon color scheme classes based on image mockups
+                const badgesMarkup = currentTechStack.map(t => `<span class="badge-item">${t}</span>`).join('');
+
+                // Safety logic: JSON-ൽ ഐക്കൺ വിവരങ്ങൾ ഇല്ലെങ്കിൽ ടൈറ്റിൽ വെച്ച് ഓട്ടോമാറ്റിക് മാപ്പിങ് ചെയ്യുന്നു
+                let fallbackIcon = "fa-solid fa-gamepad";
+                let lowerTag = proj.tag.toLowerCase();
+                if(lowerTag.includes("platformer") || lowerTag.includes("2d")) fallbackIcon = "fa-solid fa-tree";
+                if(lowerTag.includes("runner")) fallbackIcon = "fa-solid fa-bolt";
+                if(lowerTag.includes("loading")) fallbackIcon = "fa-solid fa-paw";
+                if(lowerTag.includes("vehicle") || lowerTag.includes("car")) fallbackIcon = "fa-solid fa-car-side";
+                if(lowerTag.includes("horror") || lowerTag.includes("survival")) fallbackIcon = "fa-solid fa-ghost";
+                if(lowerTag.includes("rpg") || lowerTag.includes("adventure")) fallbackIcon = "fa-solid fa-compass";
+
+                // Unique color theme allocation per card item matching target lookups
                 let colorClass = "color-green";
-                if (proj.id === 2) colorClass = "color-purple";
-                if (proj.id === 3) colorClass = "color-blue";
-                if (proj.id === 4) colorClass = "color-orange";
-                if (proj.id === 5) colorClass = "color-red";
-                if (proj.id === 6) colorClass = "color-purple";
-                if (proj.id === 7) colorClass = "color-blue";
-                if (proj.id === 9) colorClass = "color-red";
-                if (proj.id === 10) colorClass = "color-orange";
+                if (proj.id === 2 || proj.id === 6) colorClass = "color-purple";
+                if (proj.id === 3 || proj.id === 7) colorClass = "color-blue";
+                if (proj.id === 4 || proj.id === 10) colorClass = "color-orange";
+                if (proj.id === 5 || proj.id === 9) colorClass = "color-red";
 
                 return `
                     <div class="archive-card">
@@ -408,7 +405,7 @@
                         <div class="info-panel">
                             <div class="title-row">
                                 <h3 class="proj-name">${proj.name}</h3>
-                                <i class="${proj.icon} ${colorClass} theme-icon"></i>
+                                <i class="${proj.icon || fallbackIcon} ${colorClass} theme-icon"></i>
                             </div>
                             <p class="proj-desc">${proj.desc}</p>
                             
@@ -423,7 +420,7 @@
             }).join('');
         }
 
-        // Filtering engine module operational routing
+        // Filtering engine execution logic
         function filterCategory(categoryKey, btnRef) {
             document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
             btnRef.classList.add('active');
@@ -431,8 +428,15 @@
             if(categoryKey === 'all') {
                 renderArchiveCards(masterProjectsList);
             } else {
-                const results = masterProjectsList.filter(p => p.category === categoryKey);
-                renderArchiveCards(results);
+                // Dynamic checking on tags since custom categories missing from user json array
+                const filtered = masterProjectsList.filter(p => {
+                    let targetTag = p.tag.toLowerCase();
+                    if(categoryKey === '2d') return targetTag.includes('2d') || targetTag.includes('platformer');
+                    if(categoryKey === '3d') return targetTag.includes('runner') || targetTag.includes('vehicle') || targetTag.includes('horror') || targetTag.includes('rpg') || targetTag.includes('simulation');
+                    if(categoryKey === 'other') return targetTag.includes('loading') || targetTag.includes('menu') || targetTag.includes('system');
+                    return true;
+                });
+                renderArchiveCards(filtered);
             }
         }
     </script>
