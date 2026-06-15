@@ -48,7 +48,7 @@
         "desc": "A retro-futuristic endless runner with collectible progression, real-time scoring, immersive audio, optimized mobile performance, and persistent player data.",
         "tech": ["Unity", "C#", "3D", "Mobile Optimization"],
         "isHighlighted": true,
-        "age": "2025",
+        "year": "2025",
         "platform": "Mobile",
         "engine": "Unity Engine",
         "role": "Game Developer",
