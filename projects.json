@@ -13,14 +13,17 @@
         "platform": "PC",
         "engine": "Unity Engine",
         "role": "Game Developer",
+        "heroBtn": {
+            "text": "Play Demo",
+            "url": "https://mrshadowseverz.github.io/Pixel-Forest-Adventure/",
+            "icon": "fa-solid fa-gamepad"
+        },
         "metaInfo": [
             {"label": "Year", "value": "2025"},
             {"label": "Platform", "value": "PC"},
             {"label": "Engine", "value": "Unity Engine"},
             {"label": "Role", "value": "Game Developer"}
         ],
-        "liveDemo": "https://mrshadowseverz.github.io/Pixel-Forest-Adventure/",
-        "videoUrl": "https://www.youtube.com/embed/EDXKdE1kVC8",
         "overview": "Pixel Forest Adventure is a Unity-powered 2D platformer featuring collectible-based progression, score-driven challenges, interactive gameplay systems, and immersive pixel-art environments.",
         "features": [
             {"icon": "fa-solid fa-coins", "title": "Collectibles", "desc": "Coins & Score"},
@@ -31,7 +34,7 @@
             {"icon": "fa-solid fa-floppy-disk", "title": "Save System", "desc": "Player Progress"}
         ],
         "videos": [
-            {"title": "Full Gameplay Walkthrough", "duration": "02:15", "url": "https://www.youtube.com/embed/EDXKdE1kVC8"}
+            {"title": "Full Gameplay Walkthrough", "url": "https://www.youtube.com/embed/EDXKdE1kVC8"}
         ],
         "gallery": [
             "Images/Pixel-Forest-Adventure/Pixed2DMainMenu.png",
@@ -46,10 +49,9 @@
         "cta": {
             "quote": "Building fun, optimized and scalable games that players love.",
             "links": [
-                {"icon": "fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
-                {"icon": "fa-envelope", "iconColor": "#ffffff", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
-                {"icon": "fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"},
-                {"icon": "fa-github", "iconColor": "#ffffff", "text": "GitHub", "url": "#"}
+                {"icon": "fa-brands fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-solid fa-envelope", "iconColor": "#ea4335", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
             ]
         }
     },
@@ -67,15 +69,18 @@
         "platform": "Mobile",
         "engine": "Unity Engine",
         "role": "Game Developer",
+        "heroBtn": {
+            "text": "Play Demo",
+            "url": "https://mrshadowseverz.github.io/Tom-And-Jerry/",
+            "icon": "fa-solid fa-gamepad"
+        },
         "metaInfo": [
             {"label": "Genre", "value": "Endless Runner"},
             {"label": "Core System", "value": "Procedural Spawning"},
             {"label": "Performance", "value": "60 FPS Target"},
             {"label": "Platform", "value": "Android Mobile"}
         ],
-        "liveDemo": "https://mrshadowseverz.github.io/Tom-And-Jerry/",
-        "videoUrl": "https://www.youtube.com/embed/cogOMnyvoHs",
-        "overview": "A mobile endless runner developed in Unity, featuring fast-paced obstacle avoidance, collectible-driven progression, and real-time score tracking within a stylized retro-futuristic world. The project emphasizes performance optimization through object pooling, efficient state management, and mobile-first design principles. Additional features include persistent save systems, audio mixer integration, haptic feedback, responsive UI, and scalable game architecture, delivering a smooth and engaging player experience across a wide range of devices.",
+        "overview": "A mobile endless runner developed in Unity, featuring fast-paced obstacle avoidance, collectible-driven progression, and real-time score tracking within a stylized retro-futuristic world. The project emphasizes performance optimization through object pooling, efficient state management, and mobile-first design principles.",
         "features": [
             {"icon": "fa-solid fa-gamepad", "title": "Responsive Controls", "desc": "Keyboard & Swipe Input"},
             {"icon": "fa-solid fa-bolt", "title": "Dynamic Difficulty", "desc": "Progressive Challenge"},
@@ -95,15 +100,8 @@
             {"challenge": "Managing multiple audio sources and real-time volume control.", "solution": "Integrated Unity Audio Mixer with dynamic groups and exposed settings to the player."},
             {"challenge": "Increasing difficulty without making gameplay unfair.", "solution": "Designed a speed-curve algorithm with balanced obstacle spawn patterns."}
         ],
-        "devProcess": [
-            {"icon": "fa-lightbulb", "color": "c-blue", "title": "Concept", "desc": "Idea, research & planning"},
-            {"icon": "fa-gamepad", "color": "c-purple", "title": "Prototype", "desc": "Core mechanics"},
-            {"icon": "fa-code", "color": "c-green", "title": "Core Systems", "desc": "Movement, spawning"},
-            {"icon": "fa-wand-magic-sparkles", "color": "c-orange", "title": "Polish", "desc": "UI/UX, visual polish"},
-            {"icon": "fa-rocket", "color": "c-pink", "title": "Release", "desc": "Build, testing & publish"}
-        ],
         "videos": [
-            {"title": "Gameplay Demo", "duration": "01:30", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
+            {"title": "Gameplay Demo", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
         ],
         "gallery": [
             "Images/Tom-And-Jerry/TAJ_01.png",
@@ -114,10 +112,9 @@
         "cta": {
             "quote": "Building fun, optimized and scalable games that players love.",
             "links": [
-                {"icon": "fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
-                {"icon": "fa-envelope", "iconColor": "#ffffff", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
-                {"icon": "fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"},
-                {"icon": "fa-github", "iconColor": "#ffffff", "text": "GitHub", "url": "#"}
+                {"icon": "fa-brands fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-solid fa-envelope", "iconColor": "#ea4335", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
             ]
         }
     }
