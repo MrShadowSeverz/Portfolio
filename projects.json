@@ -14,27 +14,22 @@
         "engine": "Unity",
         "role": "Game Developer",
         "liveDemo": "https://example.com/play-pixel-forest",
-        "sourceCode": "https://github.com/yourusername/pixel-forest",
         "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "overview": "Pixel Forest Adventure is a 2D platformer featuring hand-crafted levels, collectibles, enemies, checkpoints, and engaging gameplay mechanics. The game includes a complete UI system, audio management, and smooth scene transitions for a polished player experience.",
+        "overview": "Pixel Forest Adventure is a 2D platformer featuring hand-crafted levels, collectibles, enemies, checkpoints, and engaging gameplay mechanics.",
         "features": [
             {"icon": "fa-solid fa-coins", "title": "Collectibles", "desc": "Coins & Score"},
-            {"icon": "fa-solid fa-lock", "title": "Level System", "desc": "Unlock & Progression"},
+            {"icon": "fa-solid fa-up-long", "title": "Level System", "desc": "Unlock & Progression"},
             {"icon": "fa-solid fa-volume-high", "title": "Audio Settings", "desc": "SFX & Music Control"},
-            {"icon": "fa-solid fa-window-restore", "title": "UI System", "desc": "Menus & Panels"},
-            {"icon": "fa-solid fa-mountain-sun", "title": "Scene Management", "desc": "Smooth Transitions"},
+            {"icon": "fa-solid fa-table-columns", "title": "UI System", "desc": "Menus & Panels"},
+            {"icon": "fa-solid fa-shuffle", "title": "Scene Logic", "desc": "Smooth Transitions"},
             {"icon": "fa-solid fa-floppy-disk", "title": "Save System", "desc": "Player Progress"}
+        ],
+        "videos": [
+            {"title": "Full Gameplay Walkthrough", "duration": "02:15", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"}
         ],
         "gallery": [
             "Images/Pixel-Forest-Adventure/screen1.png",
-            "Images/Pixel-Forest-Adventure/screen2.png",
-            "Images/Pixel-Forest-Adventure/screen3.png",
-            "Images/Pixel-Forest-Adventure/screen4.png"
-        ],
-        "videos": [
-            {"title": "Full Gameplay Walkthrough", "duration": "02:15", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"},
-            {"title": "Boss Fight Showcase", "duration": "01:02", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"},
-            {"title": "Level Design Overview", "duration": "01:30", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"}
+            "Images/Pixel-Forest-Adventure/screen2.png"
         ]
     }
 ]
