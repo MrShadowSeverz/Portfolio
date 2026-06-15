@@ -123,7 +123,7 @@
         }
         .overview-box p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
         
-        /* --- REDESIGNED: JUICY HYPER-CASUAL APP-STYLE ICONS ENGINE --- */
+        /* --- HYPER-CASUAL GRID BOXES --- */
         .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px 20px; display: flex; align-items: center; gap: 18px; backdrop-filter: blur(8px); height: 84px; }
         .feature-card-item:hover { border-color: var(--primary-green); }
@@ -131,12 +131,11 @@
         /* Hypercasual Cute App Squircles */
         .coin-icon-shell { 
             width: 46px; height: 46px; 
-            border-radius: 12px; /* Squircle style curved shape padding */
+            border-radius: 12px; 
             display: flex; align-items: center; justify-content: center; 
             flex-shrink: 0;
             position: relative;
             background: linear-gradient(135deg, var(--casual-top), var(--casual-bottom));
-            /* Soft juicy 3D gel reflections styling */
             box-shadow: 
                 0 4px 10px var(--casual-shadow), 
                 inset 0 3px 5px rgba(255, 255, 255, 0.4),
@@ -146,13 +145,13 @@
         
         .coin-icon-shell i { font-size: 1.15rem; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); position: relative; z-index: 5; }
 
-        /* Juicy Pop Tone Color Configuration mapping per item modules */
-        .card-item-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } /* Sun Gold */
-        .card-item-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } /* Neon Mint */
-        .card-item-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } /* Pop Candy Pink */
-        .card-item-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } /* Soda Blue */
-        .card-item-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }/* Jelly Purple */
-        .card-item-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } /* Lime Smash */
+        /* Color profiles loaded on sequence tags loop */
+        .card-profile-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } 
+        .card-profile-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } 
+        .card-profile-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } 
+        .card-profile-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } 
+        .card-profile-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }
+        .card-profile-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } 
 
         .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; letter-spacing: 0.3px; }
         .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
@@ -177,7 +176,6 @@
 <body>
 
     <div id="dynamic-bg-blur"></div>
-
     <div id="particles-js"></div>
 
     <header>
@@ -226,9 +224,8 @@
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
 
-                    // Loop through data lists parsing hyper casual squircle tokens successfully
                     const featuresMarkup = proj.features ? proj.features.map((f, idx) => `
-                        <div class="feature-card-item card-item-${(idx % 6) + 1}">
+                        <div class="feature-card-item card-profile-${(idx % 6) + 1}">
                             <div class="coin-icon-shell">
                                 <i class="${f.icon}"></i>
                             </div>
@@ -312,7 +309,7 @@
                             <div>
                                 <h3 class="section-headline">Project Overview</h3>
                                 <div class="overview-box">
-                                    <p>${proj.overview || 'Project overview log details parameter records trace summaries.'}</p>
+                                    <p>${proj.overview || 'Project overview details trace summaries.'}</p>
                                 </div>
                             </div>
                             <div>
@@ -328,7 +325,7 @@
                                 <h3>Like this project?</h3>
                                 <p>I'm available for freelance contract work. Let's build something amazing together!</p>
                             </div>
-                            <a href="index.html#contact" class="btn-hire-me">Hire Me <i class="fa-solid fa-paper-plane"></i></a>
+                            <a href="mailto:abhilashsaji.dev@gmail.com?subject=Project Inquiry&body=Hi Abhilash,%0D%0AI would like to discuss a project with you." class="btn-hire-me">Hire Me <i class="fa-solid fa-paper-plane"></i></a>
                         </div>
                     `;
                 })
@@ -359,7 +356,6 @@
             }
         }
 
-        // Sideways sliding bar mechanics configuration
         function slideSteamTray(direction) {
             const track = document.getElementById('steam-slider-track');
             const step = track.clientWidth / 2;
