@@ -12,7 +12,7 @@
         :root {
             --bg-dark: #02080c;
             --bg-card: #041219;
-            --primary-green: #00ff66; /* Exact neon brand green from image */
+            --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #7d9096;
             --border-color: rgba(0, 255, 102, 0.12);
@@ -27,12 +27,6 @@
 
         body {
             background-color: var(--bg-dark);
-            /* Adds your background image and blends it with the dark cyberpunk theme */
-            background-image: linear-gradient(to bottom, rgba(2, 8, 12, 0.85), #02080c), url('Images/bg-main.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -72,7 +66,6 @@
 
         .logo i {
             color: var(--primary-green);
-            filter: drop-shadow(0 0 8px var(--glow-color));
         }
 
         nav ul {
@@ -91,7 +84,6 @@
 
         nav ul li a.active, nav ul li a:hover {
             color: var(--primary-green);
-            text-shadow: 0 0 10px var(--glow-color);
         }
 
         .btn-work {
@@ -103,7 +95,6 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: inset 0 0 4px rgba(0, 255, 102, 0.1);
         }
 
         .btn-work:hover {
@@ -117,13 +108,16 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 140px 8% 80px 8%;
+            justify-content: space-between;
+            padding: 100px 0 0 8%; /* Left padding only, right image covers the edge */
             position: relative;
+            background: #02080c;
         }
 
         .hero-content {
-            max-width: 55%;
+            max-width: 50%;
             z-index: 2;
+            padding-bottom: 40px;
         }
 
         .hero-subtitle {
@@ -168,12 +162,10 @@
             align-items: center;
             gap: 12px;
             font-size: 0.85rem;
-            letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
-            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -186,21 +178,14 @@
             align-items: center;
             gap: 12px;
             font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.02);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Hero Stats Counter Grid */
+        /* Stats Counter Grid */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             border: 1px solid var(--border-color);
-            background: rgba(4, 18, 25, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(4, 18, 25, 0.8);
             border-radius: 6px;
             padding: 22px 15px;
             max-width: 520px;
@@ -235,51 +220,36 @@
             letter-spacing: 1px;
             margin-top: 4px;
             display: block;
-            font-weight: 500;
         }
 
-        /* Right Side Portal Simulation Frame */
-        .hero-graphic {
+        /* --- RIGHT SIDE IMAGE SETUP (As per 2nd Image) --- */
+        .hero-graphic-container {
+            width: 50%;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             position: absolute;
-            right: 8%;
-            top: 50%;
-            transform: translateY(-42%);
-            width: 35%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            right: 0;
+            top: 0;
+            z-index: 1;
         }
 
-        .portal-placeholder {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            border: 6px dashed var(--primary-green);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            line-height: 2.2;
-            color: var(--primary-green);
-            box-shadow: 0 0 40px rgba(0, 255, 102, 0.15), inset 0 0 40px rgba(0, 255, 102, 0.1);
-            animation: rotate 25s linear infinite;
+        .bg-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
         }
-
-        .portal-placeholder div {
-            animation: unrotate 25s linear infinite;
-        }
-
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
-        @keyframes unrotate { 100% { transform: rotate(-360deg); } }
 
         /* --- SECTIONS MAIN STRUCTURE --- */
-        section {
+        section.content-section {
             padding: 60px 8%;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-dark);
         }
 
         .section-header {
@@ -303,10 +273,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            letter-spacing: 1px;
         }
 
-        /* --- FEATURED PROJECTS CARDS GRID --- */
+        /* --- PROJECTS CARDS GRID --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
@@ -321,11 +290,6 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            transition: border-color 0.3s ease;
-        }
-
-        .project-card:hover {
-            border-color: rgba(0, 255, 102, 0.4);
         }
 
         .project-img-wrapper {
@@ -333,20 +297,12 @@
             width: 100%;
             height: 250px;
             background: #061822;
-            overflow: hidden;
         }
 
         .project-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.75;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-
-        .project-card:hover .project-img-wrapper img {
-            transform: scale(1.04);
-            opacity: 0.95;
         }
 
         .project-tag {
@@ -361,7 +317,6 @@
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .project-info {
@@ -376,7 +331,6 @@
             font-size: 1.05rem;
             margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             min-height: 44px;
             display: flex;
             align-items: center;
@@ -394,19 +348,12 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-main);
-            margin-top: auto;
         }
 
-        .project-card:hover .project-link {
-            color: var(--primary-green);
-        }
-
-        /* --- FLEX ROW: TECHNOLOGIES & FREELANCE BOX --- */
+        /* --- FLEX ROW: TECHNOLOGIES & FREELANCE --- */
         .mid-container {
             display: grid;
             grid-template-columns: 1.4fr 1fr;
@@ -424,13 +371,11 @@
             color: var(--primary-green);
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
-            letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 30px;
             font-weight: 700;
         }
 
-        /* Brand Grid Layout */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -442,12 +387,10 @@
             font-size: 2rem;
             color: var(--text-muted);
             margin-bottom: 8px;
-            transition: color 0.3s, filter 0.3s;
         }
 
         .tech-item:hover i {
             color: var(--primary-green);
-            filter: drop-shadow(0 0 8px var(--glow-color));
         }
 
         .tech-item span {
@@ -455,11 +398,8 @@
             font-size: 0.65rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
-        /* Freelance Dynamic Column */
         .freelance-panel {
             display: flex;
             flex-direction: column;
@@ -472,7 +412,6 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 30px;
-            line-height: 1.6;
         }
 
         .btn-hire {
@@ -483,27 +422,11 @@
             border-radius: 4px;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
             width: fit-content;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
         }
 
-        .btn-hire:hover {
-            box-shadow: 0 0 20px var(--glow-color);
-        }
-
-        .freelance-bg-icon {
-            position: absolute;
-            right: -15px;
-            bottom: -20px;
-            font-size: 7.5rem;
-            color: rgba(0, 255, 102, 0.025);
-            pointer-events: none;
-        }
-
-        /* --- WHAT I DO SERVICES CARDS --- */
+        /* --- SERVICES (WHAT I DO) --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -515,12 +438,6 @@
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 6px;
             padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            border-color: var(--border-color);
-            background: var(--bg-card);
         }
 
         .service-header {
@@ -539,17 +456,15 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             font-weight: 700;
         }
 
         .service-desc {
             color: var(--text-muted);
             font-size: 0.8rem;
-            line-height: 1.6;
         }
 
-        /* --- FOOTER MAIN --- */
+        /* --- FOOTER --- */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             padding: 35px 8%;
@@ -558,21 +473,19 @@
             align-items: center;
             font-size: 0.8rem;
             color: var(--text-muted);
-            background: rgba(2, 8, 12, 0.5);
+            background: #02080c;
         }
 
-        /* --- RESPONSIVE ADJUSTMENTS --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 968px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+            .hero { flex-direction: column; text-align: center; padding: 140px 4% 40px 4%; }
             .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
             .hero-buttons { justify-content: center; }
-            .stats-container { margin: 0 auto 40px auto; }
-            .hero-graphic { position: relative; width: 100%; right: unset; top: unset; transform: unset; margin-top: 50px; }
+            .stats-container { margin: 0 auto; }
+            .hero-graphic-container { position: relative; width: 100%; height: 50vh; order: -1; }
             .mid-container { grid-template-columns: 1fr; }
-            .tech-grid { grid-template-columns: repeat(4, 1fr); }
             header { padding: 20px 4%; }
-            section { padding: 50px 4%; }
-            footer { padding: 30px 4%; flex-direction: column; gap: 15px; }
+            footer { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -631,16 +544,12 @@
             </div>
         </div>
 
-        <div class="hero-graphic">
-            <div class="portal-placeholder">
-                <div>
-                    BUILD<br>PLAY<br>EXPERIENCE<br>REPEAT
-                </div>
-            </div>
+        <div class="hero-graphic-container">
+            <img src="Images/bg-main.png" alt="Portal Concept Art" class="bg-main-image">
         </div>
     </section>
 
-    <section id="projects">
+    <section class="content-section" id="projects">
         <div class="section-header">
             <h2 class="section-title">Featured Projects</h2>
             <a href="#" class="view-all">VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right"></i></a>
@@ -709,7 +618,7 @@
         </div>
     </section>
 
-    <section style="padding-top: 15px; padding-bottom: 35px;">
+    <section class="content-section" style="padding-top: 15px; padding-bottom: 35px;">
         <div class="mid-container">
             <div class="panel">
                 <div class="panel-title">Technologies I Use</div>
@@ -731,12 +640,11 @@
                     <p class="freelance-desc">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
                 </div>
                 <a href="#" class="btn-hire">HIRE ME <i class="fa-solid fa-paper-plane"></i></a>
-                <i class="fa-solid fa-gamepad freelance-bg-icon"></i>
             </div>
         </div>
     </section>
 
-    <section id="services" style="padding-top: 15px; padding-bottom: 80px;">
+    <section class="content-section" id="services" style="padding-top: 15px; padding-bottom: 80px;">
         <div class="section-header">
             <h2 class="section-title" style="font-size: 1.25rem;">What I Do</h2>
         </div>
