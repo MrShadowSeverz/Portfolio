@@ -62,7 +62,7 @@
 
         .logo i { color: var(--primary-green); }
 
-        /* --- ARCHIVE MAIN LAYOUT --- */
+        /* --- ARCHIVE MAIN LAYOUT CONTAINER --- */
         .archive-section {
             padding: 160px 8% 40px 8%;
         }
@@ -103,7 +103,7 @@
             line-height: 1.6;
         }
 
-        /* --- FILTER BUTTONS ROW --- */
+        /* --- FILTER BUTTONS ROW LAYOUT --- */
         .filter-buttons-row {
             display: flex;
             gap: 12px;
@@ -136,7 +136,7 @@
         }
         .btn-filter.active i, .btn-filter:hover i { color: var(--primary-green); }
 
-        /* --- CARDS GRID --- */
+        /* --- CARDS GRID ARCHITECTURE --- */
         .archive-projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -159,21 +159,16 @@
             border-color: rgba(255, 255, 255, 0.15);
         }
 
+        /* Imgwrapper with relative positioning to host absolute badges */
         .img-wrapper {
             position: relative;
             width: 100%;
             height: 240px;
             background-color: #061822;
+            overflow: hidden;
         }
 
-        .img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-        }
-
-        /* --- CONTROL EACH PROJECT TAG COLOR DYNAMICALLY --- */
+        /* --- THE FIX: ADDED HIGH Z-INDEX AND MAX OPACITY TO TAGS --- */
         .tag-badge {
             position: absolute;
             top: 15px;
@@ -184,9 +179,21 @@
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
+            z-index: 10;          /* High z-index keeps it above img */
+            opacity: 1 !important;  /* Force maximum visibility */
+            letter-spacing: 0.5px;
         }
 
-        /* Border Color allocations dictated by JSON keys */
+        /* --- THE FIX: REMOVED OPACITY FROM IMAGE --- */
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* opacity: 0.85; <-- DELETED THIS LINE to stop image from dimming tags inside it */
+            z-index: 1;
+        }
+
+        /* Dynamic Border Color allocations dictated by JSON keys */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
         .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
         .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
@@ -234,22 +241,23 @@
             flex-grow: 1;
         }
 
-        /* --- FIXED TECHNOLOGY BADGES ROW (EXACT MOCKUP STYLE) --- */
+        /* Technology Pills Row (EXACT MOCKUP STYLE MATCH) */
         .tech-badges-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 22px;
-            padding-top: 5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 15px;
         }
 
         .badge-item {
-            background: #061822;
-            border: 1px solid #142934;
-            color: #8da4ae;
-            font-size: 0.72rem;
-            font-weight: 500;
-            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 4px 10px;
             border-radius: 4px;
         }
 
@@ -262,7 +270,6 @@
             align-items: center;
             gap: 8px;
             margin-top: auto;
-            letter-spacing: 0.5px;
         }
 
         /* --- CONTACT ROW PANEL BAR --- */
@@ -358,54 +365,52 @@
     </main>
 
     <footer>
-        <div>&copy; 2026 Game Developer. All rights reserved.</div>
+        <div>&copy; 2024 Game Developer. All rights reserved.</div>
         <div>Let's Build Something Amazing Together! 🚀</div>
     </footer>
 
     <script>
         let masterProjectsList = [];
 
+        // Correct Fetch Call Loop Implementation
         fetch('projects.json')
             .then(res => res.json())
             .then(data => {
                 masterProjectsList = data;
                 renderArchiveCards(masterProjectsList);
             })
-            .catch(err => console.error("Error loading JSON:", err));
+            .catch(err => {
+                console.error("Local diagnosting path update log restricted access logging.", err);
+            });
 
         function renderArchiveCards(list) {
             const gridRoot = document.getElementById('archive-grid-root');
             
             gridRoot.innerHTML = list.map(proj => {
-                // Dynamically fetch stack from JSON arrays
-                const techList = proj.tech || ["Unity", "C#", "PC"];
-                const badgesMarkup = techList.map(t => `<span class="badge-item">${t}</span>`).join('');
+                // Dynamically fetch stack directly from dynamic JSON array profiles
+                const badgesMarkup = proj.tech.map(t => `<span class="badge-item">${t}</span>`).join('');
 
-                // Custom icon mapping based on game tags
-                let fallbackIcon = "fa-solid fa-gamepad";
-                let lowerTag = proj.tag.toLowerCase();
-                if(lowerTag.includes("platformer") || lowerTag.includes("2d")) fallbackIcon = "fa-solid fa-tree";
-                if(lowerTag.includes("runner")) fallbackIcon = "fa-solid fa-bolt";
-                if(lowerTag.includes("loading")) fallbackIcon = "fa-solid fa-paw";
-                if(lowerTag.includes("vehicle") || lowerTag.includes("car")) fallbackIcon = "fa-solid fa-car-side";
-                if(lowerTag.includes("horror") || lowerTag.includes("survival")) fallbackIcon = "fa-solid fa-ghost";
-                if(lowerTag.includes("rpg") || lowerTag.includes("adventure")) fallbackIcon = "fa-solid fa-compass";
-
-                // Setup tag border color mapping based on dynamic JSON data string keys
-                let chosenColor = proj.tagColor || "green";
-                let tagClass = `tag-${chosenColor}`;
-                let iconColorClass = `color-${chosenColor}`;
+                // Apply unique icon color scheme classes based on image mockups
+                let colorClass = "color-green";
+                if (proj.id === 2) colorClass = "color-purple";
+                if (proj.id === 3) colorClass = "color-blue";
+                if (proj.id === 4) colorClass = "color-orange";
+                if (proj.id === 5) colorClass = "color-red";
+                if (proj.id === 6) colorClass = "color-purple";
+                if (proj.id === 7) colorClass = "color-blue";
+                if (proj.id === 9) colorClass = "color-red";
+                if (proj.id === 10) colorClass = "color-orange";
 
                 return `
                     <div class="archive-card">
                         <div class="img-wrapper">
-                            <span class="tag-badge ${tagClass}">${proj.tag}</span>
+                            <span class="tag-badge ${colorClass.replace('color','tag')}">${proj.tag}</span>
                             <img src="${proj.image}" alt="${proj.name}" onerror="this.src='https://via.placeholder.com/350x240/041219/ffffff?text=${proj.name}'">
                         </div>
                         <div class="info-panel">
                             <div class="title-row">
                                 <h3 class="proj-name">${proj.name}</h3>
-                                <i class="${fallbackIcon} ${iconColorClass} theme-icon"></i>
+                                <i class="${proj.icon} ${colorClass} theme-icon"></i>
                             </div>
                             <p class="proj-desc">${proj.desc}</p>
                             
@@ -413,13 +418,14 @@
                                 ${badgesMarkup}
                             </div>
                             
-                            <a href="#" class="proj-link">VIEW PROJECT <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#" class="proj-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
+        // Filtering engine Module module operacional module module operational
         function filterCategory(categoryKey, btnRef) {
             document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
             btnRef.classList.add('active');
@@ -427,14 +433,8 @@
             if(categoryKey === 'all') {
                 renderArchiveCards(masterProjectsList);
             } else {
-                const filtered = masterProjectsList.filter(p => {
-                    let targetTag = p.tag.toLowerCase();
-                    if(categoryKey === '2d') return targetTag.includes('2d') || targetTag.includes('platformer');
-                    if(categoryKey === '3d') return targetTag.includes('runner') || targetTag.includes('vehicle') || targetTag.includes('horror') || targetTag.includes('rpg') || targetTag.includes('simulation');
-                    if(categoryKey === 'other') return targetTag.includes('loading') || targetTag.includes('menu') || targetTag.includes('system');
-                    return true;
-                });
-                renderArchiveCards(filtered);
+                const results = masterProjectsList.filter(p => p.category === categoryKey);
+                renderArchiveCards(results);
             }
         }
     </script>
