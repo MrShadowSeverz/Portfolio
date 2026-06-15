@@ -18,103 +18,358 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 80px; min-height: 100vh; }
         
-        /* CSS for the new CyanBlue tag */
-        .tag-green { border: 1px solid #00ff66; color: #00ff66; }
-        .tag-cyanBlue { border: 1px solid #00d4ff; color: #00d4ff; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+            padding-top: 80px;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-        /* Rest of your CSS remains the same as in the last update */
-        #dynamic-bg-blur { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: blur(15px) brightness(0.25); transform: scale(1.05); z-index: -2; }
+        /* --- BACKGROUND MANAGEMENT --- */
+        #dynamic-bg-blur {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(15px) brightness(0.25);
+            transform: scale(1.05);
+            z-index: -2;
+            transition: background-image 0.5s ease;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%; height: 100vh;
+            top: 0; left: 0; z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVIGATION HEADER --- */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 6%; background: rgba(2, 8, 12, 0.85); backdrop-filter: blur(16px);
+            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1.5px; }
+        .logo i { color: var(--primary-green); }
+        
+        .btn-go-back-nav {
+            border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green);
+            padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+        }
+        .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); }
+
         .details-container { max-width: 1400px; margin: 0 auto; padding: 20px 6%; position: relative; z-index: 5; }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; }
-        .brief-info-box { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); }
-        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: #ffffff; margin-bottom: 15px; }
-        .meta-dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
-        .meta-box { background: rgba(2, 8, 12, 0.6); padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
-        .btn-live { background: var(--primary-green); color: var(--bg-dark); padding: 14px; font-weight: 700; text-align: center; display: block; border-radius: 4px; }
         
-        .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; background: var(--bg-card); padding: 15px; border-radius: 8px; }
-        .video-player-frame { width: 100%; height: 360px; background: #000; }
-        .steam-thumbnail-slider { display: flex; gap: 10px; overflow-x: hidden; scroll-behavior: smooth; }
-        .steam-thumb { flex: 0 0 calc(20% - 8px); height: 65px; border: 2px solid rgba(255,255,255,0.1); cursor: pointer; }
-        .steam-thumb.active { border-color: var(--primary-green); }
-        .slider-arrow { cursor: pointer; padding: 0 10px; }
+        /* --- MAIN HERO GRID --- */
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; align-items: start; }
+        
+        .brief-info-box { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); }
+        .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; display: block; border: 1px solid var(--primary-green); color: var(--primary-green); }
+        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; }
+        
+        .game-brief-section { display: flex; gap: 15px; align-items: start; margin-bottom: 20px; }
+        .brief-thumb-wrapper { width: 140px; height: 90px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+        .brief-thumb-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .brief-text-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
 
-        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; }
-        .overview-box { background: var(--bg-card); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); }
-        .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); padding: 15px; display: flex; align-items: center; gap: 18px; }
+        .meta-dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        .meta-box { border: 1px solid rgba(255, 255, 255, 0.03); background: rgba(2, 8, 12, 0.6); padding: 10px; border-radius: 4px; }
+        .meta-box span { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 2px; }
+        .meta-box p { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; color: #ffffff; }
         
-        /* Hypercasual Icons Style */
-        .coin-icon-shell { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #00ffbc, #00b395); }
-        .coin-icon-shell i { color: #fff; font-size: 1.2rem; }
-        .hire-cta-panel { background: var(--bg-card); padding: 25px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-hire-me { background: var(--primary-green); color: var(--bg-dark); padding: 12px 24px; font-weight: 700; border-radius: 4px; }
+        .btn-live { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 24px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; background: var(--primary-green); color: var(--bg-dark); }
+        .btn-live:hover { box-shadow: 0 0 20px var(--primary-green); transform: translateY(-1px); }
+
+        /* --- STEAM MEDIA SLIDER --- */
+        .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; background: var(--bg-card); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); }
+        .video-player-frame { width: 100%; height: 360px; border-radius: 6px; background: #000; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
+
+        .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 35px; }
+        .steam-thumbnail-slider { display: flex; gap: 10px; overflow-x: hidden; scroll-behavior: smooth; width: 100%; }
+        
+        .steam-thumb { flex: 0 0 calc(20% - 8px); height: 65px; border: 2px solid rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; background: #000; opacity: 0.6; }
+        .steam-thumb:hover, .steam-thumb.active { opacity: 1; border-color: var(--primary-green); }
+        .steam-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1.1rem; }
+
+        .slider-arrow { background: rgba(2, 8, 12, 0.9); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; position: absolute; top: 0; bottom: 0; width: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 0.8rem; height: 65px; border-radius: 4px; }
+        .slider-arrow:hover { color: var(--primary-green); border-color: var(--primary-green); }
+        .arrow-left { left: 0; }
+        .arrow-right { right: 0; }
+
+        /* --- LOWER SECTIONS CONTENT --- */
+        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; align-items: stretch; }
+        
+        .section-headline { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 18px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
+        .section-headline::after { content: ''; height: 2px; background: linear-gradient(90deg, var(--primary-green), transparent); flex-grow: 1; margin-left: 10px; }
+        
+        .overview-box { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 25px; 
+            backdrop-filter: blur(8px);
+            height: calc(100% - 36px);
+            display: flex;
+            align-items: flex-start;
+        }
+        .overview-box p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+        
+        /* --- REDESIGNED: JUICY HYPER-CASUAL APP-STYLE ICONS ENGINE --- */
+        .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px 20px; display: flex; align-items: center; gap: 18px; backdrop-filter: blur(8px); height: 84px; }
+        .feature-card-item:hover { border-color: var(--primary-green); }
+        
+        /* Hypercasual Cute App Squircles */
+        .coin-icon-shell { 
+            width: 46px; height: 46px; 
+            border-radius: 12px; /* Squircle style curved shape padding */
+            display: flex; align-items: center; justify-content: center; 
+            flex-shrink: 0;
+            position: relative;
+            background: linear-gradient(135deg, var(--casual-top), var(--casual-bottom));
+            /* Soft juicy 3D gel reflections styling */
+            box-shadow: 
+                0 4px 10px var(--casual-shadow), 
+                inset 0 3px 5px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .coin-icon-shell i { font-size: 1.15rem; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); position: relative; z-index: 5; }
+
+        /* Juicy Pop Tone Color Configuration mapping per item modules */
+        .card-item-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } /* Sun Gold */
+        .card-item-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } /* Neon Mint */
+        .card-item-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } /* Pop Candy Pink */
+        .card-item-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } /* Soda Blue */
+        .card-item-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }/* Jelly Purple */
+        .card-item-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } /* Lime Smash */
+
+        .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; letter-spacing: 0.3px; }
+        .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
+
+        /* --- FOOTER CTA --- */
+        .hire-cta-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(8px); margin-bottom: 20px; margin-top: 10px; }
+        .hire-left h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 4px; }
+        .hire-left p { color: var(--text-muted); font-size: 0.82rem; }
+        .btn-hire-me { background: var(--primary-green); color: var(--bg-dark); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700; padding: 12px 24px; border-radius: 4px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+
+        @media (max-width: 968px) {
+            .hero-grid, .overview-row { grid-template-columns: 1fr; }
+            .video-player-frame { height: 260px; }
+            .slider-relative-tray { padding: 0; }
+            .slider-arrow { display: none; }
+            .steam-thumb { flex: 0 0 calc(33.33% - 7px); }
+            .features-sub-grid { grid-template-columns: 1fr; }
+            .overview-box { height: auto; }
+        }
     </style>
 </head>
 <body>
+
     <div id="dynamic-bg-blur"></div>
-    <main class="details-container" id="details-root"></main>
 
+    <div id="particles-js"></div>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-gamepad"></i> ABHILASH SAJI</div>
+        <a href="projects.html" class="btn-go-back-nav">Back to Projects</a>
+    </header>
+
+    <main class="details-container" id="details-root">
+        <div style="color: var(--text-main); font-size: 0.9rem; text-align: center; padding: 120px 0; font-family: 'Orbitron', sans-serif;">Loading project configurations...</div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        const projectId = parseInt(new URLSearchParams(window.location.search).get('id'));
-        fetch('projects.json')
-            .then(res => res.json())
-            .then(data => {
-                const proj = data.find(p => p.id === projectId);
-                document.getElementById('dynamic-bg-blur').style.backgroundImage = `url('${proj.image}')`;
-                
-                const featuresMarkup = proj.features.map(f => `
-                    <div class="feature-card-item">
-                        <div class="coin-icon-shell"><i class="${f.icon}"></i></div>
-                        <div><h4>${f.title}</h4><p>${f.desc}</p></div>
-                    </div>
-                `).join('');
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 55, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ff66" }, 
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.2, "sync": false } },
+                "size": { "value": 3.5, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false } },
+                "line_linked": { "enable": false }, 
+                "move": { "enable": true, "speed": 2.2, "direction": "top-right", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+            "retina_detect": true
+        });
 
-                let slider = '';
-                proj.videos.forEach((v, i) => slider += `<div class="steam-thumb ${i===0?'active':''}" data-index="${i}" onclick="switchMedia('video', '${v.url}', this)"><img src="${proj.image}"></div>`);
-                proj.gallery.forEach((img, i) => slider += `<div class="steam-thumb" data-index="${proj.videos.length + i}" onclick="switchMedia('image', '${img}', this)"><img src="${img}"></div>`);
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = parseInt(urlParams.get('id'));
 
-                document.getElementById('details-root').innerHTML = `
-                    <div class="hero-grid">
-                        <div class="brief-info-box">
-                            <span class="proj-tag-badge tag-${proj.tagColor}">${proj.tag}</span>
-                            <h1 class="proj-title">${proj.name}</h1>
-                            <div class="game-brief-section"><div class="brief-thumb-wrapper"><img src="${proj.image}"></div><p class="brief-text-desc">${proj.desc}</p></div>
-                            <div class="meta-dashboard-grid">
-                                <div class="meta-box"><span>Year</span><p>${proj.year}</p></div>
-                                <div class="meta-box"><span>Platform</span><p>${proj.platform}</p></div>
+        if (!projectId) {
+            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project parameter identified.</div>`;
+        } else {
+            fetch('projects.json')
+                .then(res => res.json())
+                .then(data => {
+                    const proj = data.find(p => p.id === projectId);
+
+                    if (!proj) {
+                        document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">Project layout missing in dataset.</div>`;
+                        return;
+                    }
+
+                    document.getElementById('dynamic-bg-blur').style.backgroundImage = `url('${proj.image}')`;
+
+                    let chosenColor = proj.tagColor || "green";
+                    let tagClass = `tag-${chosenColor}`;
+
+                    // Loop through data lists parsing hyper casual squircle tokens successfully
+                    const featuresMarkup = proj.features ? proj.features.map((f, idx) => `
+                        <div class="feature-card-item card-item-${(idx % 6) + 1}">
+                            <div class="coin-icon-shell">
+                                <i class="${f.icon}"></i>
                             </div>
-                            <a href="${proj.liveDemo}" target="_blank" class="btn-live">PLAY BUILD</a>
-                        </div>
-                        <div class="steam-media-wrapper">
-                            <div class="video-player-frame" id="viewport"><iframe src="${proj.videoUrl}" allowfullscreen></iframe></div>
-                            <div class="slider-relative-tray">
-                                <button class="slider-arrow" onclick="slide(-200)"><i class="fa-solid fa-chevron-left"></i></button>
-                                <div class="steam-thumbnail-slider" id="track">${slider}</div>
-                                <button class="slider-arrow" onclick="slide(200)"><i class="fa-solid fa-chevron-right"></i></button>
+                            <div>
+                                <h4>${f.title}</h4>
+                                <p>${f.desc}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="overview-row">
-                        <div class="overview-box"><h3 class="section-headline">Overview</h3><p>${proj.overview}</p></div>
-                        <div class="features-sub-grid">${featuresMarkup}</div>
-                    </div>
-                    <div class="hire-cta-panel">
-                        <div><h3>Like this project?</h3><p>I'm available for freelance work.</p></div>
-                        <a href="mailto:abhilashsaji.dev@gmail.com?subject=Project Inquiry" class="btn-hire-me">HIRE ME</a>
-                    </div>
-                `;
-            });
+                    `).join('') : '';
 
-        function switchMedia(type, path, el) {
-            document.querySelectorAll('.steam-thumb').forEach(e => e.classList.remove('active'));
-            el.classList.add('active');
-            const v = document.getElementById('viewport');
-            v.innerHTML = type === 'video' ? `<iframe src="${path}"></iframe>` : `<img src="${path}">`;
+                    let sliderThumbsMarkup = '';
+                    let thumbIndex = 0;
+                    
+                    if (proj.videos) {
+                        proj.videos.forEach((v) => {
+                            sliderThumbsMarkup += `
+                                <div class="steam-thumb ${thumbIndex === 0 ? 'active' : ''}" data-index="${thumbIndex}" onclick="switchSteamMedia('video', '${v.url}', this)">
+                                    <div class="steam-thumb-overlay-icon"><i class="fa-solid fa-play"></i></div>
+                                    <img src="${proj.image}" alt="Media player preview clip">
+                                </div>
+                            `;
+                            thumbIndex++;
+                        });
+                    }
+
+                    if (proj.gallery) {
+                        proj.gallery.forEach(img => {
+                            sliderThumbsMarkup += `
+                                <div class="steam-thumb" data-index="${thumbIndex}" onclick="switchSteamMedia('image', '${img}', this)">
+                                    <img src="${img}" alt="Gameplay action scene shot">
+                                </div>
+                            `;
+                            thumbIndex++;
+                        });
+                    }
+
+                    document.getElementById('details-root').innerHTML = `
+                        
+                        <div class="hero-grid">
+                            <div class="left-meta-panel">
+                                <span class="proj-tag-badge ${tagClass}">${proj.tag}</span>
+                                <h1 class="proj-title">${proj.name}</h1>
+                                
+                                <div class="game-brief-section">
+                                    <div class="brief-thumb-wrapper">
+                                        <img src="${proj.image}" alt="Cover image wrapper" onerror="this.src='https://via.placeholder.com/140x90/041219/ffffff?text=Game'">
+                                    </div>
+                                    <p class="brief-text-desc">${proj.desc}</p>
+                                </div>
+                                
+                                <div class="meta-dashboard-grid">
+                                    <div class="meta-box"><span>Year</span><p>${proj.year || '2026'}</p></div>
+                                    <div class="meta-box"><span>Platform</span><p>${proj.platform || 'PC'}</p></div>
+                                    <div class="meta-box"><span>Engine</span><p>${proj.engine || 'Unity'}</p></div>
+                                    <div class="meta-box"><span>Role</span><p>${proj.role || 'Developer'}</p></div>
+                                </div>
+                                
+                                <div class="action-buttons">
+                                    <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-live"><i class="fa-solid fa-circle-play"></i> Play Build</a>
+                                </div>
+                            </div>
+                            
+                            <div class="steam-media-wrapper">
+                                <div class="video-player-frame" id="steam-main-viewport">
+                                    <iframe id="steam-iframe-target" src="${proj.videoUrl || ''}" allowfullscreen></iframe>
+                                </div>
+                                
+                                <div class="slider-relative-tray">
+                                    <button class="slider-arrow arrow-left" onclick="slideSteamTray('left')"><i class="fa-solid fa-chevron-left"></i></button>
+                                    
+                                    <div class="steam-thumbnail-slider" id="steam-slider-track">
+                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media arrays are unallocated.</div>'}
+                                    </div>
+                                    
+                                    <button class="slider-arrow arrow-right" onclick="slideSteamTray('right')"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overview-row">
+                            <div>
+                                <h3 class="section-headline">Project Overview</h3>
+                                <div class="overview-box">
+                                    <p>${proj.overview || 'Project overview log details parameter records trace summaries.'}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="section-headline">Key Features</h3>
+                                <div class="features-sub-grid">
+                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No feature blocks loaded.</div>'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hire-cta-panel">
+                            <div class="hire-left">
+                                <h3>Like this project?</h3>
+                                <p>I'm available for freelance contract work. Let's build something amazing together!</p>
+                            </div>
+                            <a href="index.html#contact" class="btn-hire-me">Hire Me <i class="fa-solid fa-paper-plane"></i></a>
+                        </div>
+                    `;
+                })
+                .catch(err => console.error("Error launching dynamic system components layouts:", err));
         }
-        function slide(amt) { document.getElementById('track').scrollLeft += amt; }
+
+        function switchSteamMedia(type, path, elementRef) {
+            document.querySelectorAll('.steam-thumb').forEach(el => el.classList.remove('active'));
+            elementRef.classList.add('active');
+
+            const viewport = document.getElementById('steam-main-viewport');
+
+            if (type === 'video') {
+                viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
+            } else if (type === 'image') {
+                viewport.innerHTML = `<img src="${path}" alt="Active asset gameplay frame view window" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
+            }
+
+            const track = document.getElementById('steam-slider-track');
+            const currentIndex = parseInt(elementRef.getAttribute('data-index'));
+            const totalThumbs = document.querySelectorAll('.steam-thumb').length;
+            const thumbWidth = elementRef.offsetWidth + 10;
+            
+            if (currentIndex >= 4 && currentIndex < totalThumbs - 1) {
+                track.scrollLeft = (currentIndex - 3) * thumbWidth;
+            } else if (currentIndex < 4) {
+                track.scrollLeft = 0;
+            }
+        }
+
+        // Sideways sliding bar mechanics configuration
+        function slideSteamTray(direction) {
+            const track = document.getElementById('steam-slider-track');
+            const step = track.clientWidth / 2;
+            
+            if (direction === 'left') {
+                track.scrollLeft -= step;
+            } else {
+                track.scrollLeft += step;
+            }
+        }
     </script>
 </body>
 </html>
