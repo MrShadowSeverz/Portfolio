@@ -9,13 +9,13 @@
     
     <style>
         :root {
+            /* --- RESTORED ORIGINAL COLOR THEME --- */
             --bg-dark: #02080c;
-            --bg-card: rgba(4, 18, 25, 0.85); /* Slightly darker for better contrast */
-            --primary-green: #00ff66; 
+            --bg-card: rgba(4, 18, 25, 0.8); /* Original transparent black */
+            --primary-green: #00ff66; /* Original Green */
             --text-main: #ffffff;
             --text-muted: #8da4ae;
-            --border-color: rgba(255, 255, 255, 0.08); /* Lighter border for bento boxes */
-            --border-hover: rgba(0, 255, 102, 0.3);
+            --border-color: rgba(0, 255, 102, 0.15); /* Original Green Border */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,7 +32,7 @@
         
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-        /* --- BACKGROUND MANAGEMENT (UNCHANGED) --- */
+        /* --- BACKGROUND MANAGEMENT --- */
         #dynamic-bg-blur {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -84,15 +84,18 @@
         .brief-text-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; max-width: 90%; }
         
         .hero-action-row { display: flex; gap: 15px; margin-bottom: 40px; }
-        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: #33a6ff; color: #fff; border: none; cursor: pointer; transition: 0.3s; }
-        .btn-main-play:hover { box-shadow: 0 0 20px rgba(51, 166, 255, 0.4); transform: translateY(-2px); }
+        
+        /* RESTORED GREEN BUTTON */
+        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; }
+        .btn-main-play:hover { box-shadow: 0 0 20px rgba(0, 255, 102, 0.4); transform: translateY(-2px); }
+        
         .btn-outline { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--text-main); color: var(--text-main); cursor: pointer; transition: 0.3s; }
         .btn-outline:hover { background: rgba(255,255,255,0.05); }
 
         /* Mini Features Row in Hero */
         .mini-features-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .mini-feature-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
-        .mini-feature-box i { font-size: 1.2rem; color: #33a6ff; }
+        .mini-feature-box { background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
+        .mini-feature-box i { font-size: 1.2rem; color: var(--primary-green); }
         .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.2; }
 
         /* STEAM MEDIA SLIDER (Right Side) */
@@ -103,26 +106,26 @@
         .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 35px; }
         .steam-thumbnail-slider { display: flex; gap: 12px; overflow-x: hidden; scroll-behavior: smooth; width: 100%; }
         .steam-thumb { flex: 0 0 calc(25% - 9px); height: 75px; border: 2px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; background: #000; opacity: 0.5; transition: 0.3s; }
-        .steam-thumb:hover, .steam-thumb.active { opacity: 1; border-color: #33a6ff; }
+        .steam-thumb:hover, .steam-thumb.active { opacity: 1; border-color: var(--primary-green); }
         .steam-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #33a6ff; font-size: 1.2rem; }
+        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1.2rem; }
         .slider-arrow { background: rgba(2, 8, 12, 0.9); border: 1px solid var(--border-color); color: #ffffff; position: absolute; top: 0; bottom: 0; width: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 0.8rem; height: 75px; border-radius: 8px; }
-        .slider-arrow:hover { color: #33a6ff; border-color: #33a6ff; }
+        .slider-arrow:hover { color: var(--primary-green); border-color: var(--primary-green); }
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
         /* --- BENTO CONTENT SECTIONS --- */
         .bento-main-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 25px; align-items: start; margin-bottom: 25px;}
         
-        .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(10px); }
-        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #33a6ff; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; }
+        .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(8px); }
+        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
         
         .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px; }
         .bento-card p strong { color: var(--text-main); }
 
         /* Technical Highlights Grid */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .highlight-item { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.01); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
+        .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
         .highlight-item i { font-size: 1.5rem; color: #bb55ff; }
         .highlight-item h5 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
         .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; }
@@ -134,22 +137,22 @@
 
         /* Challenges List (Static Layout for Demo) */
         .challenges-list { display: flex; flex-direction: column; gap: 10px; }
-        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); }
+        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 102, 0.1); }
         .challenge-row p { margin: 0; font-size: 0.8rem; }
         .c-arrow { color: var(--text-muted); font-size: 0.8rem; }
 
         /* Metrics Grid */
         .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .metric-box { text-align: center; border-right: 1px solid rgba(255,255,255,0.05); }
+        .metric-box { text-align: center; border-right: 1px solid rgba(0, 255, 102, 0.15); }
         .metric-box:last-child { border: none; }
         .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 5px; }
-        .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); }
 
         /* Development Process (Static Layout) */
         .dev-process-row { display: flex; justify-content: space-between; position: relative; margin-top: 15px; padding-top: 20px; }
-        .dev-process-row::before { content: ''; position: absolute; top: 38px; left: 5%; right: 5%; height: 1px; border-top: 1px dashed rgba(255,255,255,0.2); z-index: 0; }
+        .dev-process-row::before { content: ''; position: absolute; top: 38px; left: 5%; right: 5%; height: 1px; border-top: 1px dashed rgba(0, 255, 102, 0.3); z-index: 0; }
         .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 1; gap: 10px; width: 15%; }
-        .step-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-card); border: 2px solid #00d4ff; display: flex; align-items: center; justify-content: center; color: #00d4ff; }
+        .step-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-dark); border: 2px solid var(--primary-green); display: flex; align-items: center; justify-content: center; color: var(--primary-green); }
         .process-step h5 { font-size: 0.75rem; color: #fff; margin:0; }
         .process-step p { font-size: 0.65rem; margin:0; line-height: 1.2; }
 
@@ -162,16 +165,16 @@
         .c-red { color: #ff3344 !important; border-color: #ff3344 !important; }
 
         /* Bottom CTA Bar */
-        .bottom-cta-bar { background: linear-gradient(90deg, rgba(2,8,12,1) 0%, rgba(4,18,25,1) 100%); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
+        .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
         .cta-quote { display: flex; gap: 15px; align-items: center; }
-        .cta-quote i { font-size: 2rem; color: #bb55ff; }
+        .cta-quote i { font-size: 2rem; color: var(--primary-green); }
         .cta-quote p { font-size: 1.1rem; color: #fff; font-style: italic; max-width: 400px; line-height: 1.4; margin:0; }
         
         .cta-links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
         .cta-links span { font-size: 0.85rem; color: var(--text-muted); }
         .link-row { display: flex; gap: 15px; }
-        .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
-        .link-row a:hover { background: rgba(255,255,255,0.1); }
+        .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+        .link-row a:hover { background: rgba(0,255,102,0.1); border-color: var(--primary-green); color: var(--primary-green); }
 
         /* Tag Colors Updated */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
@@ -420,7 +423,6 @@
                                     <a href="https://wa.me/917511104768" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> WhatsApp</a>
                                     <a href="mailto:abhilashsaji.dev@gmail.com"><i class="fa-regular fa-envelope" style="color:#fff"></i> Email</a>
                                     <a href="https://www.linkedin.com/in/abhilashsaji" target="_blank"><i class="fa-brands fa-linkedin" style="color:#0077B5"></i> LinkedIn</a>
-                                    <a href="#" target="_blank"><i class="fa-brands fa-github" style="color:#fff"></i> GitHub</a>
                                 </div>
                             </div>
                         </div>
