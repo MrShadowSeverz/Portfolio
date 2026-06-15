@@ -42,7 +42,16 @@
             "Images/Pixel-Forest-Adventure/Pixed2D_03.png",
             "Images/Pixel-Forest-Adventure/Pixed2D_04.png",
             "Images/Pixel-Forest-Adventure/Pixed2DYouWin.png"
-        ]
+        ],
+        "cta": {
+            "quote": "Building fun, optimized and scalable games that players love.",
+            "links": [
+                {"icon": "fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-envelope", "iconColor": "#ffffff", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"},
+                {"icon": "fa-github", "iconColor": "#ffffff", "text": "GitHub", "url": "#"}
+            ]
+        }
     },
     {
         "id": 2,
@@ -75,6 +84,24 @@
             {"icon": "fa-solid fa-music", "title": "Audio System", "desc": "Dynamic Sound Mixing"},
             {"icon": "fa-solid fa-mobile-screen", "title": "Mobile Optimized", "desc": "Smooth Performance"}
         ],
+        "techHighlights": [
+            {"icon": "fa-cubes", "color": "c-purple", "title": "Modular Architecture", "desc": "Singleton-based systems for scalable management."},
+            {"icon": "fa-database", "color": "c-green", "title": "Object Pooling", "desc": "High-performance pooling for smooth gameplay."},
+            {"icon": "fa-sliders", "color": "c-blue", "title": "Audio Mixer", "desc": "Dynamic audio mixing with real-time control."},
+            {"icon": "fa-mobile-screen", "color": "c-orange", "title": "Performance", "desc": "Optimized for mobile with stable 60 FPS."}
+        ],
+        "challenges": [
+            {"challenge": "Frequent object instantiation caused frame drops on mobile devices.", "solution": "Implemented an object pooling system which improved performance and reduced GC spikes."},
+            {"challenge": "Managing multiple audio sources and real-time volume control.", "solution": "Integrated Unity Audio Mixer with dynamic groups and exposed settings to the player."},
+            {"challenge": "Increasing difficulty without making gameplay unfair.", "solution": "Designed a speed-curve algorithm with balanced obstacle spawn patterns."}
+        ],
+        "devProcess": [
+            {"icon": "fa-lightbulb", "color": "c-blue", "title": "Concept", "desc": "Idea, research & planning"},
+            {"icon": "fa-gamepad", "color": "c-purple", "title": "Prototype", "desc": "Core mechanics"},
+            {"icon": "fa-code", "color": "c-green", "title": "Core Systems", "desc": "Movement, spawning"},
+            {"icon": "fa-wand-magic-sparkles", "color": "c-orange", "title": "Polish", "desc": "UI/UX, visual polish"},
+            {"icon": "fa-rocket", "color": "c-pink", "title": "Release", "desc": "Build, testing & publish"}
+        ],
         "videos": [
             {"title": "Gameplay Demo", "duration": "01:30", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
         ],
@@ -83,6 +110,15 @@
             "Images/Tom-And-Jerry/TAJ_02.png",
             "Images/Tom-And-Jerry/TAJ_03.png",
             "Images/Tom-And-Jerry/TAJ_04.png"
-        ]
+        ],
+        "cta": {
+            "quote": "Building fun, optimized and scalable games that players love.",
+            "links": [
+                {"icon": "fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-envelope", "iconColor": "#ffffff", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"},
+                {"icon": "fa-github", "iconColor": "#ffffff", "text": "GitHub", "url": "#"}
+            ]
+        }
     }
 ]
