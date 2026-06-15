@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Developer Portfolio</title>
+    <title>Abhilash Saji | Unity Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
             top: 0;
             left: 0;
             z-index: 2;
-            pointer-events: none; /* Allows clicking buttons behind particles */
+            pointer-events: none;
         }
 
         /* --- NAVIGATION --- */
@@ -114,7 +114,7 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* --- HERO SECTION MODIFIED FOR EXACT SCALE & POSITION --- */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -127,7 +127,7 @@
 
         .hero-content {
             max-width: 50%;
-            z-index: 5; /* Stays on top of everything */
+            z-index: 5;
             padding-bottom: 40px;
             position: relative;
         }
@@ -143,12 +143,12 @@
 
         .hero-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            line-height: 1.05;
+            line-height: 1.1;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .hero-description {
@@ -180,9 +180,10 @@
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
         }
 
+        /* FIXED HIGHLIGHT EFFECT FOR CONTACT BUTTON */
         .btn-secondary {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-main);
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
             padding: 14px 30px;
             font-weight: 600;
             border-radius: 4px;
@@ -190,22 +191,32 @@
             align-items: center;
             gap: 12px;
             font-size: 0.85rem;
+            background: rgba(0, 255, 102, 0.03);
+            box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.05);
         }
 
-        /* Stats Counter Grid */
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        /* Stats & Focus Areas Counter Grid */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             border: 1px solid var(--border-color);
             background: rgba(4, 18, 25, 0.8);
             border-radius: 6px;
-            padding: 22px 15px;
-            max-width: 520px;
+            padding: 22px 10px;
+            max-width: 550px;
+            gap: 5px;
         }
 
         .stat-item {
             text-align: center;
             border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0 5px;
         }
 
         .stat-item:last-child {
@@ -214,36 +225,30 @@
 
         .stat-icon {
             color: var(--primary-green);
-            font-size: 1.1rem;
-            margin-bottom: 6px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
 
-        .stat-number {
+        .stat-label-fixed {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.6rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            margin-top: 4px;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            line-height: 1.3;
             display: block;
         }
 
-        /* --- FIXED SPREAD BACK BACKGROUND IMAGE COMPONENT --- */
+        /* --- SPREAD BACK BACKGROUND IMAGE COMPONENT --- */
         .hero-graphic-container {
-            width: 60%; /* Increased to spread more into the left center */
+            width: 60%; 
             height: 100vh;
             display: flex;
             position: absolute;
             right: 0;
             top: 0;
             z-index: 1;
-            /* Subtle breathing animation to the background artwork */
             animation: breathe 8s ease-in-out infinite alternate;
         }
 
@@ -251,7 +256,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 25% center; /* Shifts the image focal point slightly left */
+            object-position: 25% center; 
             mask-image: linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
             -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
         }
@@ -370,10 +375,10 @@
             gap: 8px;
         }
 
-        /* --- FLEX ROW: TECHNOLOGIES & FREELANCE --- */
+        /* --- FLEX ROW: NEW EXTENDED TECHNOLOGIES & FREELANCE --- */
         .mid-container {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 25px;
         }
 
@@ -393,28 +398,40 @@
             font-weight: 700;
         }
 
-        .tech-grid {
+        /* Restructured Skill Grid For Stack Categories */
+        .tech-list-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px 15px;
-            text-align: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px 20px;
         }
 
-        .tech-item i {
-            font-size: 2rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+        .tech-list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .tech-item:hover i {
+        .tech-list-icon {
+            font-size: 2.2rem;
             color: var(--primary-green);
+            width: 45px;
+            text-align: center;
+            filter: drop-shadow(0 0 4px var(--glow-color));
         }
 
-        .tech-item span {
-            display: block;
-            font-size: 0.65rem;
+        .tech-list-info h5 {
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .tech-list-info p {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         .freelance-panel {
@@ -443,7 +460,7 @@
             width: fit-content;
         }
 
-        /* --- SERVICES --- */
+        /* --- UPDATED SERVICES SECTION --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -455,6 +472,12 @@
             border: 1px solid rgba(255, 255, 255, 0.02);
             border-radius: 6px;
             padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-color);
+            background: var(--bg-card);
         }
 
         .service-header {
@@ -474,11 +497,13 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .service-desc {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
         }
 
         /* --- FOOTER --- */
@@ -498,10 +523,11 @@
             .hero { flex-direction: column; text-align: center; padding: 140px 4% 40px 4%; }
             .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
             .hero-buttons { justify-content: center; }
-            .stats-container { margin: 0 auto; }
+            .stats-container { margin: 0 auto; grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .hero-graphic-container { position: relative; width: 100%; height: 50vh; order: -1; animation: none; }
             .bg-main-image { object-position: center; mask-image: none; -webkit-mask-image: none; }
             .mid-container { grid-template-columns: 1fr; }
+            .tech-list-grid { grid-template-columns: 1fr; }
             header { padding: 20px 4%; }
             footer { flex-direction: column; gap: 15px; }
         }
@@ -513,7 +539,7 @@
 
     <header>
         <div class="logo">
-            <i class="fa-solid fa-gamepad"></i> GAME DEVELOPER
+            <i class="fa-solid fa-gamepad"></i> ABHILASH SAJI
         </div>
         <nav>
             <ul>
@@ -530,7 +556,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-subtitle">HELLO, I'M</div>
-            <h1 class="hero-title">GAME<br>DEVELOPER</h1>
+            <h1 class="hero-title">UNITY<br>DEVELOPER</h1>
             <p class="hero-description">
                 I design and develop engaging games with immersive mechanics, interactive UI, and smooth gameplay experiences using Unity and C#.
             </p>
@@ -543,23 +569,19 @@
             <div class="stats-container">
                 <div class="stat-item">
                     <div class="stat-icon"><i class="fa-solid fa-gamepad"></i></div>
-                    <span class="stat-number">12+</span>
-                    <span class="stat-label">Projects</span>
+                    <span class="stat-focus-label stat-label-fixed">Gameplay<br>Programming</span>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><i class="fa-solid fa-cube"></i></div>
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Game Genres</span>
+                    <div class="stat-icon"><i class="fa-solid fa-window-restore"></i></div>
+                    <span class="stat-focus-label stat-label-fixed">UI<br>Engineering</span>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Unity</span>
+                    <div class="stat-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <span class="stat-focus-label stat-label-fixed">System<br>Architecture</span>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Years Learning</span>
+                    <div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <span class="stat-focus-label stat-label-fixed">Performance<br>Optimization</span>
                 </div>
             </div>
         </div>
@@ -642,15 +664,49 @@
         <div class="mid-container">
             <div class="panel">
                 <div class="panel-title">Technologies I Use</div>
-                <div class="tech-grid">
-                    <div class="tech-item"><i class="devicon-unity-plain"></i><span>Unity</span></div>
-                    <div class="tech-item"><i class="devicon-csharp-plain"></i><span>C#</span></div>
-                    <div class="tech-item"><i class="devicon-visualstudio-plain"></i><span>VS Studio</span></div>
-                    <div class="tech-item"><i class="devicon-blender-original"></i><span>Blender</span></div>
-                    <div class="tech-item"><i class="devicon-photoshop-plain"></i><span>Photoshop</span></div>
-                    <div class="tech-item"><i class="fa-solid fa-sliders"></i><span>Audio Mixer</span></div>
-                    <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
-                    <div class="tech-item"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+                <div class="tech-list-grid">
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="devicon-unity-plain"></i></div>
+                        <div class="tech-list-info">
+                            <h5>Game Engine</h5>
+                            <p>Unity</p>
+                        </div>
+                    </div>
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="devicon-csharp-plain"></i></div>
+                        <div class="tech-list-info">
+                            <h5>Programming</h5>
+                            <p>C#</p>
+                        </div>
+                    </div>
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="fa-solid fa-window-restore"></i></div>
+                        <div class="tech-list-info">
+                            <h5>UI/UX</h5>
+                            <p>Unity UI Toolkit</p>
+                        </div>
+                    </div>
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="devicon-blender-original"></i></div>
+                        <div class="tech-list-info">
+                            <h5>3D & Assets</h5>
+                            <p>Blender</p>
+                        </div>
+                    </div>
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="devicon-git-plain"></i></div>
+                        <div class="tech-list-info">
+                            <h5>Version Control</h5>
+                            <p>Git</p>
+                        </div>
+                    </div>
+                    <div class="tech-list-item">
+                        <div class="tech-list-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div class="tech-list-info">
+                            <h5>Audio Integration</h5>
+                            <p>Unity Audio Mixer</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -672,40 +728,40 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-gamepad service-icon"></i>
-                    <h4 class="service-name">Game Design</h4>
-                </div>
-                <p class="service-desc">Design engaging gameplay mechanics and game systems that create fun and challenging experiences.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-header">
                     <i class="fa-solid fa-code service-icon"></i>
-                    <h4 class="service-name">Game Development</h4>
+                    <h4 class="service-name">Gameplay Programming</h4>
                 </div>
-                <p class="service-desc">Build high-quality games using Unity and C# with clean, efficient and scalable code.</p>
+                <p class="service-desc">Creating engaging mechanics and interactive systems using Unity and C#.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-display service-icon"></i>
-                    <h4 class="service-name">UI & Experience</h4>
+                    <i class="fa-solid fa-compass-drafting service-icon"></i>
+                    <h4 class="service-name">Technical Design</h4>
                 </div>
-                <p class="service-desc">Create interactive UI and smooth user experiences that enhance player engagement.</p>
+                <p class="service-desc">Translating concepts into playable experiences with clean implementation.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-gauge-high service-icon"></i>
-                    <h4 class="service-name">Optimization</h4>
+                    <i class="fa-solid fa-desktop service-icon"></i>
+                    <h4 class="service-name">UI & User Flow</h4>
                 </div>
-                <p class="service-desc">Optimize performance for smooth gameplay across multiple platforms and devices.</p>
+                <p class="service-desc">Building intuitive interfaces and seamless player interactions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <i class="fa-solid fa-gears service-icon"></i>
+                    <h4 class="service-name">Production Systems</h4>
+                </div>
+                <p class="service-desc">Save systems, progression tracking, audio controls, and scene management.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div>&copy; 2026 Game Developer. All rights reserved.</div>
+        <div>&copy; 2026 Abhilash Saji. All rights reserved.</div>
         <div>Let's Build Something Amazing Together! 🚀</div>
     </footer>
 
@@ -714,10 +770,10 @@
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 45, /* Control amount of glowing particle embers */
+                    "value": 45, 
                     "density": { "enable": true, "value_area": 800 }
                 },
-                "color": { "value": "#00ff66" }, /* Neon green embers */
+                "color": { "value": "#00ff66" }, 
                 "shape": { "type": "circle" },
                 "opacity": {
                     "value": 0.6,
@@ -729,11 +785,11 @@
                     "random": true,
                     "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false }
                 },
-                "line_linked": { "enable": false }, /* Turn off net grids to keep it looking like organic portal sparks */
+                "line_linked": { "enable": false }, 
                 "move": {
                     "enable": true,
                     "speed": 2.5,
-                    "direction": "top-right", /* Particles float organically towards the top right portal view */
+                    "direction": "top-right", 
                     "random": true,
                     "straight": false,
                     "out_mode": "out",
