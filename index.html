@@ -6,7 +6,7 @@
     <title>Abhilash Saji | Unity Developer</title>
     <!-- Font Awesome for UI Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Devicon for exact Technology Logos -->
+    <!-- Devicon for exact Technology Logos with Colors -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@
             --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #7d9096;
-            --border-color: rgba(0, 255, 102, 0.12);
-            --glow-color: rgba(0, 255, 102, 0.3);
+            --border-color: rgba(255, 255, 255, 0.05);
+            --glow-color: rgba(0, 255, 102, 0.2);
         }
 
         * {
@@ -42,7 +42,7 @@
             transition: all 0.3s ease;
         }
 
-        /* --- PARTICLES CONTAINER --- */
+        /* --- PARTICLES --- */
         #particles-js {
             position: absolute;
             width: 100%;
@@ -107,23 +107,23 @@
         }
 
         .btn-resume-nav {
-            border: 1px solid var(--primary-green);
-            color: var(--primary-green);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
             padding: 10px 20px;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(0, 255, 102, 0.02);
+            background: rgba(255, 255, 255, 0.02);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .btn-resume-nav:hover {
-            background: rgba(0, 255, 102, 0.1);
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-main);
         }
 
         .btn-work {
@@ -211,7 +211,7 @@
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(0, 255, 102, 0.15);
             background: rgba(4, 18, 25, 0.8);
             border-radius: 6px;
             padding: 22px 10px;
@@ -246,7 +246,6 @@
             display: block;
         }
 
-        /* --- SPREAD BACK BACKGROUND IMAGE COMPONENT --- */
         .hero-graphic-container {
             width: 60%; 
             height: 100vh;
@@ -334,6 +333,10 @@
             height: 100%;
         }
 
+        .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
         .project-img-wrapper {
             position: relative;
             width: 100%;
@@ -395,7 +398,7 @@
             gap: 8px;
         }
 
-        /* --- SKILLS SECTION (EXACT MOCKUP) --- */
+        /* --- REDESIGNED REAL COLOR SKILLS SECTION --- */
         .skills-display-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -406,7 +409,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 25px 15px;
+            padding: 30px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -414,25 +417,25 @@
             justify-content: space-between;
             min-height: 190px;
             position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .skill-expert-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: var(--primary-green);
-            box-shadow: 0 0 10px var(--primary-green);
+        .skill-expert-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
         }
+
+        /* Specific Real Icons Colors with matching Progress Bar Colors */
+        .color-unity { color: #ffffff; filter: drop-shadow(0 0 6px rgba(255,255,255,0.2)); }
+        .color-csharp { color: #9B4F96; filter: drop-shadow(0 0 6px rgba(155,79,150,0.3)); }
+        .color-gameplay { color: #00ffbc; filter: drop-shadow(0 0 6px rgba(0,255,188,0.3)); }
+        .color-ui { color: #2196F3; filter: drop-shadow(0 0 6px rgba(33,150,243,0.3)); }
+        .color-opt { color: #FF9800; filter: drop-shadow(0 0 6px rgba(255,152,0,0.3)); }
+        .color-git { color: #F05032; filter: drop-shadow(0 0 6px rgba(240,80,50,0.3)); }
 
         .skill-expert-icon {
-            font-size: 2.3rem;
-            color: var(--primary-green);
-            margin-bottom: 12px;
-            filter: drop-shadow(0 0 6px var(--glow-color));
+            font-size: 2.5rem;
+            margin-bottom: 15px;
         }
 
         .skill-expert-card h4 {
@@ -462,7 +465,7 @@
 
         .skill-progress-bar-bg {
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
@@ -470,12 +473,10 @@
 
         .skill-progress-bar-fill {
             height: 100%;
-            background: var(--primary-green);
             border-radius: 10px;
-            box-shadow: 0 0 8px var(--primary-green);
         }
 
-        /* --- FLEX ROW: TECHNOLOGIES SUB-STACKS --- */
+        /* --- REDESIGNED REAL COLOR TECHNOLOGIES SUB-STACKS --- */
         .mid-container {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -490,12 +491,14 @@
         }
 
         .panel-title {
-            color: var(--primary-green);
+            color: #ffffff;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
             text-transform: uppercase;
             margin-bottom: 30px;
             font-weight: 700;
+            border-left: 3px solid var(--primary-green);
+            padding-left: 10px;
         }
 
         .tech-list-grid {
@@ -508,18 +511,20 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .tech-list-icon {
             font-size: 2.2rem;
-            color: var(--primary-green);
             width: 45px;
             text-align: center;
-            filter: drop-shadow(0 0 4px var(--glow-color));
         }
 
         .tech-list-info h5 {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -559,7 +564,7 @@
             width: fit-content;
         }
 
-        /* --- SERVICES SECTION --- */
+        /* --- REDESIGNED SERVICES WHAT I DO SECTION --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -567,15 +572,15 @@
         }
 
         .service-card {
-            background: rgba(4, 18, 25, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 25px;
             transition: all 0.3s ease;
         }
 
         .service-card:hover {
-            border-color: var(--border-color);
+            border-color: rgba(255, 255, 255, 0.1);
             background: var(--bg-card);
         }
 
@@ -587,8 +592,20 @@
         }
 
         .service-icon {
-            color: var(--primary-green);
+            color: #ffffff;
             font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.05);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--primary-green);
+            background: rgba(0, 255, 102, 0.1);
         }
 
         .service-name {
@@ -605,7 +622,7 @@
             line-height: 1.6;
         }
 
-        /* --- CONTACT SECTION --- */
+        /* --- REDESIGNED REAL COLOR CONTACT SECTION --- */
         .contact-layout-box {
             display: grid;
             grid-template-columns: 1.1fr 1fr;
@@ -657,14 +674,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-green);
+            color: var(--text-main);
             font-size: 1.1rem;
-            background: rgba(4, 18, 25, 0.5);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .meta-info-item:hover .meta-info-icon-shell {
+            color: var(--primary-green);
+            border-color: rgba(0, 255, 102, 0.3);
         }
 
         .meta-info-text-shell h6 {
             font-size: 0.75rem;
-            color: var(--primary-green);
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 2px;
@@ -700,7 +722,7 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* 3D Hologram Setup For Right Side Social Grid */
+        /* 3D Hologram Setup For Right Side Real Color Social Nodes */
         .contact-right-hologram {
             display: flex;
             align-items: center;
@@ -711,15 +733,15 @@
         .hologram-center-mail {
             width: 140px;
             height: 140px;
-            border: 2px solid var(--primary-green);
-            background: rgba(0, 255, 102, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.01);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: var(--primary-green);
-            box-shadow: 0 0 35px rgba(0, 255, 102, 0.2), inset 0 0 20px rgba(0, 255, 102, 0.1);
+            color: #ffffff;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.05);
             transform: rotateX(20deg) rotateY(-20deg);
             z-index: 5;
         }
@@ -727,13 +749,13 @@
         .hologram-social-node {
             position: absolute;
             background: #041219;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 8px;
-            padding: 10px 22px;
+            padding: 12px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-size: 0.65rem;
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 0.5px;
@@ -741,29 +763,22 @@
             transition: all 0.3s ease;
         }
 
-        .hologram-social-node i {
-            font-size: 1.5rem;
-            color: var(--text-main);
-        }
+        /* Specific Real Brand Colors on Hover for Social Nodes */
+        .node-discord { top: 15%; left: 8%; }
+        .node-discord:hover { border-color: #5865F2; color: #5865F2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.3); }
+        .node-discord i { color: #5865F2; font-size: 1.5rem; }
 
-        .hologram-social-node:hover {
-            border-color: var(--primary-green);
-            color: var(--primary-green);
-            transform: translateY(-5px);
-        }
+        .node-linkedin { top: 12%; right: 12%; }
+        .node-linkedin:hover { border-color: #0077B5; color: #0077B5; box-shadow: 0 0 15px rgba(0, 119, 181, 0.3); }
+        .node-linkedin i { color: #0077B5; font-size: 1.5rem; }
 
-        .node-discord { top: 15%; left: 10%; }
-        .node-linkedin { top: 12%; right: 15%; }
-        /* CALL node styled like original mockup items */
         .node-call { bottom: 35%; right: 5%; }
-        /* WHATSAPP node with original brand color and layout match */
-        .node-whatsapp { bottom: 10%; left: 15%; }
+        .node-call:hover { border-color: #ffffff; color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+        .node-call i { color: #ffffff; font-size: 1.4rem; }
 
-        .node-whatsapp:hover {
-            border-color: #25D366;
-            color: #25D366;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
-        }
+        .node-whatsapp { bottom: 10%; left: 12%; }
+        .node-whatsapp:hover { border-color: #25D366; color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
+        .node-whatsapp i { color: #25D366; font-size: 1.5rem; }
 
         /* --- FOOTER --- */
         footer {
@@ -940,131 +955,131 @@
         </div>
     </section>
 
-    <!-- SKILLS & EXPERTISE SECTION -->
+    <!-- REAL COLOR SKILLS & EXPERTISE SECTION -->
     <section class="content-section" id="skills">
-        <div class="section-subtitle-tag">My Skills</div>
+        <div class="section-subtitle-tag">My Stack</div>
         <div class="section-header">
             <h2 class="section-title">Skills <span>& Expertise</span></h2>
         </div>
 
         <div class="skills-display-grid">
-            <!-- Skill 1: Unity -->
+            <!-- Unity -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="devicon-unity-plain"></i></div>
-                <h4>Unity</h4>
+                <div class="skill-expert-icon color-unity"><i class="devicon-unity-plain"></i></div>
+                <h4>Unity Engine</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">95%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 95%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 95%; background: #ffffff; box-shadow: 0 0 8px #ffffff;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skill 2: C# -->
+            <!-- C# -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="devicon-csharp-plain"></i></div>
-                <h4>C#</h4>
+                <div class="skill-expert-icon color-csharp"><i class="devicon-csharp-plain"></i></div>
+                <h4>C# Architecture</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">90%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 90%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 90%; background: #9B4F96; box-shadow: 0 0 8px #9B4F96;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skill 3: Gameplay Programming -->
+            <!-- Gameplay -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="fa-solid fa-code"></i></div>
-                <h4>Gameplay Programming</h4>
+                <div class="skill-expert-icon color-gameplay"><i class="fa-solid fa-code"></i></div>
+                <h4>Gameplay Logic</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">92%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 92%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 92%; background: #00ffbc; box-shadow: 0 0 8px #00ffbc;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skill 4: UI/UX Design -->
+            <!-- UI -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="fa-solid fa-desktop"></i></div>
-                <h4>UI / UX Design</h4>
+                <div class="skill-expert-icon color-ui"><i class="fa-solid fa-desktop"></i></div>
+                <h4>UI Engineering</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">88%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 88%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 88%; background: #2196F3; box-shadow: 0 0 8px #2196F3;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skill 5: Optimization -->
+            <!-- Optimization -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="skill-expert-icon color-opt"><i class="fa-solid fa-gauge-high"></i></div>
                 <h4>Optimization</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">85%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 85%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 85%; background: #FF9800; box-shadow: 0 0 8px #FF9800;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skill 6: Version Control -->
+            <!-- Version Control -->
             <div class="skill-expert-card">
-                <div class="skill-expert-icon"><i class="devicon-git-plain"></i></div>
+                <div class="skill-expert-icon color-git"><i class="devicon-git-plain"></i></div>
                 <h4>Version Control</h4>
                 <div class="skill-progress-container">
                     <span class="skill-progress-text">90%</span>
                     <div class="skill-progress-bar-bg">
-                        <div class="skill-progress-bar-fill" style="width: 90%;"></div>
+                        <div class="skill-progress-bar-fill" style="width: 90%; background: #F05032; box-shadow: 0 0 8px #F05032;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- UTILITY SEGMENT: TECHNOLOGIES SUB-STACKS -->
+    <!-- REAL COLOR TECHNOLOGIES SUB-STACKS -->
     <section class="content-section" style="padding-top: 15px; padding-bottom: 35px;">
         <div class="mid-container">
             <div class="panel">
-                <div class="panel-title">Technologies I Use</div>
+                <div class="panel-title">Technologies Stack</div>
                 <div class="tech-list-grid">
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="devicon-unity-plain"></i></div>
+                        <div class="tech-list-icon"><i class="devicon-unity-plain original" style="color: #ffffff;"></i></div>
                         <div class="tech-list-info">
                             <h5>Game Engine</h5>
                             <p>Unity</p>
                         </div>
                     </div>
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="devicon-csharp-plain"></i></div>
+                        <div class="tech-list-icon"><i class="devicon-csharp-plain colored" style="color: #9B4F96;"></i></div>
                         <div class="tech-list-info">
                             <h5>Programming</h5>
                             <p>C#</p>
                         </div>
                     </div>
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="fa-solid fa-window-restore"></i></div>
+                        <div class="tech-list-icon"><i class="fa-solid fa-window-restore" style="color: #2196F3;"></i></div>
                         <div class="tech-list-info">
                             <h5>UI/UX</h5>
                             <p>Unity UI Toolkit</p>
                         </div>
                     </div>
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="devicon-blender-original"></i></div>
+                        <div class="tech-list-icon"><i class="devicon-blender-original colored" style="color: #EA7600;"></i></div>
                         <div class="tech-list-info">
                             <h5>3D & Assets</h5>
                             <p>Blender</p>
                         </div>
                     </div>
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="devicon-git-plain"></i></div>
+                        <div class="tech-list-icon"><i class="devicon-git-plain colored" style="color: #F05032;"></i></div>
                         <div class="tech-list-info">
                             <h5>Version Control</h5>
                             <p>Git</p>
                         </div>
                     </div>
                     <div class="tech-list-item">
-                        <div class="tech-list-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div class="tech-list-icon"><i class="fa-solid fa-sliders" style="color: #00ffbc;"></i></div>
                         <div class="tech-list-info">
                             <h5>Audio Integration</h5>
                             <p>Unity Audio Mixer</p>
@@ -1075,7 +1090,7 @@
 
             <div class="panel freelance-panel">
                 <div>
-                    <div class="panel-title" style="margin-bottom: 12px;">Available for Freelance Projects</div>
+                    <div class="panel-title" style="margin-bottom: 12px; border-left: 3px solid #ff9800;">Freelance Status</div>
                     <p class="freelance-desc">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
                 </div>
                 <a href="#contact" class="btn-hire">HIRE ME <i class="fa-solid fa-paper-plane"></i></a>
@@ -1092,28 +1107,28 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-code service-icon"></i>
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
                     <h4 class="service-name">Gameplay Programming</h4>
                 </div>
                 <p class="service-desc">Creating engaging mechanics and interactive systems using Unity and C#.</p>
             </div>
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-compass-drafting service-icon"></i>
+                    <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
                     <h4 class="service-name">Technical Design</h4>
                 </div>
                 <p class="service-desc">Translating concepts into playable experiences with clean implementation.</p>
             </div>
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-desktop service-icon"></i>
+                    <div class="service-icon"><i class="fa-solid fa-desktop"></i></div>
                     <h4 class="service-name">UI & User Flow</h4>
                 </div>
                 <p class="service-desc">Building intuitive interfaces and seamless player interactions.</p>
             </div>
             <div class="service-card">
                 <div class="service-header">
-                    <i class="fa-solid fa-gears service-icon"></i>
+                    <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
                     <h4 class="service-name">Production Systems</h4>
                 </div>
                 <p class="service-desc">Save systems, progression tracking, audio controls, and scene management.</p>
@@ -1132,7 +1147,6 @@
                 <p class="contact-panel-desc">Have a project idea or want to work together? Feel free to reach out. I'm always open to discussing new opportunities.</p>
                 
                 <div class="info-contact-meta-grid">
-                    <!-- Email -->
                     <div class="meta-info-item">
                         <div class="meta-info-icon-shell"><i class="fa-regular fa-envelope"></i></div>
                         <div class="meta-info-text-shell">
@@ -1140,7 +1154,6 @@
                             <p>abhilashsaji@example.com</p> 
                         </div>
                     </div>
-                    <!-- Location -->
                     <div class="meta-info-item">
                         <div class="meta-info-icon-shell"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="meta-info-text-shell">
@@ -1148,7 +1161,6 @@
                             <p>Kerala, India</p>
                         </div>
                     </div>
-                    <!-- Phone -->
                     <div class="meta-info-item">
                         <div class="meta-info-icon-shell"><i class="fa-solid fa-phone"></i></div>
                         <div class="meta-info-text-shell">
@@ -1156,7 +1168,6 @@
                             <p>+91 98765 43210</p> 
                         </div>
                     </div>
-                    <!-- Response Time -->
                     <div class="meta-info-item">
                         <div class="meta-info-icon-shell"><i class="fa-regular fa-paper-plane"></i></div>
                         <div class="meta-info-text-shell">
@@ -1166,33 +1177,32 @@
                     </div>
                 </div>
 
-                <!-- Action Mail Trigger Link -->
                 <a href="mailto:abhilashsaji@example.com" class="btn-send-msg">Send Message <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <!-- Right 3D Social Nodes Column -->
+            <!-- Right 3D Social Nodes Column with Real Brand Colors -->
             <div class="contact-right-hologram">
                 <div class="hologram-center-mail">
                     <i class="fa-regular fa-envelope"></i>
                 </div>
                 <!-- Discord Node -->
                 <a href="#" target="_blank" class="hologram-social-node node-discord">
-                    <i class="fa-brands fa-discord" style="color: #5865F2;"></i>
+                    <i class="fa-brands fa-discord"></i>
                     <span>DISCORD</span>
                 </a>
                 <!-- LinkedIn Node -->
                 <a href="#" target="_blank" class="hologram-social-node node-linkedin">
-                    <i class="fa-brands fa-linkedin-in" style="color: #0077B5;"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
                     <span>LINKEDIN</span>
                 </a>
-                <!-- 1. REPLACED MAIL WITH CALL ICON (Triggers device dialer directly) -->
+                <!-- Call Node -->
                 <a href="tel:+919876543210" class="hologram-social-node node-call">
-                    <i class="fa-solid fa-phone" style="color: var(--primary-green);"></i>
+                    <i class="fa-solid fa-phone"></i>
                     <span>CALL</span>
                 </a>
-                <!-- 2. ADDED WHATSAPP NODE WITH MATCHING LAYOUT AND BRAND COLOR -->
+                <!-- WhatsApp Node -->
                 <a href="https://wa.me/919876543210" target="_blank" class="hologram-social-node node-whatsapp">
-                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
                     <span>WHATSAPP</span>
                 </a>
             </div>
