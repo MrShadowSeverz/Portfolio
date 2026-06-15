@@ -25,6 +25,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth; /* Enables elegant navigation sliding */
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
@@ -50,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION HEADER --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -91,10 +95,15 @@
             letter-spacing: 1px;
             font-weight: 600;
             color: var(--text-muted);
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.25s ease;
         }
 
+        /* Aligned target color indicators properly */
         nav ul li a.active, nav ul li a:hover {
             color: var(--primary-green);
+            border-color: var(--primary-green);
         }
 
         .header-buttons {
@@ -138,7 +147,7 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION CONTAINER --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -204,7 +213,6 @@
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
         }
 
-        /* Focus Areas Dashboard Grid */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -270,7 +278,7 @@
 
         /* --- SECTIONS MAIN STRUCTURE --- */
         section.content-section {
-            padding: 80px 8%;
+            padding: 90px 8%;
             position: relative;
             z-index: 10;
             background: var(--bg-dark);
@@ -355,7 +363,6 @@
             opacity: 1 !important;
         }
 
-        /* Dynamic Border Tags Allocation */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
         .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
         .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
@@ -396,15 +403,6 @@
             gap: 8px;
         }
 
-        /* Icon Colors Matching mockups */
-        .theme-icon { font-size: 1.1rem; }
-        .color-green { color: #00ff66; }
-        .color-purple { color: #bb55ff; }
-        .color-blue { color: #33a6ff; }
-        .color-orange { color: #ff9900; }
-        .color-red { color: #ff3344; }
-
-        /* --- VIEW ALL PROJECTS BUTTON CONTAINER --- */
         .view-all-projects-container {
             display: flex;
             justify-content: center;
@@ -430,29 +428,10 @@
             box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.05);
         }
 
-        .btn-view-all-projects i.fa-table-cells {
-            font-size: 1.1rem;
-            color: var(--primary-green);
-        }
-
-        .btn-view-all-projects i.fa-arrow-right {
-            font-size: 0.95rem;
-            transition: transform 0.3s ease;
-        }
-
         .btn-view-all-projects:hover {
             background-color: var(--primary-green);
             color: var(--bg-dark);
             box-shadow: 0 0 20px var(--glow-color);
-        }
-
-        .btn-view-all-projects:hover i.fa-table-cells,
-        .btn-view-all-projects:hover i.fa-arrow-right {
-            color: var(--bg-dark);
-        }
-
-        .btn-view-all-projects:hover i.fa-arrow-right {
-            transform: translateX(4px);
         }
 
         /* --- SKILLS SECTION --- */
@@ -482,12 +461,12 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
 
-        .color-unity { color: #ffffff; filter: drop-shadow(0 0 6px rgba(255,255,255,0.2)); }
-        .color-csharp { color: #9B4F96; filter: drop-shadow(0 0 6px rgba(155,79,150,0.3)); }
-        .color-gameplay { color: #00ffbc; filter: drop-shadow(0 0 6px rgba(0,255,188,0.3)); }
-        .color-ui { color: #2196F3; filter: drop-shadow(0 0 6px rgba(33,150,243,0.3)); }
-        .color-opt { color: #FF9800; filter: drop-shadow(0 0 6px rgba(255,152,0,0.3)); }
-        .color-git { color: #F05032; filter: drop-shadow(0 0 6px rgba(240,80,50,0.3)); }
+        .color-unity { color: #ffffff; }
+        .color-csharp { color: #9B4F96; }
+        .color-gameplay { color: #00ffbc; }
+        .color-ui { color: #2196F3; }
+        .color-opt { color: #FF9800; }
+        .color-git { color: #F05032; }
 
         .skill-expert-icon {
             font-size: 2.5rem;
@@ -740,14 +719,6 @@
             border-color: rgba(0, 255, 102, 0.3);
         }
 
-        .meta-info-text-shell h6 {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-        }
-
         .meta-info-text-shell p {
             font-size: 0.88rem;
             color: var(--text-main);
@@ -778,7 +749,6 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* 3D Hologram Setup For Right Side Social Grid */
         .contact-right-hologram {
             display: flex;
             align-items: center;
@@ -843,7 +813,6 @@
             right: 30px;
             z-index: 999; 
             border: 1px solid var(--primary-green);
-            outline: none;
             background-color: var(--bg-card);
             color: var(--primary-green);
             cursor: pointer;
@@ -851,7 +820,6 @@
             border-radius: 6px;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.1);
         }
 
         #scrollToTopBtn:hover {
@@ -878,7 +846,6 @@
             .skills-display-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-right-hologram { height: 350px; margin-top: 40px; }
             header { padding: 20px 4%; }
-            .header-buttons .btn-resume-nav { display: none; } 
             footer { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -892,11 +859,11 @@
             <i class="fa-solid fa-gamepad"></i> UNITY DEVELOPER
         </div>
         <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul id="navbar-links-list">
+                <li><a href="#" class="nav-anchor active" data-target="home">Home</a></li>
+                <li><a href="#projects" class="nav-anchor" data-target="projects">Projects</a></li>
+                <li><a href="#skills" class="nav-anchor" data-target="skills">Skills</a></li>
+                <li><a href="#contact" class="nav-anchor" data-target="contact">Contact</a></li>
             </ul>
         </nav>
         <div class="header-buttons">
@@ -905,7 +872,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-subtitle">HELLO, I'M</div>
             <h1 class="hero-title">ABHILASH<br>SAJI</h1>
@@ -1203,8 +1170,6 @@
         <div>Let's Build Something Amazing Together! 🚀</div>
     </footer>
 
-    <button id="scrollToTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
@@ -1268,7 +1233,6 @@
             .then(data => {
                 const featuredTarget = document.getElementById('dynamic-featured-grid');
                 
-                // --- THE SORTING FIX: id നമ്പറിന്റെ അടിസ്ഥാനത്തിൽ (1, 2, 3...) അസെൻഡിങ് ഓർഡറിൽ ക്രമീകരിക്കുന്നു ---
                 const highlightedProjects = data
                     .filter(proj => proj.isHighlighted === true)
                     .sort((a, b) => a.id - b.id);
@@ -1278,13 +1242,11 @@
                     return;
                 }
                 
-                // Inject exactly filtered items inside core grid layout with specific badge alignments
                 featuredTarget.innerHTML = highlightedProjects.map(proj => {
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
                     let iconColorClass = `color-${chosenColor}`;
 
-                    // Auto matching mockup icon configurations per category fields
                     let fallbackIcon = "fa-solid fa-gamepad";
                     if(proj.category === "platformer") fallbackIcon = "fa-solid fa-tree";
                     if(proj.category === "metroidvania") fallbackIcon = "fa-solid fa-dungeon";
@@ -1311,10 +1273,45 @@
                         </div>
                     `;
                 }).join('');
+                
+                // Initialize active scroll monitoring once projects are dynamically fully appended
+                initScrollSpyTracking();
             })
             .catch(err => {
                 console.error("Local JSON fetch limited constraints logger notice:", err);
             });
+
+        // --- THE NAVIGATION HIGHLIGHT FIX: AUTOMATIC SCROLLSPY MECHANISM ---
+        function initScrollSpyTracking() {
+            const sections = document.querySelectorAll("section[id], main[id]");
+            const navAnchors = document.querySelectorAll(".nav-anchor");
+
+            // Option tracking targets viewport positions smoothly
+            const observerOptions = {
+                root: null,
+                rootMargin: "-45% 0px -45% 0px", // Monitors section entry at the vertical center of the browser
+                threshold: 0
+            };
+
+            const scrollSpyObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.getAttribute("id");
+                        
+                        // Remove active class from all anchors
+                        navAnchors.forEach((anchor) => {
+                            anchor.classList.remove("active");
+                            if (anchor.getAttribute("data-target") === activeId) {
+                                anchor.classList.add("active"); // Highlights current segment element
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Bind observer directly to registered section tracks
+            sections.forEach((section) => scrollSpyObserver.observe(section));
+        }
     </script>
 </body>
 </html>
