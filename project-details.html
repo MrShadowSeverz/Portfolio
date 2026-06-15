@@ -9,8 +9,9 @@
     
     <style>
         :root {
+            /* --- RESTORED BLACK & DARK THEME --- */
             --bg-dark: #02080c;
-            --bg-card: rgba(0, 0, 0, 0.65); 
+            --bg-card: rgba(0, 0, 0, 0.65); /* Pure black transparent boxes */
             --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #8da4ae;
@@ -31,17 +32,26 @@
         
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-        /* --- BACKGROUND --- */
+        /* --- BACKGROUND MANAGEMENT --- */
         #dynamic-bg-blur {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            filter: blur(15px) brightness(0.25); transform: scale(1.05); z-index: -2;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(15px) brightness(0.25);
+            transform: scale(1.05);
+            z-index: -2;
             transition: background-image 0.5s ease;
         }
 
-        #particles-js { position: fixed; width: 100%; height: 100vh; top: 0; left: 0; z-index: -1; pointer-events: none; }
+        #particles-js {
+            position: fixed;
+            width: 100%; height: 100vh;
+            top: 0; left: 0; z-index: -1;
+            pointer-events: none;
+        }
 
-        /* --- HEADER (With Home Button) --- */
+        /* --- NAVIGATION HEADER --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 14px 6%; background: rgba(2, 8, 12, 0.85); backdrop-filter: blur(16px);
@@ -56,29 +66,31 @@
             padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
         .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.3); }
-        .btn-home { padding: 8px 14px; font-size: 0.9rem; } /* Icon specific padding */
+        .btn-home { padding: 8px 14px; font-size: 0.9rem; } 
 
-        /* --- BENTO CONTAINER --- */
-        .bento-container { max-width: 1400px; margin: 0 auto; padding: 20px 6% 60px; position: relative; z-index: 5; }
+        /* --- BENTO GRID LAYOUT CONTAINER --- */
+        .bento-container { max-width: 1400px; margin: 0 auto; padding: 30px 6% 60px; position: relative; z-index: 5; }
 
         /* HERO TOP SECTION */
         .hero-bento { display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; margin-bottom: 25px; align-items: stretch; }
+        
         .hero-left-card { display: flex; flex-direction: column; justify-content: center; }
         .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,0,0,0.4); }
         .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; line-height: 1.1; display: flex; align-items: center; gap: 15px; }
         .brief-text-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; max-width: 95%; }
         
         .hero-action-row { display: flex; gap: 15px; margin-bottom: 30px; }
+        
         .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); }
         .btn-main-play:hover { box-shadow: 0 0 25px rgba(0, 255, 102, 0.5); transform: translateY(-2px); }
 
-        /* Mini Features Row */
+        /* Mini Features Row in Hero */
         .mini-features-row { display: flex; gap: 15px; flex-wrap: wrap; }
         .mini-feature-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
         .mini-feature-box i { font-size: 1.2rem; color: var(--primary-green); }
         .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.2; }
 
-        /* STEAM MEDIA SLIDER */
+        /* --- STEAM MEDIA SLIDER (16:9 Ratio Applied) --- */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; }
         .video-player-frame { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
@@ -94,17 +106,22 @@
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
-        /* --- BENTO MAIN GRID --- */
+        /* --- MAIN GRID LAYOUT --- */
         .bento-main-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 25px; align-items: start; margin-bottom: 25px;}
         
         .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(8px); }
-        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
+        /* FIXED: Restored green tone for headings */
+        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: var(--primary-green); margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
+        
         .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px; }
+        .bento-card p strong { color: var(--text-main); }
 
-        /* Features */
-        .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        .feature-list-check li { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-muted); }
-        .feature-list-check li i { color: var(--text-main); font-size: 0.6rem; }
+        /* Features List */
+        .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .feature-list-check li { display: flex; align-items: start; gap: 12px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        /* FIXED: Restored green tick marks */
+        .feature-list-check li i { color: var(--primary-green); font-size: 1.1rem; margin-top: 2px; }
+        .feature-list-check li strong { color: #fff; }
 
         /* Metrics Grid */
         .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
@@ -113,21 +130,21 @@
         .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; color: #fff; margin-bottom: 5px; }
         .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); font-weight: 700; }
 
-        /* Tech Highlights */
+        /* Technical Highlights Grid */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
         .highlight-item i { font-size: 1.5rem; color: var(--text-muted); }
         .highlight-item h5 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
         .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; color: var(--text-muted); }
 
-        /* Challenges */
+        /* Challenges List */
         .challenges-list { display: flex; flex-direction: column; gap: 10px; }
         .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 102, 0.1); }
         .challenge-row p { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
         .challenge-row p strong { color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: block; margin-bottom: 3px;}
         .c-arrow { color: var(--primary-green); font-size: 0.8rem; }
 
-        /* Bottom CTA */
+        /* Bottom CTA Bar */
         .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
         .cta-quote { display: flex; gap: 15px; align-items: center; }
         .cta-quote i { font-size: 2rem; color: var(--primary-green); } 
@@ -244,7 +261,7 @@
                         heroBtnMarkup = `<a href="${proj.liveDemo}" target="_blank" class="btn-main-play"><i class="fa-solid fa-gamepad"></i> Play Demo</a>`;
                     }
 
-                    // --- NEW MEDIA LOGIC (Image 1st, then Video, then rest of images) ---
+                    // --- MEDIA LOGIC (Image 1st, then Video, then rest of images) ---
                     let mediaList = [];
                     if (proj.gallery && proj.gallery.length > 0) {
                         mediaList.push({ type: 'image', url: proj.gallery[0] });
@@ -290,8 +307,9 @@
                         </div>
                     `).join('') : '';
 
+                    // Key Features List with Restored Green Ticks
                     const listFeaturesMarkup = proj.features ? proj.features.map(f => `
-                        <li><i class="fa-solid fa-circle"></i> <strong>${f.title}</strong> - ${f.desc}</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span><strong>${f.title}</strong> - ${f.desc}</span></li>
                     `).join('') : '<li>No features listed.</li>';
 
                     // Metrics Map
@@ -327,7 +345,7 @@
                     let ctaQuote = "Building fun, optimized and scalable games that players love.";
                     if(proj.cta) {
                         ctaQuote = proj.cta.quote || ctaQuote;
-                        ctaLinksHTML = proj.cta.links.map(l => `
+                        ctaLinksHTML = proj.cta.links.filter(l => l.text.toLowerCase() !== 'github').map(l => `
                             <a href="${l.url}" target="_blank">
                                 <i class="${l.icon}" style="color:${l.iconColor}"></i> ${l.text}
                             </a>
