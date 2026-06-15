@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 2,
         "name": "Pixel Forest Adventure",
         "tag": "2D Platformer",
         "tagColor": "green",
@@ -11,7 +11,7 @@
         "isHighlighted": true
     },
     {
-        "id": 2,
+        "id": 1,
         "name": "Neon Runner",
         "tag": "Endless Runner",
         "tagColor": "purple",
