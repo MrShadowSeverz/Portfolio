@@ -52,9 +52,9 @@
         "platform": "Mobile",
         "engine": "Unity Engine",
         "role": "Game Developer",
-        "liveDemo": "#",
+        "liveDemo": "https://mrshadowseverz.github.io/Tom-And-Jerry/",
         "videoUrl": "https://www.youtube.com/embed/EDXKdE1kVC8",
-        "overview": "Tom and Jerry Endless Runner is a fast-paced mobile game featuring smooth touch controls, dynamic obstacles, and high-score mechanics. Built with Unity's mobile optimization pipeline.",
+        "overview": "A mobile endless runner developed in Unity, featuring fast-paced obstacle avoidance, collectible-driven progression, and real-time score tracking within a stylized retro-futuristic world. The project emphasizes performance optimization through object pooling, efficient state management, and mobile-first design principles. Additional features include persistent save systems, audio mixer integration, haptic feedback, responsive UI, and scalable game architecture, delivering a smooth and engaging player experience across a wide range of devices.",
         "features": [
             {"icon": "fa-solid fa-cheese", "title": "Cheese Run", "desc": "Collect Cheese"},
             {"icon": "fa-solid fa-gauge-high", "title": "Speed Runner", "desc": "High Speed Mode"},
@@ -68,7 +68,9 @@
         ],
         "gallery": [
             "Images/Tom-And-Jerry/TAJ_01.png",
-            "Images/Tom-And-Jerry/TAJ_02.png"
+            "Images/Tom-And-Jerry/TAJ_02.png",
+            "Images/Tom-And-Jerry/TAJ_03.png",
+            "Images/Tom-And-Jerry/TAJ_04.png"
         ]
     }
 ]
