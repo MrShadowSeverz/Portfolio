@@ -475,7 +475,7 @@
             box-shadow: 0 0 8px var(--primary-green);
         }
 
-        /* --- FLEX ROW: RESTRUCTURED TECHNOLOGIES SUB-STACKS --- */
+        /* --- FLEX ROW: TECHNOLOGIES SUB-STACKS --- */
         .mid-container {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -605,7 +605,7 @@
             line-height: 1.6;
         }
 
-        /* --- CONTACT SECTION (EXACT MOCKUP) --- */
+        /* --- CONTACT SECTION --- */
         .contact-layout-box {
             display: grid;
             grid-template-columns: 1.1fr 1fr;
@@ -754,8 +754,16 @@
 
         .node-discord { top: 15%; left: 10%; }
         .node-linkedin { top: 12%; right: 15%; }
-        /* Replaced Telegram Node with Mail Node */
-        .node-mail { bottom: 20%; right: 8%; }
+        /* CALL node styled like original mockup items */
+        .node-call { bottom: 35%; right: 5%; }
+        /* WHATSAPP node with original brand color and layout match */
+        .node-whatsapp { bottom: 10%; left: 15%; }
+
+        .node-whatsapp:hover {
+            border-color: #25D366;
+            color: #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -784,7 +792,7 @@
             .mid-container, .contact-layout-box { grid-template-columns: 1fr; }
             .tech-list-grid, .info-contact-meta-grid { grid-template-columns: 1fr; }
             .skills-display-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-right-hologram { height: 300px; margin-top: 40px; }
+            .contact-right-hologram { height: 350px; margin-top: 40px; }
             header { padding: 20px 4%; }
             .header-buttons .btn-resume-nav { display: none; } 
             footer { flex-direction: column; gap: 15px; }
@@ -816,7 +824,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH SPREAD ARTWORK -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-subtitle">HELLO, I'M</div>
@@ -826,7 +834,6 @@
             </p>
             
             <div class="hero-buttons">
-                <!-- Contact and Resume buttons removed as per instruction -->
                 <a href="#projects" class="btn-primary">EXPLORE MY WORK <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
@@ -857,7 +864,7 @@
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION (FIRST NOW) -->
+    <!-- FEATURED PROJECTS SECTION -->
     <section class="content-section" id="projects">
         <div class="section-subtitle-tag">My Work</div>
         <div class="section-header">
@@ -933,7 +940,7 @@
         </div>
     </section>
 
-    <!-- SKILLS & EXPERTISE SECTION (PLACED SECOND NOW - VIEW MY WORK LINK REMOVED) -->
+    <!-- SKILLS & EXPERTISE SECTION -->
     <section class="content-section" id="skills">
         <div class="section-subtitle-tag">My Skills</div>
         <div class="section-header">
@@ -1114,12 +1121,12 @@
         </div>
     </section>
 
-    <!-- ADVANCED CONTACT SECTION -->
+    <!-- CONTACT SECTION -->
     <section class="content-section" id="contact" style="padding-top: 30px;">
         <div class="section-subtitle-tag">Let's Work Together</div>
         <div class="contact-layout-box">
             
-            <!-- Left Meta Column -->
+            <!-- Left Column -->
             <div class="contact-left-fields">
                 <h2>Contact <span>Me</span></h2>
                 <p class="contact-panel-desc">Have a project idea or want to work together? Feel free to reach out. I'm always open to discussing new opportunities.</p>
@@ -1178,10 +1185,15 @@
                     <i class="fa-brands fa-linkedin-in" style="color: #0077B5;"></i>
                     <span>LINKEDIN</span>
                 </a>
-                <!-- REPLACED TELEGRAM WITH MAIL BUTTON NODE -->
-                <a href="mailto:abhilashsaji@example.com" class="hologram-social-node node-mail">
-                    <i class="fa-regular fa-envelope" style="color: var(--primary-green);"></i>
-                    <span>MAIL</span>
+                <!-- 1. REPLACED MAIL WITH CALL ICON (Triggers device dialer directly) -->
+                <a href="tel:+919876543210" class="hologram-social-node node-call">
+                    <i class="fa-solid fa-phone" style="color: var(--primary-green);"></i>
+                    <span>CALL</span>
+                </a>
+                <!-- 2. ADDED WHATSAPP NODE WITH MATCHING LAYOUT AND BRAND COLOR -->
+                <a href="https://wa.me/919876543210" target="_blank" class="hologram-social-node node-whatsapp">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+                    <span>WHATSAPP</span>
                 </a>
             </div>
 
