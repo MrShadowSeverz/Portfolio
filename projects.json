@@ -9,13 +9,13 @@
         "desc": "A 2D platformer with collectible mechanics, level progression, score tracking and sound effects.",
         "tech": ["Unity", "C#", "2D"],
         "isHighlighted": true,
-        "year": "2024",
+        "year": "2025",
         "platform": "PC",
-        "engine": "Unity",
+        "engine": "Unity Engine",
         "role": "Game Developer",
-        "liveDemo": "https://example.com/play-pixel-forest",
-        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "overview": "Pixel Forest Adventure is a 2D platformer featuring hand-crafted levels, collectibles, enemies, checkpoints, and engaging gameplay mechanics.",
+        "liveDemo": "https://mrshadowseverz.github.io/Pixel-Forest-Adventure/",
+        "videoUrl": "https://youtu.be/EDXKdE1kVC8",
+        "overview": "Pixel Forest Adventure is a Unity-powered 2D platformer featuring collectible-based progression, score-driven challenges, interactive gameplay systems, and immersive pixel-art environments. Designed and developed as a complete PC game, the project highlights practical game development skills including gameplay programming, UI/UX implementation, audio systems, scene management, and player progression mechanics. The result is a polished and engaging experience that demonstrates end-to-end game production capabilities.",
         "features": [
             {"icon": "fa-solid fa-coins", "title": "Collectibles", "desc": "Coins & Score"},
             {"icon": "fa-solid fa-up-long", "title": "Level System", "desc": "Unlock & Progression"},
@@ -25,11 +25,17 @@
             {"icon": "fa-solid fa-floppy-disk", "title": "Save System", "desc": "Player Progress"}
         ],
         "videos": [
-            {"title": "Full Gameplay Walkthrough", "duration": "02:15", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"}
+            {"title": "Full Gameplay Walkthrough", "duration": "02:15", "url": "https://youtu.be/EDXKdE1kVC8"}
         ],
         "gallery": [
-            "Images/Pixel-Forest-Adventure/screen1.png",
-            "Images/Pixel-Forest-Adventure/screen2.png"
+            "Images/Pixel-Forest-Adventure/Pixed2DMainMenu.png",
+            "Images/Pixel-Forest-Adventure/Pixed2DLevel.png",
+            "Images/Pixel-Forest-Adventure/Pixed2D_01.png",
+            "Images/Pixel-Forest-Adventure/Pixed2D_02.png",
+            "Images/Pixel-Forest-Adventure/Pixed2DSettings.png",
+            "Images/Pixel-Forest-Adventure/Pixed2D_03.png",
+            "Images/Pixel-Forest-Adventure/Pixed2D_04.png",
+            "Images/Pixel-Forest-Adventure/Pixed2DYouWin.png"
         ]
     }
 ]
