@@ -26,7 +26,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Enables elegant navigation sliding */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -54,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* --- NAVIGATION HEADER --- */
+        /* --- NAVIGATION --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -100,7 +100,6 @@
             transition: all 0.25s ease;
         }
 
-        /* Aligned target color indicators properly */
         nav ul li a.active, nav ul li a:hover {
             color: var(--primary-green);
             border-color: var(--primary-green);
@@ -147,7 +146,7 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* --- HERO SECTION CONTAINER --- */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -213,6 +212,7 @@
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.45);
         }
 
+        /* Focus Areas Dashboard Grid */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -402,6 +402,13 @@
             align-items: center;
             gap: 8px;
         }
+
+        .theme-icon { font-size: 1.1rem; }
+        .color-green { color: #00ff66; }
+        .color-purple { color: #bb55ff; }
+        .color-blue { color: #33a6ff; }
+        .color-orange { color: #ff9900; }
+        .color-red { color: #ff3344; }
 
         .view-all-projects-container {
             display: flex;
@@ -1098,7 +1105,7 @@
         </div>
     </section>
 
-    <section class="content-section" id="contact" style="padding-top: 30px;">
+    <section class="content-section" id="contact">
         <div class="section-subtitle-tag">Let's Work Together</div>
         <div class="contact-layout-box">
             
@@ -1170,62 +1177,11 @@
         <div>Let's Build Something Amazing Together! 🚀</div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <button id="scrollToTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
     <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 45, 
-                    "density": { "enable": true, "value_area": 800 }
-                },
-                "color": { "value": "#00ff66" }, 
-                "shape": { "type": "circle" },
-                "opacity": {
-                    "value": 0.6,
-                    "random": true,
-                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
-                },
-                "size": {
-                    "value": 4,
-                    "random": true,
-                    "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false }
-                },
-                "line_linked": { "enable": false }, 
-                "move": {
-                    "enable": true,
-                    "speed": 2.5,
-                    "direction": "top-right", 
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                }
-            },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
-            "retina_detect": true
-        });
-
-        // --- BACK TO TOP CORE LOGIC ---
-        const scrollTopBtn = document.getElementById("scrollToTopBtn");
-
-        window.onscroll = function() {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.display = "block";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
-        }
-
-        scrollTopBtn.addEventListener("click", function() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+        let isUserClickScrolling = false;
+        let scrollTimeout = null;
 
         // --- FETCH DYNAMIC HIGHLIGHTED PROJECTS FROM JSON (SORTED BY ID) ---
         fetch('projects.json')
@@ -1274,43 +1230,58 @@
                     `;
                 }).join('');
                 
-                // Initialize active scroll monitoring once projects are dynamically fully appended
+                // Active scroll spy setup initialized smoothly
                 initScrollSpyTracking();
             })
-            .catch(err => {
-                console.error("Local JSON fetch limited constraints logger notice:", err);
-            });
+            .catch(err => console.error("Error parsing payload tracks:", err));
 
-        // --- THE NAVIGATION HIGHLIGHT FIX: AUTOMATIC SCROLLSPY MECHANISM ---
+        // --- THE FIXED JAVASCRIPT MECHANISM FOR AUTOMATED ACCURATE HIGHLIGHTING ---
         function initScrollSpyTracking() {
-            const sections = document.querySelectorAll("section[id], main[id]");
+            const sections = document.querySelectorAll("section[id]");
             const navAnchors = document.querySelectorAll(".nav-anchor");
 
-            // Option tracking targets viewport positions smoothly
+            // 1. Click Event Logic: Lock tracking safely to stop jumping indicators mid-scroll
+            navAnchors.forEach(anchor => {
+                anchor.addEventListener("click", function(e) {
+                    isUserClickScrolling = true;
+                    clearTimeout(scrollTimeout);
+
+                    navAnchors.forEach(a => a.classList.remove("active"));
+                    this.classList.add("active");
+
+                    // Unlock observer once the scroll behavior smoothly settles down
+                    scrollTimeout = setTimeout(() => {
+                        isUserClickScrolling = false;
+                    }, 850); 
+                });
+            });
+
+            // 2. Intersection Observer Core Framework Mapping
             const observerOptions = {
                 root: null,
-                rootMargin: "-45% 0px -45% 0px", // Monitors section entry at the vertical center of the browser
+                rootMargin: "-30% 0px -60% 0px", // Strict accurate vertical focal checking bounds
                 threshold: 0
             };
 
             const scrollSpyObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
+                if (isUserClickScrolling) return; // Prevent interference when a user clicks a button
+
+                entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const activeId = entry.target.getAttribute("id");
                         
-                        // Remove active class from all anchors
-                        navAnchors.forEach((anchor) => {
-                            anchor.classList.remove("active");
+                        navAnchors.forEach(anchor => {
                             if (anchor.getAttribute("data-target") === activeId) {
-                                anchor.classList.add("active"); // Highlights current segment element
+                                anchor.classList.add("active");
+                            } else {
+                                anchor.classList.remove("active");
                             }
                         });
                     }
                 });
             }, observerOptions);
 
-            // Bind observer directly to registered section tracks
-            sections.forEach((section) => scrollSpyObserver.observe(section));
+            sections.forEach(section => scrollSpyObserver.observe(section));
         }
     </script>
 </body>
