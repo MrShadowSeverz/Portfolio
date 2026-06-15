@@ -87,7 +87,7 @@
         .btn-live { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 24px; border-radius: 4px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; background: var(--primary-green); color: var(--bg-dark); }
         .btn-live:hover { box-shadow: 0 0 20px var(--primary-green); transform: translateY(-1px); }
 
-        /* --- STEAM SLIDER LAYER --- */
+        /* --- STEAM MEDIA SLIDER --- */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; background: var(--bg-card); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); }
         .video-player-frame { width: 100%; height: 360px; border-radius: 6px; background: #000; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
@@ -105,65 +105,54 @@
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
-        /* --- LOWER DATA CONTENT STRUCTURE --- */
-        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; align-items: stretch; /* Forces left and right boxes to have identical bottom layout */ }
+        /* --- LOWER SECTIONS CONTENT --- */
+        .overview-row { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px; margin-bottom: 35px; margin-top: 15px; align-items: stretch; }
         
         .section-headline { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 18px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
         .section-headline::after { content: ''; height: 2px; background: linear-gradient(90deg, var(--primary-green), transparent); flex-grow: 1; margin-left: 10px; }
         
-        /* --- FIXED: INCREASED SCALE TO MATCH BOTTOM ALIGNMENT EXACTLY --- */
         .overview-box { 
             background: var(--bg-card); 
             border: 1px solid var(--border-color); 
             border-radius: 8px; 
             padding: 25px; 
             backdrop-filter: blur(8px);
-            height: calc(100% - 36px); /* Scales down perfectly to lock bottom baseline with features */
+            height: calc(100% - 36px);
             display: flex;
             align-items: flex-start;
         }
         .overview-box p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
         
-        /* --- FIXED: COMPLETELY REDESIGNED GAME COIN TOKENS (HIGHLY PREMIUM) --- */
+        /* --- REDESIGNED: JUICY HYPER-CASUAL APP-STYLE ICONS ENGINE --- */
         .features-sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .feature-card-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px 20px; display: flex; align-items: center; gap: 18px; backdrop-filter: blur(8px); height: 84px; }
         .feature-card-item:hover { border-color: var(--primary-green); }
         
-        /* Arcadian Realistic 3D Rim Token Graphics Engine */
+        /* Hypercasual Cute App Squircles */
         .coin-icon-shell { 
             width: 46px; height: 46px; 
-            border-radius: 50%; 
+            border-radius: 12px; /* Squircle style curved shape padding */
             display: flex; align-items: center; justify-content: center; 
             flex-shrink: 0;
             position: relative;
-            /* Double-layered embossed metallic coin rim styling */
-            border: 3px double rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, var(--casual-top), var(--casual-bottom));
+            /* Soft juicy 3D gel reflections styling */
             box-shadow: 
-                0 0 15px var(--icon-glow), 
-                inset 0 0 10px rgba(0, 0, 0, 0.8),
-                0 4px 6px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(135deg, var(--token-light), var(--token-dark));
+                0 4px 10px var(--casual-shadow), 
+                inset 0 3px 5px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         
-        /* Inner coin core depth details */
-        .coin-icon-shell::before {
-            content: '';
-            position: absolute;
-            top: 2px; left: 2px; right: 2px; bottom: 2px;
-            border-radius: 50%;
-            border: 1px dashed rgba(255,255,255,0.3);
-            pointer-events: none;
-        }
-        
-        .coin-icon-shell i { font-size: 1.05rem; color: #ffffff; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.7)); position: relative; z-index: 5; }
+        .coin-icon-shell i { font-size: 1.15rem; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); position: relative; z-index: 5; }
 
-        /* Dynamic Theme Specific Gradient Map Traces for Coins */
-        .card-item-1 { --token-light: #fff34d; --token-dark: #b38600; --icon-glow: rgba(255, 217, 0, 0.45); } /* Gold Token */
-        .card-item-2 { --token-light: #26ffee; --token-dark: #00665e; --icon-glow: rgba(38, 255, 238, 0.4); }  /* Cyan Mana */
-        .card-item-3 { --token-light: #ff4d79; --token-dark: #990026; --icon-glow: rgba(255, 77, 121, 0.4); }  /* Ruby Health */
-        .card-item-4 { --token-light: #4dabff; --token-dark: #004499; --icon-glow: rgba(77, 171, 255, 0.4); }  /* Diamond Shield */
-        .card-item-5 { --token-light: #cb77ff; --token-dark: #550080; --icon-glow: rgba(203, 119, 255, 0.4); } /* Amethyst Rune */
-        .card-item-6 { --token-light: #ffaa4d; --token-dark: #995500; --icon-glow: rgba(255, 170, 77, 0.4); }  /* Copper Emblem */
+        /* Juicy Pop Tone Color Configuration mapping per item modules */
+        .card-item-1 { --casual-top: #ffcc00; --casual-bottom: #ff9900; --casual-shadow: rgba(255, 153, 0, 0.4); } /* Sun Gold */
+        .card-item-2 { --casual-top: #00ffbc; --casual-bottom: #00b395; --casual-shadow: rgba(0, 255, 188, 0.3); } /* Neon Mint */
+        .card-item-3 { --casual-top: #ff4d79; --casual-bottom: #ff0044; --casual-shadow: rgba(255, 0, 68, 0.35); } /* Pop Candy Pink */
+        .card-item-4 { --casual-top: #33ccff; --casual-bottom: #0088cc; --casual-shadow: rgba(51, 204, 255, 0.3); } /* Soda Blue */
+        .card-item-5 { --casual-top: #bb55ff; --casual-bottom: #8800cc; --casual-shadow: rgba(187, 85, 255, 0.3); }/* Jelly Purple */
+        .card-item-6 { --casual-top: #a6ff00; --casual-bottom: #73cc00; --casual-shadow: rgba(166, 255, 0, 0.3); } /* Lime Smash */
 
         .feature-card-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 2px; color: #ffffff; letter-spacing: 0.3px; }
         .feature-card-item p { color: var(--text-muted); font-size: 0.72rem; }
@@ -220,7 +209,7 @@
         const projectId = parseInt(urlParams.get('id'));
 
         if (!projectId) {
-            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project code parameter identified.</div>`;
+            document.getElementById('details-root').innerHTML = `<div style="color:red; text-align:center;">No project parameter identified.</div>`;
         } else {
             fetch('projects.json')
                 .then(res => res.json())
@@ -237,7 +226,7 @@
                     let chosenColor = proj.tagColor || "green";
                     let tagClass = `tag-${chosenColor}`;
 
-                    // Dynamic parsing loops using premium double-embossed coin frames
+                    // Loop through data lists parsing hyper casual squircle tokens successfully
                     const featuresMarkup = proj.features ? proj.features.map((f, idx) => `
                         <div class="feature-card-item card-item-${(idx % 6) + 1}">
                             <div class="coin-icon-shell">
@@ -258,7 +247,7 @@
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb ${thumbIndex === 0 ? 'active' : ''}" data-index="${thumbIndex}" onclick="switchSteamMedia('video', '${v.url}', this)">
                                     <div class="steam-thumb-overlay-icon"><i class="fa-solid fa-play"></i></div>
-                                    <img src="${proj.image}" alt="Media trailer preview link track">
+                                    <img src="${proj.image}" alt="Media player preview clip">
                                 </div>
                             `;
                             thumbIndex++;
@@ -269,7 +258,7 @@
                         proj.gallery.forEach(img => {
                             sliderThumbsMarkup += `
                                 <div class="steam-thumb" data-index="${thumbIndex}" onclick="switchSteamMedia('image', '${img}', this)">
-                                    <img src="${img}" alt="Gameplay display shot frame">
+                                    <img src="${img}" alt="Gameplay action scene shot">
                                 </div>
                             `;
                             thumbIndex++;
@@ -285,7 +274,7 @@
                                 
                                 <div class="game-brief-section">
                                     <div class="brief-thumb-wrapper">
-                                        <img src="${proj.image}" alt="Cover asset layout wrapper" onerror="this.src='https://via.placeholder.com/140x90/041219/ffffff?text=Game'">
+                                        <img src="${proj.image}" alt="Cover image wrapper" onerror="this.src='https://via.placeholder.com/140x90/041219/ffffff?text=Game'">
                                     </div>
                                     <p class="brief-text-desc">${proj.desc}</p>
                                 </div>
@@ -311,7 +300,7 @@
                                     <button class="slider-arrow arrow-left" onclick="slideSteamTray('left')"><i class="fa-solid fa-chevron-left"></i></button>
                                     
                                     <div class="steam-thumbnail-slider" id="steam-slider-track">
-                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media slots are empty.</div>'}
+                                        ${sliderThumbsMarkup || '<div style="color:var(--text-muted)">Media arrays are unallocated.</div>'}
                                     </div>
                                     
                                     <button class="slider-arrow arrow-right" onclick="slideSteamTray('right')"><i class="fa-solid fa-chevron-right"></i></button>
@@ -323,13 +312,13 @@
                             <div>
                                 <h3 class="section-headline">Project Overview</h3>
                                 <div class="overview-box">
-                                    <p>${proj.overview || 'Overview summaries logs are unassigned.'}</p>
+                                    <p>${proj.overview || 'Project overview log details parameter records trace summaries.'}</p>
                                 </div>
                             </div>
                             <div>
                                 <h3 class="section-headline">Key Features</h3>
                                 <div class="features-sub-grid">
-                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No feature blocks unpinned.</div>'}
+                                    ${featuresMarkup || '<div style="color:var(--text-muted)">No feature blocks loaded.</div>'}
                                 </div>
                             </div>
                         </div>
@@ -343,7 +332,7 @@
                         </div>
                     `;
                 })
-                .catch(err => console.error("Error launching dynamic script matrix overlays:", err));
+                .catch(err => console.error("Error launching dynamic system components layouts:", err));
         }
 
         function switchSteamMedia(type, path, elementRef) {
@@ -355,7 +344,7 @@
             if (type === 'video') {
                 viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
             } else if (type === 'image') {
-                viewport.innerHTML = `<img src="${path}" alt="Active asset rendering track preview look window" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
+                viewport.innerHTML = `<img src="${path}" alt="Active asset gameplay frame view window" onerror="this.src='https://via.placeholder.com/600x360/041219/ffffff?text=Game+Asset'">`;
             }
 
             const track = document.getElementById('steam-slider-track');
@@ -370,6 +359,7 @@
             }
         }
 
+        // Sideways sliding bar mechanics configuration
         function slideSteamTray(direction) {
             const track = document.getElementById('steam-slider-track');
             const step = track.clientWidth / 2;
