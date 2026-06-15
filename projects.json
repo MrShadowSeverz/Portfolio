@@ -9,7 +9,7 @@
         "desc": "A 2D platformer with collectible mechanics, level progression, score tracking and sound effects.",
         "tech": ["Unity", "C#", "2D"],
         "isHighlighted": true,
-        "year": "2025",z
+        "year": "2025",
         "platform": "PC",
         "engine": "Unity Engine",
         "role": "Game Developer",
