@@ -26,12 +26,16 @@
         ],
         "overview": "Pixel Forest Adventure is a Unity-powered 2D platformer featuring collectible-based progression, score-driven challenges, interactive gameplay systems, and immersive pixel-art environments. It focuses on tight jump mechanics and nostalgic aesthetics.",
         "features": [
-            {"icon": "fa-solid fa-coins", "title": "Collectibles", "desc": "Coins & Score System"},
-            {"icon": "fa-solid fa-up-long", "title": "Level System", "desc": "Unlock & Linear Progression"},
-            {"icon": "fa-solid fa-volume-high", "title": "Audio Settings", "desc": "SFX & Music Control"},
-            {"icon": "fa-solid fa-table-columns", "title": "UI System", "desc": "Interactive Menus & Panels"},
-            {"icon": "fa-solid fa-shuffle", "title": "Scene Logic", "desc": "Smooth Transitions"},
-            {"icon": "fa-solid fa-floppy-disk", "title": "Save System", "desc": "Player Progress Retention"}
+            {"icon": "fa-solid fa-coins", "title": "Responsive Player Controls", "desc": "Smooth movement, jumping, and combat interactions."},
+            {"icon": "fa-solid fa-up-long", "title": "Tilemap-Based Level Design", "desc": "Built using Unity Tilemaps for scalable level creation."},
+            {"icon": "fa-solid fa-volume-high", "title": "Combat & Attack System", "desc": "Enemy interaction with real-time hit detection."},
+            {"icon": "fa-solid fa-table-columns", "title": "Collectible Progression", "desc": "Coin collection integrated with scoring and rewards."},
+            {"icon": "fa-solid fa-shuffle", "title": "Level Unlock Framework", "desc": "Star-based progression and stage unlocking system."},
+            {"icon": "fa-solid fa-floppy-disk", "title": "Persistent Save System", "desc": "Stores player progress, settings, and achievements."},
+            {"icon": "fa-solid fa-volume-high", "title": "Audio Management", "desc": "Dedicated music, SFX, and volume control system."},
+            {"icon": "fa-solid fa-table-columns", "title": "Real-Time Score Tracking", "desc": "Dynamic scoring with performance-based progression."},
+            {"icon": "fa-solid fa-shuffle", "title": "Reusable UI Architecture", "desc": "Modular menus, settings, level selection, and victory screens."},
+            {"icon": "fa-solid fa-floppy-disk", "title": "Optimized 2D Performance", "desc": "Efficient asset management and streamlined gameplay systems."}
         ],
         "techHighlights": [
             {"icon": "fa-cubes", "color": "c-purple", "title": "Physics Engine", "desc": "Custom 2D rigid body physics for precise jumping."},
@@ -40,8 +44,11 @@
             {"icon": "fa-desktop", "color": "c-orange", "title": "Responsive UI", "desc": "Canvas setups that scale across different monitors."}
         ],
         "challenges": [
-            {"challenge": "Handling pixel-perfect collisions without getting stuck on corners.", "solution": "Adjusted collider physics materials and used composite colliders."},
-            {"challenge": "Creating seamless transitions between different game levels.", "solution": "Developed an asynchronous scene loader with fade-in/fade-out UI."}
+            {"challenge": "Managing Level Progression.", "solution": "Developed a star-rating and level-unlock framework using persistent save data."},
+            {"challenge": "Synchronizing Audio Across Scenes", "solution": "Implemented a centralized audio management system with separate music and SFX channels, volume controls, and persistent settings."},
+            {"challenge": "Building Scalable Levels", "solution": "Used Unity's Tilemap system to create modular environments, enabling faster level creation, easier iteration, and consistent collision handling across multiple stages."},
+            {"challenge": "Optimizing 2D Performance", "solution": "Leveraged Unity Tilemaps, sprite atlasing, and efficient scene organization to reduce draw calls and maintain stable frame rates."}
+            
         ],
         "videos": [
             {"title": "Full Gameplay Walkthrough", "url": "https://www.youtube.com/embed/EDXKdE1kVC8"}
