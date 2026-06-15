@@ -11,11 +11,11 @@
         :root {
             /* --- RESTORED BLACK & DARK THEME --- */
             --bg-dark: #02080c;
-            --bg-card: rgba(0, 0, 0, 0.65); /* Fixed: Pure black transparent boxes */
+            --bg-card: rgba(0, 0, 0, 0.65); /* Pure black transparent boxes */
             --primary-green: #00ff66; 
             --text-main: #ffffff;
             --text-muted: #8da4ae;
-            --border-color: rgba(0, 255, 102, 0.15); 
+            --border-color: rgba(0, 255, 102, 0.15); /* Green subtle borders */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,8 +54,8 @@
         /* --- NAVIGATION HEADER --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 14px 6%; background: rgba(2, 8, 12, 0.85); backdrop-filter: blur(16px);
-            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 14px 6%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(16px);
+            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color);
         }
         .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1.5px; }
         .logo i { color: var(--primary-green); }
@@ -64,7 +64,7 @@
             border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green);
             padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
-        .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.3); }
+        .btn-go-back-nav:hover { background: var(--primary-green); color: #000; box-shadow: 0 0 15px rgba(0,255,102,0.3); }
 
         /* --- BENTO GRID LAYOUT CONTAINER --- */
         .bento-container { max-width: 1400px; margin: 0 auto; padding: 20px 6% 60px; position: relative; z-index: 5; }
@@ -73,82 +73,83 @@
         .hero-bento { display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; margin-bottom: 25px; align-items: stretch; }
         
         .hero-left-card { display: flex; flex-direction: column; justify-content: center; }
-        .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,0,0,0.4); }
-        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; line-height: 1.1; display: flex; align-items: center; gap: 15px; }
+        .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 6px 12px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,255,102,0.05); letter-spacing: 1px; }
+        .proj-title { font-family: 'Orbitron', sans-serif; font-size: 3rem; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; line-height: 1.1; display: flex; align-items: center; gap: 15px; }
         .brief-text-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; max-width: 95%; }
         
         .hero-action-row { display: flex; gap: 15px; margin-bottom: 30px; }
         
-        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); }
+        .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: #000; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); }
         .btn-main-play:hover { box-shadow: 0 0 25px rgba(0, 255, 102, 0.5); transform: translateY(-2px); }
 
         /* Mini Features Row in Hero */
-        .mini-features-row { display: flex; gap: 15px; flex-wrap: wrap; }
-        .mini-feature-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
-        .mini-feature-box i { font-size: 1.2rem; color: var(--primary-green); }
-        .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.2; }
+        .mini-features-row { display: flex; gap: 12px; flex-wrap: wrap; }
+        .mini-feature-box { background: var(--bg-card); border: 1px solid var(--border-color); padding: 15px 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; flex: 1; min-width: 80px; text-align: center; }
+        .mini-feature-box i { font-size: 1.4rem; color: var(--primary-green); }
+        .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.3; }
 
         /* --- STEAM MEDIA SLIDER (16:9 Ratio Applied) --- */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; }
-        .video-player-frame { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
+        .video-player-frame { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 12px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
         
-        .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 35px; }
+        .slider-relative-tray { position: relative; display: flex; align-items: center; width: 100%; padding: 0 40px; }
         .steam-thumbnail-slider { display: flex; gap: 10px; overflow-x: hidden; scroll-behavior: smooth; width: 100%; }
-        .steam-thumb { flex: 0 0 calc(20% - 8px); height: 60px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; cursor: pointer; position: relative; background: #000; opacity: 0.5; transition: 0.3s; }
+        .steam-thumb { flex: 0 0 calc(25% - 8px); aspect-ratio: 16 / 9; border: 2px solid rgba(0, 255, 102, 0.1); border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; background: #000; opacity: 0.5; transition: 0.3s; }
         .steam-thumb:hover, .steam-thumb.active { opacity: 1; border-color: var(--primary-green); }
         .steam-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1.2rem; }
-        .slider-arrow { background: rgba(2, 8, 12, 0.9); border: 1px solid var(--border-color); color: #ffffff; position: absolute; top: 0; bottom: 0; width: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 0.8rem; height: 60px; border-radius: 6px; }
+        .steam-thumb-overlay-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-green); font-size: 1.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .slider-arrow { background: var(--bg-card); border: 1px solid var(--border-color); color: #ffffff; position: absolute; top: 0; bottom: 0; width: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 0.9rem; border-radius: 8px; transition: 0.3s; }
         .slider-arrow:hover { color: var(--primary-green); border-color: var(--primary-green); }
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
-        /* --- MAIN GRID LAYOUT (Old Alignment Restored) --- */
-        .bento-main-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 25px; align-items: start; margin-bottom: 25px;}
+        /* --- NEW BENTO MAIN GRID --- */
+        .bento-main-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 25px; align-items: start; margin-bottom: 25px;}
         
         .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(12px); }
-        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
+        .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: var(--primary-green); margin-bottom: 20px; letter-spacing: 1px; }
         
-        .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px; }
-        .bento-card p strong { color: var(--text-main); }
+        .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0; }
 
         /* Features List */
-        .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        .feature-list-check li { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-muted); }
-        .feature-list-check li i { color: var(--text-main); font-size: 0.6rem; }
+        .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .feature-list-check li { display: flex; align-items: start; gap: 12px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .feature-list-check li i { color: var(--primary-green); font-size: 1.1rem; margin-top: 2px; }
+        .feature-list-check li strong { color: #fff; }
 
-        /* Metrics Grid */
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .metric-box { text-align: center; border-right: 1px solid rgba(0, 255, 102, 0.15); }
-        .metric-box:last-child { border: none; }
-        .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; color: #fff; margin-bottom: 5px; }
-        .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); font-weight: 700; }
-
-        /* Technical Highlights Grid */
+        /* Technical Highlights Grid (2x2 inside card) */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.3); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; }
-        .highlight-item i { font-size: 1.5rem; color: var(--text-muted); }
-        .highlight-item h5 { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; color: #fff; margin-bottom: 4px; }
-        .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; color: var(--text-muted); }
+        .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0, 0, 0, 0.4); padding: 20px; border-radius: 10px; display: flex; gap: 15px; align-items: flex-start; transition: 0.3s; }
+        .highlight-item:hover { border-color: rgba(0, 255, 102, 0.3); background: rgba(0, 255, 102, 0.02); }
+        .highlight-item i { font-size: 1.8rem; color: var(--primary-green); }
+        .highlight-item h5 { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
+        .highlight-item p { font-size: 0.8rem; margin-bottom: 0; line-height: 1.5; color: var(--text-muted); }
 
         /* Challenges List */
-        .challenges-list { display: flex; flex-direction: column; gap: 10px; }
-        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 102, 0.1); }
-        .challenge-row p { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
-        .challenge-row p strong { color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: block; margin-bottom: 3px;}
-        .c-arrow { color: var(--primary-green); font-size: 0.8rem; }
+        .challenges-list { display: flex; flex-direction: column; gap: 12px; }
+        .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; background: rgba(0, 0, 0, 0.4); padding: 18px 20px; border-radius: 10px; border: 1px solid rgba(0, 255, 102, 0.1); }
+        .challenge-row p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .challenge-row p span { color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: block; margin-bottom: 5px; color: var(--primary-green); letter-spacing: 0.5px;}
+        .c-arrow { color: var(--text-muted); font-size: 1rem; }
+
+        /* Project Metrics (Full Width Bottom Card) */
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .metric-box { text-align: center; border-right: 1px solid rgba(0, 255, 102, 0.15); padding: 10px 0; }
+        .metric-box:last-child { border: none; }
+        .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 8px; }
+        .metric-box p { font-size: 0.8rem; margin: 0; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
         /* Bottom CTA Bar */
-        .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
-        .cta-quote { display: flex; gap: 15px; align-items: center; }
-        .cta-quote i { font-size: 2rem; color: var(--primary-green); /* Restored Green Quote */ } 
-        .cta-quote p { font-size: 1.1rem; color: #fff; font-style: italic; max-width: 400px; line-height: 1.4; margin:0; }
+        .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; margin-top: 25px; }
+        .cta-quote { display: flex; gap: 20px; align-items: flex-start; }
+        .cta-quote i { font-size: 2.5rem; color: var(--primary-green); /* Green Quote Maintained */ } 
+        .cta-quote p { font-size: 1.2rem; color: #fff; font-style: italic; max-width: 450px; line-height: 1.5; margin:0; }
         
-        .cta-links { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-        .cta-links span { font-size: 0.85rem; color: var(--text-muted); }
+        .cta-links { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .cta-links span { font-size: 0.9rem; color: var(--text-main); }
         .link-row { display: flex; gap: 15px; }
-        .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.4); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .link-row a { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #fff; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .link-row a:hover { background: rgba(0,255,102,0.1); border-color: var(--primary-green); color: var(--primary-green); }
 
         /* Tag Colors Updated */
@@ -159,12 +160,14 @@
         @media (max-width: 1024px) {
             .hero-bento, .bento-main-grid { grid-template-columns: 1fr; }
             .tech-highlights-grid { grid-template-columns: 1fr; }
-            .challenge-row { grid-template-columns: 1fr; text-align: center; }
+            .challenge-row { grid-template-columns: 1fr; text-align: left; gap: 10px; }
             .c-arrow { display: none; }
-            .bottom-cta-bar { flex-direction: column; text-align: center; gap: 20px; }
+            .bottom-cta-bar { flex-direction: column; text-align: center; gap: 25px; align-items: center; }
+            .cta-quote { flex-direction: column; align-items: center; text-align: center; }
             .cta-links { align-items: center; }
             .metrics-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-            .metric-box { border: none; }
+            .metric-box { border: none; border-bottom: 1px solid rgba(0,255,102,0.15); padding-bottom: 15px; }
+            .metric-box:nth-last-child(-n+2) { border-bottom: none; }
         }
     </style>
 </head>
@@ -226,14 +229,14 @@
                     // Map Features to Mini Row under Description
                     const miniFeaturesMarkup = proj.features ? proj.features.map(f => `
                         <div class="mini-feature-box">
-                            <i class="${f.icon}" style="color: var(--primary-green)"></i>
+                            <i class="${f.icon}"></i>
                             <span>${f.title.replace(' ', '<br>')}</span>
                         </div>
                     `).join('') : '';
 
                     // Key Features List
                     const listFeaturesMarkup = proj.features ? proj.features.map(f => `
-                        <li><i class="fa-solid fa-circle"></i> <strong>${f.title}</strong> - ${f.desc}</li>
+                        <li><i class="fa-regular fa-circle-check"></i> <div><strong>${f.title}</strong><br>${f.desc}</div></li>
                     `).join('') : '<li>No features listed.</li>';
 
                     // Media Slider Map
@@ -261,7 +264,7 @@
                         });
                     }
 
-                    // Dynamic Metrics
+                    // Dynamic Metrics (Full width card bottom)
                     let metaMetricsHTML = '';
                     if(proj.metaInfo) {
                         metaMetricsHTML = proj.metaInfo.map(m => `
@@ -274,7 +277,7 @@
                         metaMetricsHTML = `<div class="metric-box"><h3>${proj.year}</h3><p>Year</p></div><div class="metric-box"><h3>${proj.platform}</h3><p>Platform</p></div>`;
                     }
 
-                    // Dynamic Tech Highlights
+                    // Technical Highlights Grid
                     let techHighlightsHTML = '';
                     if(proj.techHighlights) {
                         techHighlightsHTML = proj.techHighlights.map(m => `
@@ -288,22 +291,16 @@
                         `).join('');
                     }
 
-                    // Dynamic Challenges
+                    // Challenges List
                     let challengesHTML = '';
                     if(proj.challenges) {
-                        challengesHTML = `
-                        <div class="bento-card">
-                            <h3 class="bento-card-title">Challenges & Solutions</h3>
-                            <div class="challenges-list">
-                                ${proj.challenges.map(c => `
-                                    <div class="challenge-row">
-                                        <p><strong>Challenge:</strong> ${c.challenge}</p>
-                                        <i class="fa-solid fa-chevron-right c-arrow"></i>
-                                        <p><strong>Solution:</strong> ${c.solution}</p>
-                                    </div>
-                                `).join('')}
+                        challengesHTML = proj.challenges.map(c => `
+                            <div class="challenge-row">
+                                <p><span>Challenge:</span> ${c.challenge}</p>
+                                <i class="fa-solid fa-chevron-right c-arrow"></i>
+                                <p><span>Solution:</span> ${c.solution}</p>
                             </div>
-                        </div>`;
+                        `).join('');
                     }
 
                     // Dynamic CTA Links (Removing Github dynamically)
@@ -326,7 +323,7 @@
                                 <p class="brief-text-desc">${proj.desc}</p>
                                 
                                 <div class="hero-action-row">
-                                    <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-main-play"><i class="fa-solid fa-gamepad"></i> Play Build</a>
+                                    <a href="${proj.liveDemo || '#'}" target="_blank" class="btn-main-play"><i class="fa-solid fa-gamepad"></i> Play Demo (APK)</a>
                                 </div>
 
                                 <div class="mini-features-row">
@@ -362,13 +359,6 @@
                                         ${listFeaturesMarkup}
                                     </ul>
                                 </div>
-                                
-                                <div class="bento-card">
-                                    <h3 class="bento-card-title">Project Metrics</h3>
-                                    <div class="metrics-grid">
-                                        ${metaMetricsHTML}
-                                    </div>
-                                </div>
                             </div>
 
                             <div style="display:flex; flex-direction:column; gap:25px;">
@@ -380,7 +370,20 @@
                                     </div>
                                 </div>` : ''}
 
-                                ${challengesHTML}
+                                ${challengesHTML ? `
+                                <div class="bento-card">
+                                    <h3 class="bento-card-title">Challenges & Solutions</h3>
+                                    <div class="challenges-list">
+                                        ${challengesHTML}
+                                    </div>
+                                </div>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="bento-card" style="margin-bottom: 25px;">
+                            <h3 class="bento-card-title">Project Metrics</h3>
+                            <div class="metrics-grid">
+                                ${metaMetricsHTML}
                             </div>
                         </div>
 
@@ -401,7 +404,7 @@
                 .catch(err => console.error("Error launching dynamic system layouts:", err));
         }
 
-        // Auto Scroll / Smooth Select logic
+        // --- AUTO-SLIDE ON IMAGE SELECTION ---
         function switchSteamMedia(type, path, elementRef) {
             document.querySelectorAll('.steam-thumb').forEach(el => el.classList.remove('active'));
             elementRef.classList.add('active');
