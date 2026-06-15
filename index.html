@@ -88,7 +88,7 @@
             gap: 35px;
         }
 
-        nav nav ul li a {
+        nav ul li a {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -307,20 +307,12 @@
             margin-bottom: 8px;
         }
 
-        .view-all {
-            color: var(--primary-green);
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
         /* --- PROJECTS CARDS GRID --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
             gap: 20px;
+            margin-bottom: 40px; /* Space before the view all button */
         }
 
         .project-card {
@@ -396,6 +388,51 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* --- EXACT MOCKUP "VIEW ALL PROJECTS" BUTTON --- */
+        .view-all-projects-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-view-all-projects {
+            background-color: rgba(14, 24, 11, 0.4);
+            border: 1px solid #2e441c;
+            color: #9cdb34;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-view-all-projects i.fa-table-cells {
+            font-size: 1.2rem;
+            color: #9cdb34;
+        }
+
+        .btn-view-all-projects i.fa-arrow-right {
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-view-all-projects:hover {
+            background-color: rgba(14, 24, 11, 0.8);
+            border-color: #9cdb34;
+            box-shadow: 0 0 15px rgba(156, 219, 52, 0.15);
+        }
+
+        .btn-view-all-projects:hover i.fa-arrow-right {
+            transform: translateX(4px);
         }
 
         /* --- SKILLS SECTION --- */
@@ -721,7 +758,7 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        /* 3D Hologram Setup For Right Side Social Nodes */
+        /* 3D Hologram Setup For Right Side Social Grid */
         .contact-right-hologram {
             display: flex;
             align-items: center;
@@ -834,7 +871,6 @@
     <!-- NAVIGATION HEADER -->
     <header>
         <div class="logo">
-            <!-- 1. Text changed to UNITY DEVELOPER -->
             <i class="fa-solid fa-gamepad"></i> UNITY DEVELOPER
         </div>
         <nav>
@@ -856,11 +892,9 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-subtitle">HELLO, I'M</div>
-            <!-- 2. Main Title text replaced with ABHILASH SAJI -->
             <h1 class="hero-title">ABHILASH<br>SAJI</h1>
-            <!-- 3. Hyphen symbol completely removed from the description text below -->
             <p class="hero-description">
-                I build polished Unity games that transform ideas into engaging player experiences from gameplay systems and UI architecture to optimization and deployment.
+                I build polished Unity games that transform ideas into engaging player experiences lines from gameplay systems and UI architecture to optimization and deployment.
             </p>
             
             <div class="hero-buttons">
@@ -894,12 +928,12 @@
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION (FIRST) -->
+    <!-- FEATURED PROJECTS SECTION -->
     <section class="content-section" id="projects">
         <div class="section-subtitle-tag">My Work</div>
         <div class="section-header">
+            <!-- Let's Talk button removed successfully from here -->
             <h2 class="section-title">Featured <span>Projects</span></h2>
-            <a href="#contact" class="view-all">LET'S TALK <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="projects-grid">
@@ -968,9 +1002,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- NEW VIEW ALL PROJECTS BUTTON CONTAINER -->
+        <div class="view-all-projects-container">
+            <button class="btn-view-all-projects">
+                <i class="fa-solid fa-table-cells"></i> VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
     </section>
 
-    <!-- REAL COLOR SKILLS & EXPERTISE SECTION (SECOND) -->
+    <!-- REAL COLOR SKILLS & EXPERTISE SECTION -->
     <section class="content-section" id="skills">
         <div class="section-subtitle-tag">My Stack</div>
         <div class="section-header">
@@ -1113,7 +1154,7 @@
         </div>
     </section>
 
-    <!-- SERVICES MODULE (WHAT I DO) -->
+    <!-- SERVICES MODULE -->
     <section class="content-section" id="services" style="padding-top: 15px; padding-bottom: 50px;">
         <div class="section-header">
             <h2 class="section-title" style="font-size: 1.25rem;">What I Do</h2>
