@@ -114,15 +114,23 @@
             {"icon": "fa-solid fa-mobile-screen-button", "title": "Haptic<br>Feedback"},
             {"icon": "fa-solid fa-trophy", "title": "Score<br>Tracking"},
             {"icon": "fa-solid fa-music", "title": "Audio<br>System"},
-            {"icon": "fa-solid fa-mobile-screen", "title": "Mobile<br>Optimized"}
+            {"icon": "fa-solid fa-mobile-screen", "title": "Mobile<br>Optimized"},
+            {"icon": "fa-solid fa-gem", "title": "Collectible<br>Progression"},
+            {"icon": "fa-solid fa-database", "title": "Persistent<br>Data"},
+            {"icon": "fa-solid fa-cubes", "title": "Modular<br>Architecture"},
+            {"icon": "fa-solid fa-boxes-stacked", "title": "Asset<br>Management"}
         ],
         "keyFeatures": [
-            {"title": "Responsive Controls", "desc": "Keyboard & Swipe Input"},
-            {"title": "Dynamic Difficulty", "desc": "Progressive Challenge"},
-            {"title": "Haptic Feedback", "desc": "Immersive Response"},
-            {"title": "Score Tracking", "desc": "Persistent Progression"},
-            {"title": "Audio System", "desc": "Dynamic Sound Mixing"},
-            {"title": "Mobile Optimized", "desc": "Smooth Performance"}
+            {"title": "Responsive Controls", "desc": "Precision swipe-based mechanics engineered for intuitive mobile interaction."},
+            {"title": "Dynamic Difficulty", "desc": "An adaptive speed-curve algorithm that balances challenge and fairness as the game progresses."},
+            {"title": "Haptic Feedback", "desc": "Native vibration integration that provides tactile sensory immersion for collisions and collections."},
+            {"title": "Score Tracking", "desc": "Real-time performance monitoring and high-score recording systems."},
+            {"title": "Audio System", "desc": "A dynamic mixer-driven system allowing for real-time sound control and independent volume scaling."},
+            {"title": "Mobile Optimized", "desc": "Architecture specifically tuned for stable performance and fast load times on diverse mobile hardware."},
+            {"title": "Collectible Progression", "desc": "A robust rewards and power-up system that incentivizes exploration and skill-based gameplay."},
+            {"title": "Persistent Data", "desc": "A reliable, asynchronous save framework that tracks player progress, currency, and custom user configurations."},
+            {"title": "Modular Architecture", "desc": "Built on a Singleton-based framework to ensure code scalability and efficient state management."},
+            {"title": "Efficient Asset Management", "desc": "Utilizes high-performance object pooling to minimize garbage collection and maintain 60 FPS."}
         ],
         "techHighlights": [
             {"icon": "fa-cubes", "color": "c-purple", "title": "Modular Architecture", "desc": "Singleton-based systems for scalable management."},
