@@ -7,7 +7,7 @@
         "category": "platformer",
         "image": "Images/Pixel-Forest-Adventure/PixelForestThumbnail.png",
         "desc": "A 2D platformer with collectible mechanics, level progression, score tracking and sound effects.",
-        "tech": ["Unity", "C#", "2D","TileMap","2D Animation"],
+        "tech": ["Unity", "C#", "2D", "TileMap", "2D Animation"],
         "isHighlighted": true,
         "year": "2025",
         "platform": "PC",
@@ -21,7 +21,7 @@
         "metaInfo": [
             {"label": "Genre", "value": "2D Platformer"},
             {"label": "Core System", "value": "Physics & Collectibles"},
-            {"label": "Level Design", "value": "Tilemap Workflow"},
+            {"label": "Performance", "value": "60 FPS Target"},
             {"label": "Platform", "value": "Windows"}
         ],
         "overview": "Pixel Forest Adventure is a 2D pixel-art platformer featuring collectible-based progression, combat mechanics, level unlocking, and persistent player progression. Players explore handcrafted forest environments, collect coins, defeat obstacles, and unlock increasingly challenging stages while striving for high scores and perfect level completion.",
@@ -161,7 +161,7 @@
                 {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
             ]
         }
-    }
+    },
     {
         "id": 3,
         "name": "Frost Fire",
@@ -242,5 +242,4 @@
             ]
         }
     }
-
 ]
