@@ -162,4 +162,85 @@
             ]
         }
     }
+    {
+        "id": 3,
+        "name": "Frost Fire",
+        "tag": "Third Person Shooter",
+        "tagColor": "orange",
+        "category": "fps&tps",
+        "image": "Images/Tom-And-Jerry/TomAndJerryThumbnail.png",
+        "desc": "A retro-futuristic endless runner with collectible progression, real-time scoring, immersive audio, optimized mobile performance, and persistent player data.",
+        "tech": ["Unity", "C#", "3D", "Mobile Optimization"],
+        "isHighlighted": true,
+        "year": "2025",
+        "platform": "Mobile",
+        "engine": "Unity Engine",
+        "role": "Game Developer",
+        "heroBtn": {
+            "text": "Play Demo",
+            "url": "https://mrshadowseverz.github.io/Tom-And-Jerry/",
+            "icon": "fa-solid fa-gamepad"
+        },
+        "metaInfo": [
+            {"label": "Genre", "value": "Endless Runner"},
+            {"label": "Core System", "value": "Procedural Spawning"},
+            {"label": "Performance", "value": "60 FPS Target"},
+            {"label": "Platform", "value": "Android Mobile"}
+        ],
+        "overview": "A mobile endless runner developed in Unity, featuring fast-paced obstacle avoidance, collectible-driven progression, and real-time score tracking within a stylized retro-futuristic world. The project emphasizes performance optimization through object pooling, efficient state management, and mobile-first design principles.",
+        "miniFeatures": [
+            {"icon": "fa-solid fa-gamepad", "title": "Responsive<br>Controls"},
+            {"icon": "fa-solid fa-bolt", "title": "Dynamic<br>Difficulty"},
+            {"icon": "fa-solid fa-mobile-screen-button", "title": "Haptic<br>Feedback"},
+            {"icon": "fa-solid fa-trophy", "title": "Score<br>Tracking"},
+            {"icon": "fa-solid fa-music", "title": "Audio<br>System"},
+            {"icon": "fa-solid fa-mobile-screen", "title": "Mobile<br>Optimized"},
+            {"icon": "fa-solid fa-gem", "title": "Collectible<br>Progression"},
+            {"icon": "fa-solid fa-database", "title": "Persistent<br>Data"},
+            {"icon": "fa-solid fa-cubes", "title": "Modular<br>Architecture"},
+            {"icon": "fa-solid fa-boxes-stacked", "title": "Asset<br>Management"}
+        ],
+        "keyFeatures": [
+            {"title": "Responsive Controls", "desc": "Precision swipe-based mechanics engineered for intuitive mobile interaction."},
+            {"title": "Dynamic Difficulty", "desc": "An adaptive speed-curve algorithm that balances challenge and fairness as the game progresses."},
+            {"title": "Haptic Feedback", "desc": "Native vibration integration that provides tactile sensory immersion for collisions and collections."},
+            {"title": "Score Tracking", "desc": "Real-time performance monitoring and high-score recording systems."},
+            {"title": "Audio System", "desc": "A dynamic mixer-driven system allowing for real-time sound control and independent volume scaling."},
+            {"title": "Mobile Optimized", "desc": "Architecture specifically tuned for stable performance and fast load times on diverse mobile hardware."},
+            {"title": "Collectible Progression", "desc": "A robust rewards and power-up system that incentivizes exploration and skill-based gameplay."},
+            {"title": "Persistent Data", "desc": "A reliable, asynchronous save framework that tracks player progress, currency, and custom user configurations."},
+            {"title": "Modular Architecture", "desc": "Built on a Singleton-based framework to ensure code scalability and efficient state management."},
+            {"title": "Efficient Asset Management", "desc": "Utilizes high-performance object pooling to minimize garbage collection and maintain 60 FPS."}
+        ],
+        "techHighlights": [
+            {"icon": "fa-cubes", "color": "c-purple", "title": "Modular Architecture", "desc": "Singleton-based systems for scalable management."},
+            {"icon": "fa-database", "color": "c-green", "title": "Object Pooling", "desc": "High-performance pooling for smooth gameplay."},
+            {"icon": "fa-sliders", "color": "c-blue", "title": "Audio Mixer", "desc": "Dynamic audio mixing with real-time control."},
+            {"icon": "fa-mobile-screen", "color": "c-orange", "title": "Performance", "desc": "Optimized for mobile with stable 60 FPS."}
+        ],
+        "challenges": [
+            {"challenge": "Frequent object instantiation caused frame drops on mobile devices.", "solution": "Implemented an object pooling system which improved performance and reduced GC spikes."},
+            {"challenge": "Managing multiple audio sources and real-time volume control.", "solution": "Integrated Unity Audio Mixer with dynamic groups and exposed settings to the player."},
+            {"challenge": "Increasing difficulty without making gameplay unfair.", "solution": "Designed a speed-curve algorithm with balanced obstacle spawn patterns."},
+            {"challenge": "Data loss risk during app closure.", "solution": "Built an asynchronous, non-blocking save framework."}
+        ],
+        "videos": [
+            {"title": "Gameplay Demo", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
+        ],
+        "gallery": [
+            "Images/Tom-And-Jerry/TAJ_01.png",
+            "Images/Tom-And-Jerry/TAJ_02.png",
+            "Images/Tom-And-Jerry/TAJ_03.png",
+            "Images/Tom-And-Jerry/TAJ_04.png"
+        ],
+        "cta": {
+            "quote": "Building fun, optimized and scalable games that players love.",
+            "links": [
+                {"icon": "fa-brands fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-solid fa-envelope", "iconColor": "#ea4335", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
+            ]
+        }
+    }
+
 ]
