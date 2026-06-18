@@ -256,12 +256,20 @@
             letter-spacing: 0.5px;
         }
 
+        /* --- TAG AND ICON COLORS FIXED --- */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
         .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
         .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
         .tag-cyanBlue { border: 1px solid #00d4ff; color: #00d4ff; }
         .tag-orange { border: 1px solid #ff9900; color: #ff9900; }
         .tag-red { border: 1px solid #ff3344; color: #ff3344; }
+
+        .color-green { color: #00ff66; }
+        .color-purple { color: #bb55ff; }
+        .color-blue { color: #33a6ff; }
+        .color-cyanBlue { color: #00d4ff; } /* <-- Added Missing CyanBlue Color */
+        .color-orange { color: #ff9900; }
+        .color-red { color: #ff3344; }
 
         .info-panel {
             padding: 18px;
@@ -286,12 +294,6 @@
         }
 
         .theme-icon { font-size: 0.95rem; }
-
-        .color-green { color: #00ff66; }
-        .color-purple { color: #bb55ff; }
-        .color-blue { color: #33a6ff; }
-        .color-orange { color: #ff9900; }
-        .color-red { color: #ff3344; }
 
         .proj-desc {
             color: var(--text-muted);
@@ -467,14 +469,31 @@
                 const techList = proj.tech || ["Unity", "C#", "PC"];
                 const badgesMarkup = techList.map(t => `<span class="badge-item">${t}</span>`).join('');
 
-                let fallbackIcon = "fa-solid fa-gamepad";
-                if(proj.category === "platformer") fallbackIcon = "fa-solid fa-tree";
-                if(proj.category === "metroidvania") fallbackIcon = "fa-solid fa-dungeon";
-                if(proj.category === "isometric") fallbackIcon = "fa-solid fa-layer-group";
-                if(proj.category === "fps-tps") fallbackIcon = "fa-solid fa-crosshairs";
-                if(proj.category === "mobile") fallbackIcon = "fa-solid fa-bolt";
-                if(proj.category === "simulation") fallbackIcon = "fa-solid fa-car-side";
-                if(proj.category === "ar-vr") fallbackIcon = "fa-solid fa-vr-cardboard";
+                // --- CORRECTED ICON LOGIC ---
+                let fallbackIcon = "fa-solid fa-gamepad"; // Default Icon
+                let categoryName = proj.category ? proj.category.toLowerCase() : "";
+                
+                if (categoryName === "platformer" || categoryName === "platformers") {
+                    fallbackIcon = "fa-solid fa-tree";
+                } 
+                else if (categoryName === "mobile") {
+                    fallbackIcon = "fa-solid fa-bolt";
+                } 
+                else if (categoryName === "fps-tps" || categoryName === "fps&tps") {
+                    fallbackIcon = "fa-solid fa-crosshairs";
+                } 
+                else if (categoryName === "simulation") {
+                    fallbackIcon = "fa-solid fa-car-side";
+                } 
+                else if (categoryName === "metroidvania" || categoryName === "metroidvanias") {
+                    fallbackIcon = "fa-solid fa-dungeon"; 
+                } 
+                else if (categoryName === "isometric") {
+                    fallbackIcon = "fa-solid fa-layer-group"; 
+                } 
+                else if (categoryName === "ar-vr" || categoryName === "ar&vr") {
+                    fallbackIcon = "fa-solid fa-vr-cardboard"; 
+                }
 
                 let chosenColor = proj.tagColor || "green";
                 let tagClass = `tag-${chosenColor}`;
