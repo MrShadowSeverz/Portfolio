@@ -408,7 +408,7 @@
             {"challenge": "Fetching player profiles and leaderboard data directly from the server caused lag, making the main menu feel unresponsive.", "solution": "Integrated LootLocker with a custom local data caching layer, allowing the profile UI to populate instantly while seamlessly syncing with the database in the background."}
         ],
         "videos": [
-            {"title": "Car Parking Gameplay Demo", "url": "https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"}
+            {"title": "Car Parking Gameplay Demo", "url": "https://www.youtube.com/embed/_Hu75HqWBXc"}
         ],
         "gallery": [
             "Images/Car-Parking/CP-01.png",
