@@ -237,5 +237,82 @@
                 {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
             ]
         }
+    },
+    {
+        "id": 4,
+        "name": "The Silent Prayer",
+        "tag": "First Person Shooter",
+        "tagColor": "red",
+        "category": "fps-tps",
+        "image": "Images/Tom-And-Jerry/TomAndJerryThumbnail.png",
+        "desc": "An engaging third-person shooter built in Unity, highlighting advanced Cinemachine camera logic, fluid animation blending, and NavMesh-driven AI.",
+        "tech": ["Unity", "C#", "Animator Controller", "NavMesh AI", "Cinemachine"],
+        "isHighlighted": true,
+        "year": "2025",
+        "platform": "Mobile",
+        "engine": "Unity Engine",
+        "role": "Game Developer",
+        "heroBtn": {
+            "text": "Play Demo",
+            "url": "https://mrshadowseverz.github.io/Tom-And-Jerry/",
+            "icon": "fa-solid fa-gamepad"
+        },
+        "metaInfo": [
+            {"label": "Genre", "value": "Shooter"},
+            {"label": "Core System", "value": "Combat"},
+            {"label": "Performance", "value": "Optimized"},
+            {"label": "Platform", "value": "PC"}
+        ],
+        "overview": "Frostfire is an engaging Third-Person Shooter (TPS) developed in Unity, featuring a vibrant, stylized 3D environment. The game focuses on a solid core combat loop, requiring players to navigate objective-based missions—such as eliminating guards, securing keys, and rescuing targets. Built with a strong emphasis on responsive controls and clean camera logic, it offers a seamless blend of movement, aiming, and shooting mechanics against intelligent AI enemies.",
+        "miniFeatures": [
+            {"icon": "fa-solid fa-crosshairs", "title": "TPS<br>Combat"},
+            {"icon": "fa-solid fa-brain", "title": "Enemy<br>AI"},
+            {"icon": "fa-solid fa-list-check", "title": "Mission<br>Objectives"},
+            {"icon": "fa-solid fa-video", "title": "Dynamic<br>Camera"},
+            {"icon": "fa-solid fa-heart-pulse", "title": "Health<br>System"},
+            {"icon": "fa-solid fa-person-running", "title": "Fluid<br>Animation"},
+            {"icon": "fa-solid fa-map-location-dot", "title": "Level<br>Design"},
+            {"icon": "fa-solid fa-desktop", "title": "Game<br>Loop UI"}
+        ],
+        "keyFeatures": [
+            {"title": "Responsive TPS Combat", "desc": "Precision aiming, shooting, and fluid character locomotion tailored for third-person action."},
+            {"title": "Advanced Enemy AI", "desc": "NavMesh-driven guards equipped with ranged attacks (fireballs), dynamic pathfinding, and target tracking."},
+            {"title": "Objective-Driven Missions", "desc": "Structured gameplay loops requiring players to secure keys, eliminate specific targets, and rescue NPCs."},
+            {"title": "Dynamic Camera System", "desc": "Cinemachine integration providing smooth, collision-aware third-person camera tracking and aiming logic."},
+            {"title": "Health & Ammo Management", "desc": "Real-time resource tracking paired with immersive visual damage feedback and screen-space hit effects."},
+            {"title": "Fluid Animation Blending", "desc": "Complex Animator Controllers ensuring seamless transitions between running, aiming, shooting, and taking damage."},
+            {"title": "Interactive Level Design", "desc": "Stylized, multi-level environments featuring vertical combat spaces, mission portals, and locked enclosures."},
+            {"title": "Complete Game Loop UI", "desc": "Fully functional interface elements including 3D mission briefings, pause menus, game over, and victory screens."}
+        ],
+        "techHighlights": [
+            {"icon": "fa-cubes", "color": "c-purple", "title": "Modular Architecture", "desc": "Clean, scalable C# systems managing the core combat and interaction loops."},
+            {"icon": "fa-video", "color": "c-green", "title": "Advanced Camera Logic", "desc": "Integrated Unity Cinemachine for smooth, responsive third-person camera tracking and aiming."},
+            {"icon": "fa-brain", "color": "c-blue", "title": "Intelligent AI", "desc": "Utilized Unity NavMesh for dynamic enemy pathfinding, pursuit, and combat behavior."},
+            {"icon": "fa-person-running", "color": "c-orange", "title": "Animation Blending", "desc": "Complex Animator Controller setups to seamlessly transition between running, aiming, and shooting states."}
+        ],
+       "challenges": [
+            {"challenge": "Implementing precise aiming and shooting mechanics in a third-person perspective.", "solution": "Integrated Unity Cinemachine with custom raycasting logic to ensure projectiles accurately align with the center screen reticle."},
+            {"challenge": "Ensuring fluid transitions between running, aiming, and firing states.", "solution": "Developed a complex Animator Controller using Blend Trees and Avatar Masks to seamlessly merge upper-body combat actions with lower-body locomotion."},
+            {"challenge": "Creating responsive and intelligent enemy behavior.", "solution": "Utilized Unity's NavMesh system paired with state-machine logic, allowing enemies to patrol, detect the player, pursue, and execute ranged attacks."},
+            {"challenge": "Managing performance with multiple enemies, projectiles, and particle effects active simultaneously.", "solution": "Implemented an object pooling system for projectiles and hit effects to minimize garbage collection and maintain a stable frame rate."}
+        ],
+        "videos": [
+            {"title": "Gameplay Demo", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
+        ],
+        "gallery": [
+            "Images/Tom-And-Jerry/TAJ_01.png",
+            "Images/Tom-And-Jerry/TAJ_02.png",
+            "Images/Tom-And-Jerry/TAJ_03.png",
+            "Images/Tom-And-Jerry/TAJ_04.png"
+        ],
+        "cta": {
+            "quote": "Building fun, optimized and scalable games that players love.",
+            "links": [
+                {"icon": "fa-brands fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-solid fa-envelope", "iconColor": "#ea4335", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
+            ]
+        }
     }
+
 ]
