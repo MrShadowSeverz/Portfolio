@@ -289,12 +289,8 @@
             {"title": "Polished UI Transitions", "desc": "Smooth menus, death screens, and victory sequences that fit the horror theme."},
             {"title": "Procedural Scare Engine", "desc": "An intelligent background system that analyzes player behavior and camera angles to trigger scares unpredictably, ensuring no two playthroughs are the same."},
             {"title": "Adaptive Sanity Mechanic", "desc": "Player fear levels dynamically alter the environment, introducing audio hallucinations and visual distortions as sanity drops."},
-            {"title": "Advanced FSM Ghost AI", "desc": "Enemies utilize a complex Finite State Machine for intelligent patrolling, aggressive chasing, and tactical hit-and-run ambushes."},
             {"title": "Resource Scarcity & Inventory", "desc": "A tense survival loop requiring players to carefully manage limited flashlight batteries and capture-weapon ammo via a seamless inventory system."},
-            {"title": "Dynamic Teleportation Logic", "desc": "Custom mathematics calculate blind-spot offsets relative to the player's vision cone to execute terrifying, off-screen ambushes."},
-            {"title": "Binaural Spatial Audio", "desc": "Precision zone-based audio fading and 3D sound occlusion that forces players to rely on their hearing to track unseen threats."},
-            {"title": "Interactive Environmental Puzzles", "desc": "Story-driven brain teasers and lore-filled collectibles smoothly integrated into the haunted mansion's level design."},
-            {"title": "Cinematic UI Integration", "desc": "Immersive video-based main menus using RenderTextures, paired with diegetic in-game interfaces that never break the horror tension."}
+            {"title": "Interactive Environmental Puzzles", "desc": "Story-driven brain teasers and lore-filled collectibles smoothly integrated into the haunted mansion's level design."}
         ],
         "techHighlights": [
             {"icon": "fa-brain", "color": "c-purple", "title": "Finite State Machine", "desc": "Robust AI architecture handling complex state transitions (Patrol, Chase, Ambush)."},
@@ -307,9 +303,7 @@
             {"challenge": "Managing complex, multi-phase enemy behaviors without creating messy, tangled code.", "solution": "Implemented a clean Finite State Machine (FSM) to smoothly handle AI transitions between patrolling, aggressive chasing, and tactical hit-and-run states."},
             {"challenge": "Creating an immersive auditory environment that heightens player tension naturally.", "solution": "Utilized Unity's spatial audio tools with precise zone-based fading, ensuring sound cues dynamically match the player's proximity to unseen threats."},
             {"challenge": "Players quickly memorize scripted jump scares, reducing the fear factor and replayability over time.", "solution": "Engineered a 'Director AI' system that evaluates player pacing, vulnerability, and field of view to deploy procedural scares and audio cues dynamically, rather than relying on fixed triggers."},
-            {"challenge": "Balancing visibility in a horror setting so it feels terrifyingly dark without becoming frustratingly unplayable.", "solution": "Implemented dynamic volumetric lighting and a physically-based flashlight mechanic that realistically illuminates specific materials while casting harsh, unpredictable dynamic shadows."},
-            {"challenge": "Managing complex, multi-phase enemy behaviors without creating tangled, hard-to-maintain code.", "solution": "Designed a robust, scalable Finite State Machine (FSM) architecture that cleanly isolates AI transitions between wandering, stalking, and attacking states."},
-            {"challenge": "Creating an immersive auditory environment where sound acts as a gameplay mechanic for tracking invisible enemies.", "solution": "Utilized Unity's advanced audio spatialization and custom Raycast-based audio occlusion to muffle sounds behind walls, heightening tension and realism."}
+            {"challenge": "Balancing visibility in a horror setting so it feels terrifyingly dark without becoming frustratingly unplayable.", "solution": "Implemented dynamic volumetric lighting and a physically-based flashlight mechanic that realistically illuminates specific materials while casting harsh, unpredictable dynamic shadows."}
         ],
         "videos": [
             {"title": "Survival Horror AI Demo", "url": "https://www.youtube.com/embed/YOUR_VIDEO_LINK_HERE"}
