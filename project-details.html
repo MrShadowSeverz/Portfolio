@@ -107,7 +107,7 @@
         .feature-list-check li i { color: var(--primary-green); font-size: 1.1rem; margin-top: 2px; }
         .feature-list-check li strong { color: #fff; }
 
-        /* Tech Highlights (MODIFIED WITH HIGHLIGHT EFFECT & COLORS) */
+        /* Tech Highlights */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; transition: all 0.3s ease; }
         .highlight-item:hover { border-color: var(--primary-green); background: rgba(0, 255, 102, 0.05); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15); }
@@ -159,8 +159,11 @@
         }
         #scrollToTopBtn:hover { background-color: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.4); transform: translateY(-3px); }
 
-        /* Tag Colors Updated */
+        /* --- ALL TAG AND TEXT COLORS ADDED --- */
         .tag-green { border: 1px solid #00ff66; color: #00ff66; }
+        .color-green { color: #00ff66; }
+        .tag-blue { border: 1px solid #33a6ff; color: #33a6ff; }
+        .color-blue { color: #33a6ff; }
         .tag-cyanBlue { border: 1px solid #00d4ff; color: #00d4ff; }
         .color-cyanBlue { color: #00d4ff; }
         .tag-orange { border: 1px solid #ff9900; color: #ff9900; }
@@ -253,31 +256,35 @@
                     let tagClass = `tag-${chosenColor}`;
                     let iconColorClass = `color-${chosenColor}`;
 
-                    // --- CORRECTED ICON LOGIC ---
+                    // --- CORRECTED MULTI-CATEGORY ICON LOGIC ---
                     let fallbackIcon = "fa-solid fa-gamepad"; // Default Icon
                     
-                    let categoryName = proj.category ? proj.category.toLowerCase() : "";
+                    // Convert category to an array even if it's a string, to handle both cases safely
+                    let catArray = Array.isArray(proj.category) 
+                                    ? proj.category.map(c => c.toLowerCase()) 
+                                    : [proj.category ? proj.category.toLowerCase() : ""];
                     
-                    if (categoryName === "platformer" || categoryName === "platformers") {
+                    if (catArray.includes("platformer") || catArray.includes("platformers")) {
                         fallbackIcon = "fa-solid fa-tree";
                     } 
-                    else if (categoryName === "mobile") {
-                        fallbackIcon = "fa-solid fa-mobile-screen";
-                    } 
-                    else if (categoryName === "fps-tps" || categoryName === "fps&tps") {
-                        fallbackIcon = "fa-solid fa-crosshairs";
-                    } 
-                    else if (categoryName === "simulation") {
+                    else if (catArray.includes("simulation")) {
                         fallbackIcon = "fa-solid fa-car-side";
                     } 
-                    else if (categoryName === "metroidvania" || categoryName === "metroidvanias") {
+                    else if (catArray.includes("fps-tps") || catArray.includes("fps&tps")) {
+                        fallbackIcon = "fa-solid fa-crosshairs";
+                    } 
+                    else if (catArray.includes("metroidvania") || catArray.includes("metroidvanias")) {
                         fallbackIcon = "fa-solid fa-dungeon"; 
                     } 
-                    else if (categoryName === "isometric") {
+                    else if (catArray.includes("isometric")) {
                         fallbackIcon = "fa-solid fa-layer-group"; 
                     } 
-                    else if (categoryName === "ar-vr" || categoryName === "ar&vr") {
+                    else if (catArray.includes("ar-vr") || catArray.includes("ar&vr")) {
                         fallbackIcon = "fa-solid fa-vr-cardboard"; 
+                    }
+                    else if (catArray.includes("mobile")) {
+                        // Changed to fa-bolt to match home/projects page
+                        fallbackIcon = "fa-solid fa-bolt";
                     }
 
                     // JSON Controlled Button
