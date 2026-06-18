@@ -223,13 +223,31 @@
             {"challenge": "Managing performance with multiple enemies, projectiles, and particle effects active simultaneously.", "solution": "Implemented an object pooling system for projectiles and hit effects to minimize garbage collection and maintain a stable frame rate."}
         ],
         "videos": [
-            {"title": "Gameplay Demo", "url": "https://www.youtube.com/embed/cogOMnyvoHs"}
+            {"title": "Gameplay Demo", "url": "https://www.youtube.com/embed/ovXbL-awlRk"}
         ],
         "gallery": [
-            "Images/Tom-And-Jerry/TAJ_01.png",
-            "Images/Tom-And-Jerry/TAJ_02.png",
-            "Images/Tom-And-Jerry/TAJ_03.png",
-            "Images/Tom-And-Jerry/TAJ_04.png"
+            "Images/Frost-Fire/FF_01.png",
+            "Images/Frost-Fire/FF_02.png",
+            "Images/Frost-Fire/FF_03.png",
+            "Images/Frost-Fire/FF_04.png",
+            "Images/Frost-Fire/FF_05.png",
+            "Images/Frost-Fire/FF_06.png",
+            "Images/Frost-Fire/FF_07.png",
+            "Images/Frost-Fire/FF_08.png",
+            "Images/Frost-Fire/FF_09.png",
+            "Images/Frost-Fire/FF_10.png",
+            "Images/Frost-Fire/FF_11.png",
+            "Images/Frost-Fire/FF_12.png",
+            "Images/Frost-Fire/FF_13.png",
+            "Images/Frost-Fire/FF_14.png",
+            "Images/Frost-Fire/FF_15.png",
+            "Images/Frost-Fire/FF_16.png",
+            "Images/Frost-Fire/FF_17.png",
+            "Images/Frost-Fire/FF_18.png",
+            "Images/Frost-Fire/FF_19.png",
+            "Images/Frost-Fire/FF_20.png",
+            "Images/Frost-Fire/FF_21.png",
+            "Images/Frost-Fire/FF_22.png"
         ],
         "cta": {
             "quote": "Building fun, optimized and scalable games that players love.",
