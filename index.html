@@ -21,7 +21,20 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+        
+        /* --- ADDED FULL PAGE BACKGROUND HERE --- */
+        body { 
+            background-color: var(--bg-dark); 
+            background-image: linear-gradient(rgba(2, 8, 12, 0.88), rgba(2, 8, 12, 0.95)), url('Images/bg-home.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+            line-height: 1.6; 
+        }
+        
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
         #particles-js { position: absolute; width: 100%; height: 100vh; top: 0; left: 0; z-index: 2; pointer-events: none; }
@@ -40,7 +53,7 @@
         .btn-work { background: var(--primary-green); color: var(--bg-dark); padding: 10px 22px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .btn-work:hover { box-shadow: 0 0 20px var(--glow-color); }
 
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 8% 0 8%; position: relative; background: var(--bg-dark); overflow: hidden; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 8% 0 8%; position: relative; overflow: hidden; }
         .hero-content { max-width: 50%; z-index: 5; padding-bottom: 40px; position: relative; }
         .hero-subtitle { color: var(--primary-green); font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 3px; margin-bottom: 12px; font-size: 0.85rem; }
         .hero-title { font-family: 'Orbitron', sans-serif; font-size: 3.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -60,7 +73,7 @@
 
         @keyframes breathe { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1.03); opacity: 1; } }
 
-        section.content-section { padding: 90px 8%; position: relative; z-index: 10; background: var(--bg-dark); }
+        section.content-section { padding: 90px 8%; position: relative; z-index: 10; }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 45px; }
         .section-title { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--primary-green); }
@@ -224,7 +237,7 @@
         </div>
 
         <div class="hero-graphic-container">
-            <img src="Images/bg-main.png" alt="Portal Concept Art" class="bg-main-image">
+            <img src="Images/bg-home.png" alt="Portal Concept Art" class="bg-main-image">
         </div>
     </section>
 
@@ -546,7 +559,6 @@
                     let tagClass = `tag-${chosenColor}`;
                     let iconColorClass = `color-${chosenColor}`;
 
-                    // --- CORRECTED MULTI-CATEGORY ICON LOGIC ---
                     let fallbackIcon = "fa-solid fa-gamepad"; 
                     let catArray = Array.isArray(proj.category) 
                                     ? proj.category.map(c => c.toLowerCase()) 
