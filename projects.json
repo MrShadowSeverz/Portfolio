@@ -354,7 +354,7 @@
         "name": "Car Parking",
         "tag": "Simulation",
         "tagColor": "blue",
-        "category": "simulation",
+        "category": ["simulation", "mobile"],
         "image": "Images/Car-Parking-Game/CP_Thumbnail.png",
         "desc": "A high-fidelity mobile parking simulator featuring dual-tier collision logic, dynamic engine audio, and LootLocker-powered global leaderboards.",
         "tech": ["Unity", "C#", "LootLocker", "Async Loading", "Mobile Optimization", "Physics"],
