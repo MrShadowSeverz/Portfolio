@@ -19,49 +19,23 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden; 
-            padding-top: 80px;
-            position: relative;
-            min-height: 100vh;
-        }
-        
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; padding-top: 80px; position: relative; min-height: 100vh; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-        /* --- BACKGROUND --- */
-        #dynamic-bg-blur {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            filter: blur(15px) brightness(0.25); transform: scale(1.05); z-index: -2;
-            transition: background-image 0.5s ease;
-        }
-
+        #dynamic-bg-blur { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; filter: blur(15px) brightness(0.25); transform: scale(1.05); z-index: -2; transition: background-image 0.5s ease; }
         #particles-js { position: fixed; width: 100%; height: 100vh; top: 0; left: 0; z-index: -1; pointer-events: none; }
 
-        /* --- HEADER --- */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 14px 6%; background: rgba(2, 8, 12, 0.85); backdrop-filter: blur(16px);
-            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 14px 6%; background: rgba(2, 8, 12, 0.85); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
         .header-left { display: flex; align-items: center; gap: 15px; }
         .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1.5px; }
         .logo i { color: var(--primary-green); }
         
-        .btn-go-back-nav {
-            border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green);
-            padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-        }
+        .btn-go-back-nav { border: 1px solid var(--primary-green); background: rgba(0, 255, 102, 0.05); color: var(--primary-green); padding: 8px 18px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
         .btn-go-back-nav:hover { background: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.3); }
         .btn-home { padding: 8px 14px; font-size: 0.9rem; } 
 
-        /* --- CONTAINER --- */
         .bento-container { max-width: 1400px; margin: 0 auto; padding: 20px 6% 60px; position: relative; z-index: 5; }
 
-        /* HERO TOP SECTION */
         .hero-bento { display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; margin-bottom: 25px; align-items: stretch; }
         .hero-left-card { display: flex; flex-direction: column; justify-content: center; }
         .proj-tag-badge { border-radius: 4px; font-size: 0.65rem; padding: 4px 10px; font-weight: 700; text-transform: uppercase; width: fit-content; margin-bottom: 15px; border: 1px solid var(--primary-green); color: var(--primary-green); background: rgba(0,0,0,0.4); }
@@ -72,13 +46,11 @@
         .btn-main-play { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background: var(--primary-green); color: var(--bg-dark); border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); }
         .btn-main-play:hover { box-shadow: 0 0 25px rgba(0, 255, 102, 0.5); transform: translateY(-2px); }
 
-        /* Mini Features Row */
         .mini-features-row { display: flex; gap: 15px; flex-wrap: wrap; }
         .mini-feature-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; text-align: center; }
         .mini-feature-box i { font-size: 1.2rem; color: var(--primary-green); }
         .mini-feature-box span { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; line-height: 1.2; }
 
-        /* STEAM MEDIA SLIDER */
         .steam-media-wrapper { display: flex; flex-direction: column; gap: 12px; }
         .video-player-frame { width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 8px; background: #000; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
         .video-player-frame iframe, .video-player-frame img { width: 100%; height: 100%; border: none; object-fit: cover; }
@@ -94,20 +66,16 @@
         .arrow-left { left: 0; }
         .arrow-right { right: 0; }
 
-        /* --- BENTO MAIN GRID --- */
         .bento-main-grid { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 25px; align-items: start; margin-bottom: 25px;}
-        
         .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; backdrop-filter: blur(8px); }
         .bento-card-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: var(--primary-green); margin-bottom: 20px; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0, 255, 102, 0.2); padding-bottom: 12px; }
         .bento-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px; }
 
-        /* Features */
         .feature-list-check { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .feature-list-check li { display: flex; align-items: start; gap: 12px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
         .feature-list-check li i { color: var(--primary-green); font-size: 1.1rem; margin-top: 2px; }
         .feature-list-check li strong { color: #fff; }
 
-        /* Tech Highlights (MODIFIED WITH HIGHLIGHT EFFECT & COLORS) */
         .tech-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .highlight-item { border: 1px solid rgba(0, 255, 102, 0.1); background: rgba(0,0,0,0.2); padding: 18px; border-radius: 8px; display: flex; gap: 15px; align-items: center; transition: all 0.3s ease; }
         .highlight-item:hover { border-color: var(--primary-green); background: rgba(0, 255, 102, 0.05); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15); }
@@ -116,20 +84,14 @@
         .highlight-item:hover h5 { color: var(--primary-green); }
         .highlight-item p { font-size: 0.75rem; margin-bottom: 0; line-height: 1.4; color: var(--text-muted); }
 
-        /* Specific Highlight Icon Colors */
-        .c-blue { color: #33a6ff !important; }
-        .c-purple { color: #bb55ff !important; }
-        .c-green { color: #00ffbc !important; }
-        .c-orange { color: #ffcc00 !important; }
+        .c-blue { color: #33a6ff !important; } .c-purple { color: #bb55ff !important; } .c-green { color: #00ffbc !important; } .c-orange { color: #ffcc00 !important; }
 
-        /* Challenges */
         .challenges-list { display: flex; flex-direction: column; gap: 10px; }
         .challenge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 102, 0.1); }
         .challenge-row p { margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
         .challenge-row p strong { color: #fff; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; display: block; margin-bottom: 3px;}
         .c-arrow { color: var(--primary-green); font-size: 0.8rem; }
 
-        /* Full Width Metrics Bar */
         .metrics-full-card { background: var(--bg-card); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; margin-bottom: 25px; }
         .metrics-full-card .bento-card-title { border-bottom: none; text-align: center; margin-bottom: 15px; }
         .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
@@ -138,7 +100,6 @@
         .metric-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 5px; }
         .metric-box p { font-size: 0.75rem; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-green); font-weight: 700; }
 
-        /* Bottom CTA Bar */
         .bottom-cta-bar { background: var(--bg-card); backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .cta-quote { display: flex; gap: 15px; align-items: center; }
         .cta-quote i { font-size: 2rem; color: var(--primary-green); } 
@@ -150,25 +111,10 @@
         .link-row a { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .link-row a:hover { background: rgba(0,255,102,0.1); border-color: var(--primary-green); color: var(--primary-green); }
 
-        /* Scroll to Top Button */
-        #scrollToTopBtn {
-            display: none; position: fixed; bottom: 30px; right: 30px; z-index: 999; 
-            border: 1px solid var(--primary-green); background-color: var(--bg-card);
-            color: var(--primary-green); cursor: pointer; padding: 12px 16px; border-radius: 8px;
-            font-size: 1.2rem; transition: 0.3s; backdrop-filter: blur(8px);
-        }
+        #scrollToTopBtn { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 999;  border: 1px solid var(--primary-green); background-color: var(--bg-card); color: var(--primary-green); cursor: pointer; padding: 12px 16px; border-radius: 8px; font-size: 1.2rem; transition: 0.3s; backdrop-filter: blur(8px); }
         #scrollToTopBtn:hover { background-color: var(--primary-green); color: var(--bg-dark); box-shadow: 0 0 15px rgba(0,255,102,0.4); transform: translateY(-3px); }
 
-        /* Tag Colors Updated */
-        .tag-green { border: 1px solid #00ff66; color: #00ff66; }
-        .tag-cyanBlue { border: 1px solid #00d4ff; color: #00d4ff; }
-        .color-cyanBlue { color: #00d4ff; }
-        .tag-orange { border: 1px solid #ff9900; color: #ff9900; }
-        .color-orange { color: #ff9900; }
-        .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; }
-        .color-purple { color: #bb55ff; }
-        .tag-red { border: 1px solid #ff3344; color: #ff3344; }
-        .color-red { color: #ff3344; }
+        .tag-green { border: 1px solid #00ff66; color: #00ff66; } .tag-cyanBlue { border: 1px solid #00d4ff; color: #00d4ff; } .color-cyanBlue { color: #00d4ff; } .tag-orange { border: 1px solid #ff9900; color: #ff9900; } .color-orange { color: #ff9900; } .tag-purple { border: 1px solid #bb55ff; color: #bb55ff; } .color-purple { color: #bb55ff; } .tag-red { border: 1px solid #ff3344; color: #ff3344; } .color-red { color: #ff3344; }
 
         @media (max-width: 1024px) {
             .hero-bento, .bento-main-grid { grid-template-columns: 1fr; }
@@ -218,7 +164,6 @@
             "retina_detect": true
         });
 
-        // Scroll to Top Logic
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
         window.addEventListener('scroll', () => {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -253,51 +198,27 @@
                     let tagClass = `tag-${chosenColor}`;
                     let iconColorClass = `color-${chosenColor}`;
 
-                    // --- CORRECTED ICON LOGIC ---
-                    let fallbackIcon = "fa-solid fa-gamepad"; // Default Icon
-                    
+                    let fallbackIcon = "fa-solid fa-gamepad"; 
                     let categoryName = proj.category ? proj.category.toLowerCase() : "";
                     
-                    if (categoryName === "platformer" || categoryName === "platformers") {
-                        fallbackIcon = "fa-solid fa-tree";
-                    } 
-                    else if (categoryName === "mobile") {
-                        fallbackIcon = "fa-solid fa-mobile-screen";
-                    } 
-                    else if (categoryName === "fps-tps" || categoryName === "fps&tps") {
-                        fallbackIcon = "fa-solid fa-crosshairs";
-                    } 
-                    else if (categoryName === "simulation") {
-                        fallbackIcon = "fa-solid fa-car-side";
-                    } 
-                    else if (categoryName === "metroidvania" || categoryName === "metroidvanias") {
-                        fallbackIcon = "fa-solid fa-dungeon"; 
-                    } 
-                    else if (categoryName === "isometric") {
-                        fallbackIcon = "fa-solid fa-layer-group"; 
-                    } 
-                    else if (categoryName === "ar-vr" || categoryName === "ar&vr") {
-                        fallbackIcon = "fa-solid fa-vr-cardboard"; 
-                    }
+                    if (categoryName === "platformer" || categoryName === "platformers") { fallbackIcon = "fa-solid fa-tree"; } 
+                    else if (categoryName === "mobile") { fallbackIcon = "fa-solid fa-mobile-screen"; } 
+                    else if (categoryName === "fps-tps" || categoryName === "fps&tps") { fallbackIcon = "fa-solid fa-crosshairs"; } 
+                    else if (categoryName === "simulation") { fallbackIcon = "fa-solid fa-car-side"; } 
+                    else if (categoryName === "metroidvania" || categoryName === "metroidvanias") { fallbackIcon = "fa-solid fa-dungeon"; } 
+                    else if (categoryName === "isometric") { fallbackIcon = "fa-solid fa-layer-group"; } 
+                    else if (categoryName === "ar-vr" || categoryName === "ar&vr") { fallbackIcon = "fa-solid fa-vr-cardboard"; }
 
-                    // JSON Controlled Button
                     let heroBtnMarkup = '';
                     if (proj.heroBtn) {
                         heroBtnMarkup = `<a href="${proj.heroBtn.url || '#'}" target="_blank" class="btn-main-play"><i class="${proj.heroBtn.icon || 'fa-solid fa-gamepad'}"></i> ${proj.heroBtn.text || 'Play Demo'}</a>`;
                     }
 
-                    // --- MEDIA LOGIC ---
                     let mediaList = [];
-                    if (proj.gallery && proj.gallery.length > 0) {
-                        mediaList.push({ type: 'image', url: proj.gallery[0] });
-                    }
-                    if (proj.videos && proj.videos.length > 0) {
-                        proj.videos.forEach(v => mediaList.push({ type: 'video', url: v.url }));
-                    }
+                    if (proj.gallery && proj.gallery.length > 0) { mediaList.push({ type: 'image', url: proj.gallery[0] }); }
+                    if (proj.videos && proj.videos.length > 0) { proj.videos.forEach(v => mediaList.push({ type: 'video', url: v.url })); }
                     if (proj.gallery && proj.gallery.length > 1) {
-                        for(let i = 1; i < proj.gallery.length; i++) {
-                            mediaList.push({ type: 'image', url: proj.gallery[i] });
-                        }
+                        for(let i = 1; i < proj.gallery.length; i++) { mediaList.push({ type: 'image', url: proj.gallery[i] }); }
                     }
 
                     let sliderThumbsMarkup = '';
@@ -311,7 +232,7 @@
                         sliderThumbsMarkup += `
                             <div class="steam-thumb ${isActive}" data-index="${idx}" onclick="switchSteamMedia('${media.type}', '${media.url}', this)">
                                 ${overlayIcon}
-                                <img src="${thumbImg}">
+                                <img src="${thumbImg}" loading="lazy">
                             </div>
                         `;
 
@@ -319,12 +240,11 @@
                             if (media.type === 'video') {
                                 initialMainMedia = `<iframe id="steam-iframe-target" src="${media.url}" allowfullscreen></iframe>`;
                             } else {
-                                initialMainMedia = `<img src="${media.url}" onerror="this.src='https://via.placeholder.com/1920x1080/041219/ffffff'">`;
+                                initialMainMedia = `<img src="${media.url}" loading="lazy" onerror="this.src='https://via.placeholder.com/1920x1080/041219/ffffff'">`;
                             }
                         }
                     });
 
-                    // Mini Features Map
                     const miniFeaturesMarkup = proj.miniFeatures ? proj.miniFeatures.map(f => `
                         <div class="mini-feature-box">
                             <i class="${f.icon}"></i>
@@ -332,12 +252,10 @@
                         </div>
                     `).join('') : '';
 
-                    // Key Features List Map
                     const listFeaturesMarkup = proj.keyFeatures ? proj.keyFeatures.map(f => `
                         <li><i class="fa-regular fa-circle-check"></i> <span><strong>${f.title}</strong> - ${f.desc}</span></li>
                     `).join('') : '<li>No features listed.</li>';
 
-                    // Metrics Map
                     let metaMetricsHTML = proj.metaInfo ? proj.metaInfo.map(m => `
                         <div class="metric-box">
                             <h3>${m.value}</h3>
@@ -345,7 +263,6 @@
                         </div>
                     `).join('') : '';
 
-                    // Tech Highlights Map
                     let techHighlightsHTML = proj.techHighlights ? proj.techHighlights.map(m => `
                         <div class="highlight-item">
                             <i class="fa-solid ${m.icon} ${m.color || ''}"></i>
@@ -356,7 +273,6 @@
                         </div>
                     `).join('') : '<p>No technical highlights available.</p>';
 
-                    // Challenges Map
                     let challengesHTML = '';
                     if(proj.challenges && proj.challenges.length > 0) {
                         challengesHTML = `
@@ -374,7 +290,6 @@
                         </div>`;
                     }
 
-                    // CTA Links Map
                     let ctaLinksHTML = '';
                     let ctaQuote = "Building fun, optimized and scalable games that players love.";
                     if(proj.cta) {
@@ -386,7 +301,6 @@
                         `).join('');
                     }
 
-                    // Render Full Layout
                     document.getElementById('details-root').innerHTML = `
                         <div class="hero-bento">
                             <div class="hero-left-card">
@@ -476,7 +390,7 @@
             if (type === 'video') {
                 viewport.innerHTML = `<iframe id="steam-iframe-target" src="${path}" allowfullscreen></iframe>`;
             } else if (type === 'image') {
-                viewport.innerHTML = `<img src="${path}" onerror="this.src='https://via.placeholder.com/1920x1080/041219/ffffff'">`;
+                viewport.innerHTML = `<img src="${path}" loading="lazy" onerror="this.src='https://via.placeholder.com/1920x1080/041219/ffffff'">`;
             }
 
             const track = document.getElementById('steam-slider-track');
