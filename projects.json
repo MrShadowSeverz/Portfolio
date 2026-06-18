@@ -196,7 +196,8 @@
             {"icon": "fa-solid fa-heart-pulse", "title": "Health<br>System"},
             {"icon": "fa-solid fa-person-running", "title": "Fluid<br>Animation"},
             {"icon": "fa-solid fa-map-location-dot", "title": "Level<br>Design"},
-            {"icon": "fa-solid fa-desktop", "title": "Game<br>Loop UI"}
+            {"icon": "fa-solid fa-desktop", "title": "Game<br>Loop UI"},
+            {"icon": "fa-solid fa-box-open", "title": "Inventory<br>System"}
         ],
         "keyFeatures": [
             {"title": "Responsive TPS Combat", "desc": "Precision aiming, shooting, and fluid character locomotion tailored for third-person action."},
@@ -206,7 +207,8 @@
             {"title": "Health & Ammo Management", "desc": "Real-time resource tracking paired with immersive visual damage feedback and screen-space hit effects."},
             {"title": "Fluid Animation Blending", "desc": "Complex Animator Controllers ensuring seamless transitions between running, aiming, shooting, and taking damage."},
             {"title": "Interactive Level Design", "desc": "Stylized, multi-level environments featuring vertical combat spaces, mission portals, and locked enclosures."},
-            {"title": "Complete Game Loop UI", "desc": "Fully functional interface elements including 3D mission briefings, pause menus, game over, and victory screens."}
+            {"title": "Complete Game Loop UI", "desc": "Fully functional interface elements including 3D mission briefings, pause menus, game over, and victory screens."},
+            {"title": "Scalable Inventory System", "desc": "A lightweight, robust inventory built entirely on ScriptableObjects, allowing for seamless item management, easy data persistence, and rapid addition of new items without modifying core code."}
         ],
         "techHighlights": [
             {"icon": "fa-cubes", "color": "c-purple", "title": "Modular Architecture", "desc": "Clean, scalable C# systems managing the core combat and interaction loops."},
