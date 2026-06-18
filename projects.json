@@ -168,7 +168,7 @@
         "tag": "Third Person Shooter",
         "tagColor": "orange",
         "category": "fps-tps",
-        "image": "Images/Tom-And-Jerry/TomAndJerryThumbnail.png",
+        "image": "Images/Frost-Fire/Frost-Fire-Thumbnail.png",
         "desc": "An engaging third-person shooter built in Unity, highlighting advanced Cinemachine camera logic, fluid animation blending, and NavMesh-driven AI.",
         "tech": ["Unity", "C#", "Animator Controller", "NavMesh AI", "Cinemachine"],
         "isHighlighted": true,
