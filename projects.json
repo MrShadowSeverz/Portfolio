@@ -348,5 +348,81 @@
                 {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
             ]
         }
+    },
+    {
+        "id": 5,
+        "name": "Car Parking",
+        "tag": "Simulation",
+        "tagColor": "blue",
+        "category": "simulation",
+        "image": "Images/Car-Parking/CarParkingThumbnail.png",
+        "desc": "A high-fidelity mobile parking simulator featuring dual-tier collision logic, dynamic engine audio, and LootLocker-powered global leaderboards.",
+        "tech": ["Unity", "C#", "LootLocker", "Async Loading", "Mobile Optimization", "Physics"],
+        "isHighlighted": true,
+        "year": "2026",
+        "platform": "Mobile",
+        "engine": "Unity Engine",
+        "role": "Game Developer",
+        "heroBtn": {
+            "text": "Play Demo",
+            "url": "#",
+            "icon": "fa-solid fa-gamepad"
+        },
+        "metaInfo": [
+            {"label": "Genre", "value": "Simulation"},
+            {"label": "Core System", "value": "Physics"},
+            {"label": "Performance", "value": "Optimized"},
+            {"label": "Platform", "value": "Mobile"}
+        ],
+        "overview": "Car Parking is a high-fidelity 3D mobile simulation game developed in Unity, designed to deliver a console-quality driving experience on mobile devices. The game features a complete player profile ecosystem with secure login mechanics, allowing players to save their progression, earn currency, and unlock a diverse roster of vehicles in a stylized 3D garage. Built with a strong emphasis on realism and accessibility, it utilizes a strike-based collision system, dynamic engine audio, multiple control schemes (Gyroscope and Steering), and global leaderboards powered by LootLocker to create a highly addictive and polished gameplay loop.",
+        "miniFeatures": [
+            {"icon": "fa-solid fa-car", "title": "Precision<br>Driving"},
+            {"icon": "fa-solid fa-mobile-screen", "title": "Dual<br>Controls"},
+            {"icon": "fa-solid fa-user", "title": "Profile<br>System"},
+            {"icon": "fa-solid fa-trophy", "title": "Global<br>Leaderboards"},
+            {"icon": "fa-solid fa-car-burst", "title": "Strike<br>Collision"},
+            {"icon": "fa-solid fa-warehouse", "title": "3D<br>Garage"},
+            {"icon": "fa-solid fa-volume-high", "title": "Dynamic<br>Audio"},
+            {"icon": "fa-solid fa-bolt", "title": "Async<br>Loading"}
+        ],
+        "keyFeatures": [
+            {"title": "Dual Control Schemes", "desc": "Players can seamlessly swap between an interactive on-screen steering wheel and responsive gyroscope (tilt) controls for a personalized driving experience."},
+            {"title": "Comprehensive Settings Menu", "desc": "Accessible UI allowing players to toggle control modes and independently manage background music and SFX on the fly."},
+            {"title": "Player Profile System", "desc": "Dedicated account management allowing players to log in, track their total stars, view owned cars, and safely log out."},
+            {"title": "Strike-Based Collision System", "desc": "A tension-building mechanic where players have a strict limit on minor bumps against barriers before failing, while major hazards trigger an instant Game Over."},
+            {"title": "Dynamic Engine Audio", "desc": "Immersive sound design where the vehicle's engine roar realistically scales up and down in response to the player's throttle input."},
+            {"title": "Interactive 3D Garage", "desc": "A visually polished hub menu where players can rotate, inspect, and use their collected coins to unlock high-performance vehicles."},
+            {"title": "Extensive Level Progression", "desc": "12 progressively difficult parking scenarios set across detailed 3D obstacle courses, complete with a 3-star rating system based on driving precision."},
+            {"title": "Global Leaderboards", "desc": "Real-time competitive scoring integrated directly into the UI, driving player retention and replayability."}
+        ],
+        "techHighlights": [
+            {"icon": "fa-cloud", "color": "c-purple", "title": "Backend Auth", "desc": "Full LootLocker implementation handling individual player accounts, secure login/logout states, and global leaderboards."},
+            {"icon": "fa-mobile-screen", "color": "c-green", "title": "Mobile Input", "desc": "Engineered a flexible input manager bridging native device gyroscope data and UI-based touch inputs for seamless control switching."},
+            {"icon": "fa-volume-high", "color": "c-blue", "title": "Dynamic Audio", "desc": "Custom audio scripting that dynamically modulates the car engine's pitch and volume based on real-time acceleration and rigid-body velocity."},
+            {"icon": "fa-car-burst", "color": "c-orange", "title": "Complex Collision", "desc": "A sophisticated physics matrix differentiating between minor dynamic objects and static hazards to trigger different gameplay states."}
+        ],
+        "challenges": [
+            {"challenge": "Catering to different player preferences for mobile driving controls while maintaining precision.", "solution": "Developed a modular input system that supports both a physics-driven UI steering wheel and native device gyroscope controls, easily toggleable via the settings menu."},
+            {"challenge": "Creating a fair but challenging parking experience on a touchscreen without making players feel cheated by slight bumps.", "solution": "Engineered a strike-based collision system. Players are allowed a specific number of minor bumps against barriers, keeping the game forgiving but maintaining strict instant-fails for major crashes."},
+            {"challenge": "Making the driving feel powerful and realistic on a mobile device lacking physical engine feedback.", "solution": "Developed a dynamic audio script that maps the audio source's pitch directly to the car's acceleration input and current speed, simulating the revving of a real engine."},
+            {"challenge": "Fetching player profiles and leaderboard data directly from the server caused lag, making the main menu feel unresponsive.", "solution": "Integrated LootLocker with a custom local data caching layer, allowing the profile UI to populate instantly while seamlessly syncing with the database in the background."}
+        ],
+        "videos": [
+            {"title": "Car Parking Gameplay Demo", "url": "https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"}
+        ],
+        "gallery": [
+            "Images/Car-Parking/CP-01.png",
+            "Images/Car-Parking/CP-02.png",
+            "Images/Car-Parking/CP-03.png",
+            "Images/Car-Parking/CP-04.png"
+        ],
+        "cta": {
+            "quote": "Building highly optimized, AAA-quality mobile experiences.",
+            "links": [
+                {"icon": "fa-brands fa-whatsapp", "iconColor": "#25D366", "text": "WhatsApp", "url": "https://wa.me/917511104768"},
+                {"icon": "fa-solid fa-envelope", "iconColor": "#ea4335", "text": "Email", "url": "mailto:abhilashsaji.dev@gmail.com"},
+                {"icon": "fa-brands fa-linkedin", "iconColor": "#0077B5", "text": "LinkedIn", "url": "https://www.linkedin.com/in/abhilashsaji"}
+            ]
+        }
     }
 ]
